@@ -10,8 +10,13 @@ export default function InputField({todo, setTodo}: PropsTypes): JSX.Element {
     return (
         <div>
             <form >
-                <input type="text" placeholder='task' name="" />
-                <button type='submit'>
+                <input 
+                    type="text"
+                    value={todo}
+                    onChange={(event) => setTodo(event.target.value)}
+                    placeholder="task"
+                 />
+                <button type="submit">
                     Add 
                 </button>
             </form>

@@ -10,7 +10,7 @@ interface PropsTypes {
 export default function InputField({todo, setTodo, handleAdd}: PropsTypes): JSX.Element {
     return (
         <div>
-            <form onSubmit={handleAdd}>
+            <form onSubmit={(event) => handleAdd(event)}>
                 <input 
                     type="text"
                     value={todo}

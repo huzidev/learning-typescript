@@ -26,6 +26,15 @@ export default function App(): JSX.Element {
                 test
             </h1>
             <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
+            {
+                todos.map((data) => {
+                    return (
+                        <li>
+                            {data.todo}
+                        </li>
+                    )
+                })
+            }
         </div>
     )
 }

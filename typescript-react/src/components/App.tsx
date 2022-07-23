@@ -9,6 +9,15 @@ export default function App(): JSX.Element {
 
     function handleAdd (event: React.FormEvent) {
         event.preventDefault()
+
+        if (todo) { // means if user has write something in input tag then set state for setTodos because initially todo is empty
+            setTodos([...todos, {
+                id: Date.now(), // for generating random id
+                todo: todo,
+                isDone: false
+            }])
+            setTodo(""); // so after user add the item the input tag will be EMPTY automatically therefore setTodo ("") empty string
+        }
     };
 
     return (

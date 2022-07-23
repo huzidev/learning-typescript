@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 // for all the types of props we are receiving
 interface PropsTypes {
@@ -8,9 +8,15 @@ interface PropsTypes {
 }
 
 export default function InputField({todo, setTodo, handleAdd}: PropsTypes): JSX.Element {
+
+    const inputRef = useRef<HTMLInputElement>(null); // by default null
+
     return (
         <div>
-            <form onSubmit={(event) => handleAdd(event)}>
+            <form onSubmit={(event) => {
+                handleAdd(event);
+                inputRef.current?.blur(); // ? is for optional because it'll only works when handleAdd functions Run while by default useRef is null
+            }}>
                 <input 
                     type="text"
                     value={todo}

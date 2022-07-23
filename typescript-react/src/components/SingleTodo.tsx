@@ -29,6 +29,11 @@ export default function SingleTodo({todo, todos, setTodos}: PropsStyle): JSX.Ele
 
     function handleEdit(event: React.FormEvent, id: number) {
         event.preventDefault()
+
+        setTodos(
+            todos.map((todo) => (todo.id === id ? {...todo, todo: editTodo}: todo))
+        )
+        setEdit(false)
     }
 
     return (

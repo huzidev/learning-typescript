@@ -27,7 +27,7 @@ export default function App(): JSX.Element {
             </h1>
             <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
             {
-                todos.map((data) => {
+                todos.map((data) => { // since todos with (s) is of type array which is going to store all todo, therefore ues mapping on todos not on todo
                     return (
                         <li>
                             {data.todo}

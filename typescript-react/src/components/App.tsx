@@ -7,9 +7,9 @@ export default function App(): JSX.Element {
     const [todo, setTodo] = useState<string>(""); // means initial state is Empty and type is string
     const [todos, setTodos] = useState<Todo[]>([]); // initial state is empty array and type is of array of todos whoms interface we've created in separate components called model.ts
 
-    function handleAdd () {
-
-    }
+    function handleAdd (event: React.FormEvent) {
+        event.preventDefault()
+    };
 
     return (
         <div>

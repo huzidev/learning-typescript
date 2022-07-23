@@ -14,8 +14,8 @@ export default function TodoList({todos, setTodos}: PropsTypes): JSX.Element {
                 todos.map((data) => { // since todos with (s) is of type array which is going to store all todo, therefore ues mapping on todos not on todo
                     return (
                         <SingleTodo
-                            key={todos.id}
-                            todo={todo}
+                            key={data.id}
+                            todo={data}
                             todos={todos}
                             setTodos={setTodos}
                         />

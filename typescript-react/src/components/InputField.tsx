@@ -1,6 +1,11 @@
 import React from 'react'
 
-export default function InputField() {
+// for all the types of props we are receiving
+interface Props {
+
+}
+
+export default function InputField({}) {
     return (
         <div>
             <form >

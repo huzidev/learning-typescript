@@ -1,6 +1,6 @@
 # Getting Started with TypeScript
 
-This project is about all basics of TypeScript
+This project is about all basics of TypeScript and React
 
 ## Available Scripts
 

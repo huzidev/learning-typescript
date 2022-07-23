@@ -14,9 +14,10 @@ export default function InputField({todo, setTodo, handleAdd}: PropsTypes): JSX.
     return (
         <div>
             <form onSubmit={(event) => {
-                handleAdd(event);
-                inputRef.current?.blur(); // ? is for optional because it'll only works when handleAdd functions Run while by default useRef is null
-            }}>
+                    handleAdd(event);
+                    inputRef.current?.blur(); // ? is for optional because it'll only works when handleAdd functions Run while by default useRef is null and blur is going to shift focus from input tag
+                }}
+            >
                 <input 
                     type="text"
                     value={todo}

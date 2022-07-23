@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Todo } from './Model';
 import InputField from './InputField';
+import TodoList from './TodoList';
 
 export default function App(): JSX.Element {
 
@@ -26,15 +27,7 @@ export default function App(): JSX.Element {
                 test
             </h1>
             <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
-            {
-                todos.map((data) => { // since todos with (s) is of type array which is going to store all todo, therefore ues mapping on todos not on todo
-                    return (
-                        <li>
-                            {data.todo}
-                        </li>
-                    )
-                })
-            }
+            <TodoList todos={todos} setTodos={setTodos}/>
         </div>
     )
 }

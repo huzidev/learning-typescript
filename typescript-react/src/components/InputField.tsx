@@ -19,6 +19,7 @@ export default function InputField({todo, setTodo, handleAdd}: PropsTypes): JSX.
                 }}
             >
                 <input 
+                    ref={inputRef}
                     type="text"
                     value={todo}
                     onChange={(event) => setTodo(event.target.value)}

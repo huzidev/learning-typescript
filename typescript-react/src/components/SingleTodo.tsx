@@ -27,10 +27,13 @@ export default function SingleTodo({todo, todos, setTodos}: PropsStyle): JSX.Ele
         )
     }
 
+    function handleEdit(event: React.FormEvent, id: number) {
+        event.preventDefault()
+    }
+
     return (
         <div>
-            <form>
-
+            <form onSubmit={(event) => handleEdit(event, todo.id) }>
                 {
                     edit 
                         ? (

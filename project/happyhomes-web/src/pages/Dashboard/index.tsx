@@ -93,7 +93,8 @@ function DashboardPage(): JSX.Element {
               style={{ marginTop: '16px' }} // for button margin from top
               onClick={() =>
                 state.meta &&
-                // filtersState.activeState will take the current state of filter suppose if user select a specific filter then that specific filter will be stored in filtersState.activeState and further apartments after load more will be of same filter state
+                // filtersState.activeState will take the current state of filter suppose if user select a specific filter then that specific filter will be stored in
+                // filtersState.activeState and further apartments after (load more) will be of same filter state
                 // by default filtersState.activeState will take default filters like minRoom 1 maxRoom 10
                 apartment.getPublicList(state.meta.currentPage + 1, filtersState.activeState)
               }

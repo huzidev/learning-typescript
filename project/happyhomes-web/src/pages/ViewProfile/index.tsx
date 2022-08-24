@@ -86,7 +86,44 @@ function ViewProfilePage(): JSX.Element {
               {apartments?.loading && !apartments.data?.length && (
                 <ApartmentCardPlaceholders count={6} />
               )}
-              {!!apartments?.data?.length && (
+              {console.log('APARTMENTS LENTGH', apartments?.loading && apartments.data?.length)}
+              {apartments?.data && apartments.data?.length === 0 ? (
+                <Typography.Title level={4}>No apartmenrts</Typography.Title>
+              ) : (
+                !!apartments?.data?.length && (
+                  <Col>
+                    <Row {...APARTMENT_CARD.ROW}>
+                      {apartments.data.map((item) => (
+                        // apartments.data have all the information about all the apartments therefore we've used mapping on apartments.data
+                        <ApartmentCard
+                          item={item}
+                          key={item.id.toString()}
+                          onClick={(id) => history.push(ROUTE_PATHS.APARTMENT_VIEW + id)}
+                        />
+                      ))}
+                    </Row>
+                    {apartments.loading && apartments.data?.length && (
+                      <Col span={24} style={{ marginTop: '16px' }}>
+                        <Spin />
+                      </Col>
+                    )}
+                    {apartments.meta && apartments.meta?.currentPage < apartments.meta?.lastPage && (
+                      <Button
+                        type="primary"
+                        loading={apartments.loading}
+                        style={{ marginTop: '7px' }}
+                        onClick={() =>
+                          apartments.meta &&
+                          apartment.getListByUserID(userId, apartments.meta.currentPage + 1)
+                        }
+                      >
+                        Load more
+                      </Button>
+                    )}
+                  </Col>
+                )
+              )}
+              {/* !!apartments?.data?.length && (
                 <Col>
                   <Row {...APARTMENT_CARD.ROW}>
                     {apartments.data.map((item) => (
@@ -115,9 +152,9 @@ function ViewProfilePage(): JSX.Element {
                     >
                       Load more
                     </Button>
-                  )}
-                </Col>
-              )}
+                  )} */}
+              {/* </Col>
+              ) */}
             </Col>
           )}
         </Col>

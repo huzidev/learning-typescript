@@ -32,6 +32,7 @@ function ViewApartmentPage(): JSX.Element {
 
   const loading = state?.loading;
 
+  // means if user role is client and client tries to access the apartment which is rented then this force error will be true because client will only be applicable to check available apartments
   const forceError = auth.user?.role === 'client' && state?.data?.status === 'rented';
   const isRemoved = !state?.data?.isActive && !hasPermission('admin', auth.user?.role);
 

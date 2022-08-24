@@ -53,6 +53,7 @@ function ApartmentsPage(): JSX.Element {
               Create Apartment
             </Button>
           </Row>
+          {/* Skeleton is for loading therefore we've used the condition loading && !state.data means loading true and no apartment data then skeleton loading will runs */}
           {loading && !state?.data && <Skeleton paragraph={{ rows: 10 }} />}
           {!!state?.data && (
             <Space size="large">
@@ -61,6 +62,7 @@ function ApartmentsPage(): JSX.Element {
                 dataSource={state.data}
                 rowKey={(record) => record.id}
                 columns={columns
+                  // .concat combines two or more array
                   .concat({
                     title: 'Action',
                     key: 'action',
@@ -96,11 +98,14 @@ function ApartmentsPage(): JSX.Element {
                       );
                     },
                   })
+                  // means manage apartment are only accessible for these users with these specific roles
                   .filter(
                     (v) =>
                       auth.user?.role === 'super-admin' ||
                       auth.user?.role === 'admin' ||
                       (auth.user?.role === 'realtor' &&
+                        // key have all the data like id, name, description, size etc and we've defined key already in data.ts file
+                        // realtorSkipKeys will not shows isActive and realtorId when realtor is at manage apartments page and realtorSkipKeys is already defined in data.ts file
                         v.key &&
                         !realtorSkipKeys.includes(v.key.toString())),
                   )

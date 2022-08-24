@@ -60,6 +60,7 @@ function ViewApartmentPage(): JSX.Element {
               </Card>
             ))}
           {loading && <ApartmentCardPlaceholders count={1} />}
+          {/* means no loading, state.data must be true, no force error and apartment is not REMOVED */}
           {!loading && !!state?.data && !forceError && !isRemoved && (
             <>
               {/* this ApartmentCard will shows all the data like address price per month etc */}

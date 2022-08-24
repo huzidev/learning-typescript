@@ -1,0 +1,9 @@
+{
+    "baseUrl": "http://localhost:3000",
+    "chromeWebSecurity": false,
+    "video": false,
+    "screenshotOnRunFailure": false,
+    "viewportWidth": 1600,
+    "viewportHeight": 900,
+    "defaultCommandTimeout": 8000
+}

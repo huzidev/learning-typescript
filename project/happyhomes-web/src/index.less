@@ -1,0 +1,39 @@
+// @import '~antd/lib/style/themes/default.less';
+// @import '~antd/lib/style/color/colors.less';
+@import '~antd/dist/antd.less';
+
+#root {
+  display: block;
+  height: 100%;
+}
+
+.ant-typography {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.g-full-page {
+  min-height: calc(100% - 156px);
+
+  &.no-footer {
+    min-height: calc(100% - 80px);
+  }
+}
+
+.ant-card {
+  &.no-padding {
+    .ant-card-body {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+.skeleton-image-full {
+  width: 100% !important;
+}
+
+.highlight-span-text {
+  font-weight: 600;
+  color: @primary-color;
+}

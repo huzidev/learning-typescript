@@ -1,0 +1,52 @@
+.slide-base {
+  height: 100vh;
+  position: relative;
+
+  background-size: cover;
+  background-position: center;
+
+  &.slide-1 {
+    background-image: url('/assets/slide-1.jpg');
+  }
+  &.slide-2 {
+    background-image: url('/assets/slide-2.jpg');
+  }
+  &.slide-3 {
+    background-image: url('/assets/slide-3.jpg');
+  }
+
+  .slide-bg {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    position: absolute;
+    
+    background-color: rgba(0, 0, 0, 0.50);
+  }
+
+  .slide-text {
+    top: 50%;
+    transform: translateY(-50%);
+    
+    display: block;
+    position: relative;
+    
+    opacity: 0;
+    transition: all 400ms ease 100ms;
+    &.mobile {
+      top: 40%;
+      transform: translateY(-50%);
+    }
+    &.active {
+      opacity: 1;
+    }
+
+    .title, .description {
+      margin-top: 0;
+      margin: 0;
+      color: white;
+    }
+  }
+}

@@ -107,13 +107,16 @@ function ApartmentsPage(): JSX.Element {
                         // key have all the data like id, name, description, size etc and we've defined key already in data.ts file
                         // realtorSkipKeys will not shows isActive and realtorId when realtor is at manage apartments page and realtorSkipKeys is already defined in data.ts file
                         v.key &&
+                        // we've used toString() because .includes takes string as a parameter
                         !realtorSkipKeys.includes(v.key.toString())),
                   )
                   .map((record) => {
+                    // we've used toString() because .includes takes string as a parameter
                     if (record.key && ['lat', 'lng'].includes(record.key?.toString())) {
                       return {
                         ...record,
                         render: (r: number) => {
+                          // substring() extracts a part of a string and we've used substring() for lat and lng only means it'll only select the number bw 0 and 5 position if we increases the number quantity then it'll show longer lat and lng values
                           return <div>{r.toString().substring(0, 5)}</div>;
                         },
                       };

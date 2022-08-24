@@ -123,6 +123,7 @@ function ApartmentsPage(): JSX.Element {
                     }
                     return record;
                   })
+                  // for boolean keys data like isActive if we remove this line below with mapBooleanKeys then isActive data of apartment will not shown
                   .map((v) => mapBoolColumns<ApartmentDetail>(v, boolKeys))}
                 pagination={{
                   total: meta?.total,

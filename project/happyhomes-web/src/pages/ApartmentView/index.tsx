@@ -39,11 +39,13 @@ function ViewApartmentPage(): JSX.Element {
 
   console.log('apartmentId from index.tsx', apartmentId);
   console.log('paramsId from hooks', params.id);
+  console.log('WHAT IS FORCE ERRRRORR', forceError);
   console.log(`Current LoggedIn user ID is ${auth.user?.id} and name is ${auth.user?.name}`);
   return (
     <Page header footer>
       <div id="apartment-view-page" className={cx('g-full-page')}>
         <Col span={22} offset={1} xl={{ span: 16, offset: 4 }}>
+          {/* if apartment is REMOVED */}
           {(!loading && (state?.error || forceError)) ||
             (isRemoved && (
               <Card>

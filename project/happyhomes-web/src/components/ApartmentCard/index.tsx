@@ -36,7 +36,7 @@ function ApartmentCard({
       key={item.id.toString()}
       className={cx('apartment-card')}
       // so when user clicked on any apartment then user will be linked to that apartment id therefore item.id
-      onClick={() => onClick!(item.id)} // it is necessary to do onClick && onClick(item.id) otherwise onClick undefined error will be shown onClick will takes a parameter (id) but their we'll send an (ARGUMENT) then this argument will be received as a (PARAMETER) in pages/dashboard/index.tsx
+      onClick={() => onClick && onClick(item.id)} // it is necessary to do onClick && onClick(item.id) otherwise onClick undefined error will be shown onClick will takes a parameter (id) but their we'll send an (ARGUMENT) then this argument will be received as a (PARAMETER) in pages/dashboard/index.tsx
     >
       <Card
         cover={<Skeleton.Image className={cx('skeleton-image-full')} />}

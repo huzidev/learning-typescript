@@ -140,7 +140,7 @@ function ApartmentsPage(): JSX.Element {
                     pagination,
                     // if any filters are applied then they'll remains same
                     filters,
-                    // if any sort method is used then the'll also remains same
+                    // if any sort method is used then they'll also remains same
                     sorter,
                   );
                 }}

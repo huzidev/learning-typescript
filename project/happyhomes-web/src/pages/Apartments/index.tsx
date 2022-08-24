@@ -129,14 +129,17 @@ function ApartmentsPage(): JSX.Element {
                   total: meta?.total, // meta?.total means overall total apartments uploaded by every realtor if loggedIn as admin and clicked on Manage Apartment and if loggedIn as realtor then all the apartments of that specific user
                   showSizeChanger: false,
                   pageSize: meta?.perPage, // means perPage 25 apartments
-                  current: meta?.currentPage,
+                  current: meta?.currentPage, // if admin or realtor clicked on next page then current page will be changed to 2 from 1 because byDefault current page is one
                 }}
                 onChange={(pagination, filters, sorter) => {
                   onTableChange(
                     history,
+                    // as admin or realtor wanted to go to next page then it'll check the condition if realtor is loggedIn then apartmentByMe else
                     isMe ? ROUTE_PATHS.APARTMENTS_BY_ME : ROUTE_PATHS.APARTMENTS,
                     pagination,
+                    // if any filters are applied then they'll remains same
                     filters,
+                    // if any sort method is used then the'll also remains same
                     sorter,
                   );
                 }}

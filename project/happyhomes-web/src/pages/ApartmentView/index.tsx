@@ -61,6 +61,7 @@ function ViewApartmentPage(): JSX.Element {
                 />
               </Card>
             ))}
+          {/* if client tries to access apartment which is already rented */}
           {forceError && (
             <Card>
               <Result

@@ -6,6 +6,7 @@ import Page from 'components/Page';
 
 import './styles.less';
 
+// if user is banned then this page will be shown to user when user tries to loggedIn
 function BannedUserPage(): JSX.Element {
   const history = useHistory();
   return (
@@ -16,12 +17,11 @@ function BannedUserPage(): JSX.Element {
           title="User banned "
           subTitle="Cannot process, User is banned."
           extra={
-            <Button type="primary" onClick={() => history.replace('/')}>
-              Back Home
+            <Button type="primary" onClick={() => window.location.reload()}>
+              Go Back
             </Button>
           }
         />
-        ,
       </div>
     </Page>
   );

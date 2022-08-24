@@ -23,7 +23,7 @@ export function useApartmentViewHooks(): void {
   useEffect(() => {
     if (prev?.loading) {
       if (state.error) {
-        // if error then it'll notification of error
+        // if error then it'll show notification of error
         errorNotification('Error', state);
       } else if (!state.loading) {
         // if success then it'll show notification of success

@@ -26,6 +26,7 @@ function ViewApartmentPage(): JSX.Element {
   useApartmentViewHooks();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const params = useParams<any>();
+  // params.id will assigned the id of that apartment to variable const apartmentId on which user have clicked
   const apartmentId = params.id;
   const state = apartment.idsState[apartmentId];
 

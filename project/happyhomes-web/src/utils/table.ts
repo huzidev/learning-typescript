@@ -11,6 +11,7 @@ export function mapBoolColumns<J, K extends ColumnType<J> = ColumnType<J>>(
   keys: string[],
 ): K {
   if (column.key && keys.includes(column.key.toString())) {
+    // value yes no is for booleanValues for example isActive will either be Yes or No and isBanned will either be Yes or No
     return { ...column, render: (value) => (value ? 'Yes' : 'No') };
   }
   return column;
@@ -18,6 +19,7 @@ export function mapBoolColumns<J, K extends ColumnType<J> = ColumnType<J>>(
 
 export function sortToQs<J, K extends SorterResult<J> = SorterResult<J>>(sort: K): string | null {
   if (!sort.order) return null;
+  // means sort result which will either be asc or desc
   const map: { [id: string]: string } = { descend: 'desc', ascend: 'asc' };
   if (sort.field) {
     const obj = JSON.stringify({ [sort.field.toString()]: map[sort.order] });

@@ -68,7 +68,7 @@ function ApartmentsPage(): JSX.Element {
                     key: 'action',
                     render: (record) => {
                       const idLoading = idsState[record.id]?.loading;
-                      // DESTRUCTURING
+                      // DESTRUCTURING for isActive apartments from (APARTMENTS RECORD)
                       const { isActive } = record;
                       return (
                         <Space size="middle">

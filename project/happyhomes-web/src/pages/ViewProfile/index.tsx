@@ -87,8 +87,11 @@ function ViewProfilePage(): JSX.Element {
                 <ApartmentCardPlaceholders count={6} />
               )}
               {console.log('APARTMENTS LENTGH', apartments?.loading && apartments.data?.length)}
+              {/* if realtor didn't uploaded any apartment then it'll show You have not uploaded any apartments yet! */}
               {apartments?.data && apartments.data?.length === 0 ? (
-                <Typography.Title level={4}>No apartmenrts</Typography.Title>
+                <Typography.Title level={2}>
+                  You have not uploaded any apartments yet!
+                </Typography.Title>
               ) : (
                 !!apartments?.data?.length && (
                   <Col>
@@ -123,38 +126,6 @@ function ViewProfilePage(): JSX.Element {
                   </Col>
                 )
               )}
-              {/* !!apartments?.data?.length && (
-                <Col>
-                  <Row {...APARTMENT_CARD.ROW}>
-                    {apartments.data.map((item) => (
-                      // apartments.data have all the information about all the apartments therefore we've used mapping on apartments.data
-                      <ApartmentCard
-                        item={item}
-                        key={item.id.toString()}
-                        onClick={(id) => history.push(ROUTE_PATHS.APARTMENT_VIEW + id)}
-                      />
-                    ))}
-                  </Row>
-                  {apartments.loading && apartments.data?.length && (
-                    <Col span={24} style={{ marginTop: '16px' }}>
-                      <Spin />
-                    </Col>
-                  )}
-                  {apartments.meta && apartments.meta?.currentPage < apartments.meta?.lastPage && (
-                    <Button
-                      type="primary"
-                      loading={apartments.loading}
-                      style={{ marginTop: '7px' }}
-                      onClick={() =>
-                        apartments.meta &&
-                        apartment.getListByUserID(userId, apartments.meta.currentPage + 1)
-                      }
-                    >
-                      Load more
-                    </Button>
-                  )} */}
-              {/* </Col>
-              ) */}
             </Col>
           )}
         </Col>

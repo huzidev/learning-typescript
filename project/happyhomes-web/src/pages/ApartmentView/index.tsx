@@ -15,7 +15,6 @@ import ApartmentCardPlaceholders from 'components/ApartmentCard/Placeholder';
 import ApartmentMarker from 'components/ApartmentMarker';
 import ApartmentCard from 'components/ApartmentCard';
 import Page from 'components/Page';
-
 import { useApartmentViewHooks } from './hooks';
 import './styles.less';
 
@@ -47,7 +46,7 @@ function ViewApartmentPage(): JSX.Element {
       <div id="apartment-view-page" className={cx('g-full-page')}>
         <Col span={22} offset={1} xl={{ span: 16, offset: 4 }}>
           {/* if apartment is REMOVED */}
-          {(!loading && (state?.error || forceError)) ||
+          {(!loading && state?.error) ||
             (isRemoved && (
               <Card>
                 <Result
@@ -62,6 +61,24 @@ function ViewApartmentPage(): JSX.Element {
                 />
               </Card>
             ))}
+          {forceError && (
+            <Card>
+              <Result
+                // status 403 and status 404 have different images according to the status
+                status="403"
+                title="403"
+                subTitle={`The apartment you tries to access might be Rented would you like to check more apartment from the user who've uploaded that apartment`}
+                extra={
+                  <Button
+                    type="primary"
+                    onClick={() => history.push(`${ROUTE_PATHS.VIEW_PROFILE}${auth.user?.id}`)}
+                  >
+                    Check More
+                  </Button>
+                }
+              />
+            </Card>
+          )}
           {loading && <ApartmentCardPlaceholders count={1} />}
           {/* means no loading, state.data must be true, no force error and apartment is not REMOVED */}
           {!loading && !!state?.data && !forceError && !isRemoved && (

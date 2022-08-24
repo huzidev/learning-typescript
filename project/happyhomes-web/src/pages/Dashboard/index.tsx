@@ -21,7 +21,7 @@ function DashboardPage(): JSX.Element {
   const history = useHistory();
 
   const state = apartment.publicListState; // will loads all the apartments uploaded by all realtors therefore it is called apartment.publicListState
-  const { defaultFilters } = apartment;
+  const { defaultFilters } = apartment; // DESTRUCTURING
   const filtersState = useApartmentFiltersState(
     defaultFilters.data,
     apartment.publicListState.filters,
@@ -48,6 +48,7 @@ function DashboardPage(): JSX.Element {
         <br />
         <Col {...APARTMENT_CARD.BASE}>
           {!state.loading && !state.data?.length && state.meta && (
+            // if user insert wrong filter which doesn't match to any apartment
             <Empty
               image={Empty.PRESENTED_IMAGE_SIMPLE}
               imageStyle={{

@@ -72,7 +72,9 @@ function ViewApartmentPage(): JSX.Element {
                 extra={
                   <Button
                     type="primary"
-                    onClick={() => history.push(`${ROUTE_PATHS.VIEW_PROFILE}${auth.user?.id}`)}
+                    onClick={() => 
+                      history.push(`${ROUTE_PATHS.VIEW_PROFILE}${state.data?.realtorId}`)
+                    }
                   >
                     Check More
                   </Button>

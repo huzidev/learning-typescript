@@ -126,9 +126,9 @@ function ApartmentsPage(): JSX.Element {
                   // for boolean keys data like isActive if we remove this line below with mapBooleanKeys then isActive data of apartment will not shown
                   .map((v) => mapBoolColumns<ApartmentDetail>(v, boolKeys))}
                 pagination={{
-                  total: meta?.total,
+                  total: meta?.total, // meta?.total means overall total apartments uploaded by every realtor if loggedIn as admin and clicked on Manage Apartment and if loggedIn as realtor then all the apartments of that specific user
                   showSizeChanger: false,
-                  pageSize: meta?.perPage,
+                  pageSize: meta?.perPage, // means perPage 25 apartments
                   current: meta?.currentPage,
                 }}
                 onChange={(pagination, filters, sorter) => {

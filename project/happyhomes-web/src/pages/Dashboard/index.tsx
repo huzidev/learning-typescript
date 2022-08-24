@@ -22,6 +22,7 @@ function DashboardPage(): JSX.Element {
 
   const state = apartment.publicListState; // will loads all the apartments uploaded by all realtors therefore it is called apartment.publicListState
   const { defaultFilters } = apartment; // DESTRUCTURING
+  // here filtersState is for storing filter when user clicks on (load more) then the previous filter will be apply automatically to new loaded apartments (if) user have applied filters
   const filtersState = useApartmentFiltersState(
     defaultFilters.data,
     apartment.publicListState.filters,

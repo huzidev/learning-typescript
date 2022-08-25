@@ -70,10 +70,12 @@ function MapViewPage(): JSX.Element {
             <CityPicker
               // onSelect function is created in src/components/CityPicker/index.tsx since onSelect taking (DATA) as parameter from src/components/CityPicker/index.tsx therefore all the values like lng, lat will be available for us here
               onSelect={(value) => {
+                // for center coordinates of the city
                 const { lat, lng } = value.center;
                 setBounds(value.newBounds);
                 setInitialData({
                   defaultZoom: value.zoom,
+                  // the center coordinates will be defaultCenter so user will get to see all the apartments as user starts from center
                   defaultCenter: { lat, lng },
                 });
                 console.log('VAALUEEEE', value);

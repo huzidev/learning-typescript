@@ -43,7 +43,8 @@ function DashboardPage(): JSX.Element {
   return (
     <Page header footer>
       <div id="dashboard-page" className={cx('g-full-page')}>
-        {defaultFilters.data?.minPrice && (
+        {defaultFilters.data && (
+          // data like defaultFilter, filter are sends as PROPS for ApartmentFilters component
           <ApartmentFilters
             filters={filtersState}
             loading={state.loading}

@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import GoogleMapReact from 'google-map-react';
 import useSupercluster from 'use-supercluster';
-import { Col, Row } from 'antd';
+import { Col, Row, Typography } from 'antd';
 
 import { useApartment } from '@store/apartment';
 
@@ -51,6 +51,7 @@ function MapViewPage(): JSX.Element {
     options: { radius: 75, maxZoom: 20 },
   });
 
+  // bounds have the coordinates
   useMapViewPageHooks(filtersState, bounds);
 
   return (
@@ -66,6 +67,7 @@ function MapViewPage(): JSX.Element {
             defaultFilters={defaultFilters.data}
           />
         )}
+        {!defaultFilters.data && <Typography.Text>Error</Typography.Text>}
         <br />
         {!initialData && (
           <Col className={cx('city-picker-col')} {...APARTMENT_CARD.BASE}>

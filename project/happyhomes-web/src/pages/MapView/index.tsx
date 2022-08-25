@@ -80,6 +80,7 @@ function MapViewPage(): JSX.Element {
           <Col id="map-view-col" className={cx('map-holder')} span={24} md={{ span: 24 }}>
             {!!state.data?.length && initialData && (
               <GoogleMapReact
+                // {...initialData} is mandatory to use for getting all the apartments data
                 {...initialData}
                 defaultZoom={10}
                 yesIWantToUseGoogleMapApiInternals
@@ -91,7 +92,6 @@ function MapViewPage(): JSX.Element {
                 bootstrapURLKeys={{ key: GOOGLE_MAP_KEY }}
                 onChange={(change) => {
                   setZoom(change.zoom);
-                  setBounds(change.bounds);
                 }}
               >
                 {clusters.map((cluster) => {

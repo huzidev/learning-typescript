@@ -52,7 +52,7 @@ function MapViewPage(): JSX.Element {
   return (
     <Page header footer>
       <div id="map-view-page" className={cx('g-full-page')}>
-        {initialData && defaultFilters.data?.minPrice && (
+        {initialData && defaultFilters.data && (
           <ApartmentFilters
             fullWidth
             filters={filtersState}

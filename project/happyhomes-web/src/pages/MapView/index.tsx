@@ -56,8 +56,10 @@ function MapViewPage(): JSX.Element {
   return (
     <Page header footer>
       <div id="map-view-page" className={cx('g-full-page')}>
-        {initialData && defaultFilters.data?.minPrice && (
+        {/* this is for filter bar on the google map view */}
+        {initialData && defaultFilters.data && (
           <ApartmentFilters
+            // fullWidth will shows the bar of filter in full screen width like googleMap
             fullWidth
             filters={filtersState}
             loading={state.loading}
@@ -72,6 +74,7 @@ function MapViewPage(): JSX.Element {
               onSelect={(value) => {
                 // for center coordinates of the city
                 const { lat, lng } = value.center;
+                // bounds have the coordinates
                 setBounds(value.newBounds);
                 setInitialData({
                   defaultZoom: value.zoom,
@@ -86,6 +89,7 @@ function MapViewPage(): JSX.Element {
             />
           </Col>
         )}
+        {console.log('INITIAL DATAAAA', initialData)}
         <Row>
           <Col id="map-view-col" className={cx('map-holder')} span={24} md={{ span: 24 }}>
             {!!state.data?.length && initialData && (

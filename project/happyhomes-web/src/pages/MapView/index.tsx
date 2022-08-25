@@ -21,10 +21,13 @@ import './styles.less';
 function MapViewPage(): JSX.Element {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const mapRef = useRef<any>();
+  // by default zoom in px
   const [zoom, setZoom] = useState(10);
   const [initialData, setInitialData] = useState<GoogleMapReact.Props | null>(null);
   const [bounds, setBounds] = useState<GoogleMapReact.Bounds | null>(null);
   const apartment = useApartment();
+
+  console.log('ZOOMS ZOOMS', zoom);
 
   const state = apartment.mapListState;
   const { defaultFilters } = apartment;
@@ -44,6 +47,7 @@ function MapViewPage(): JSX.Element {
     zoom,
     points,
     bounds: [bounds?.nw.lng ?? 0, bounds?.se.lat ?? 0, bounds?.se.lng ?? 0, bounds?.nw.lat ?? 0], // ?? is called nullish coalescing operator
+    // maximum zoom of 20px user can't zoom more than 20px
     options: { radius: 75, maxZoom: 20 },
   });
 
@@ -52,7 +56,7 @@ function MapViewPage(): JSX.Element {
   return (
     <Page header footer>
       <div id="map-view-page" className={cx('g-full-page')}>
-        {initialData && defaultFilters.data && (
+        {initialData && defaultFilters.data?.minPrice && (
           <ApartmentFilters
             fullWidth
             filters={filtersState}

@@ -14,8 +14,11 @@ export function useMapViewPageHooks(
   useEffect(() => {
     apartment.getDefaultFilters();
   }, []);
-
+  console.log('BOUNDS BOUNDS', bounds);
+  console.log('FILTER INITS', filters.init);
   useEffect(() => {
+    // filters.init will be true when user clicked on any city to check all the apartment through google map
+    // bounds have all the coordinates of nw, ne, sw, se
     if (filters.init && bounds) {
       apartment.getMapList({
         ...filters.activeState,

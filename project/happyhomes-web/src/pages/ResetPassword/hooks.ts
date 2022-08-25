@@ -15,7 +15,8 @@ export function useResetPasswordPageHooks(): void {
     if (prev?.resetState?.loading) {
       if (state.resetState.error) {
         errorNotification('Error', state.resetState);
-      } else if (!state.resetState.loading) {
+      } // if success then it'll send user to -2 pages back means at login user page
+      else if (!state.resetState.loading) {
         history.go(-2);
         successNotification('Success', 'Password reset successfully');
       }

@@ -82,8 +82,8 @@ function SendResetPasswordPage(): JSX.Element {
             </Form.Item>
             <Form.Item
               required
-              name="password"
-              label="Password"
+              name="Password"
+              label="New Password"
               rules={[
                 {
                   required: true,
@@ -100,7 +100,7 @@ function SendResetPasswordPage(): JSX.Element {
             <Form.Item
               required
               name="passwordConfirmation"
-              label="Confirm Password"
+              label="Confirm New Password"
               // dependencies will be add when we wanted to create confirmPassword and dependencies will be add in input tag of confirm password and it depends upon password therefore it's written like dependencies={['password']}
               dependencies={['password']}
               hasFeedback

@@ -20,7 +20,7 @@ function DashboardPage(): JSX.Element {
   const apartment = useApartment(); // apartment variable will have access of all the functions inside useApartment
   const history = useHistory();
 
-  const state = apartment.publicListState; // will loads all the apartments uploaded by all realtors therefore it is called apartment.publicListState
+  const state = apartment.publicListState; // will loads all the apartments uploaded by (all realtors) therefore it is called apartment.publicListState
   const { defaultFilters } = apartment; // DESTRUCTURING
   // here filtersState is for storing filter when user clicks on (load more) then the previous filter will be apply automatically to new loaded apartments (if) user have applied filters
   const filtersState = useApartmentFiltersState(
@@ -35,6 +35,10 @@ function DashboardPage(): JSX.Element {
   console.log('dashboard State data length', state.data?.length);
   console.log('dashboard meta', state.meta);
   console.log('filtersState activeState', filtersState.activeState);
+
+  function resetFilter() {
+    filtersState.resetAndApply();
+  }
 
   return (
     <Page header footer>
@@ -59,7 +63,7 @@ function DashboardPage(): JSX.Element {
             >
               {/* resetAndApply function is in components/apartmentFilters/hooks.ts */}
               {/* filtersState is just a name of variable which have all the access of useApartmentFiltersState */}
-              <Button type="primary" onClick={() => filtersState.resetAndApply()}>
+              <Button type="primary" onClick={() => resetFilter()}>
                 Reset Filters
               </Button>
             </Empty>

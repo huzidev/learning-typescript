@@ -46,13 +46,17 @@ function CityPicker({ onSelect, heightId, widthId }: CityPickerProps): JSX.Eleme
         <>
           {cities.map((data) => (
             // here data.image in class will acts like class because we are using mapping therefore data.image result will be khi, hyd, lhr. isl hence class names will also be these so we can target these classes in less files like .khi background-image: ...
-            <div className={cx('slide-base', data.image)} key={data.image}>
-              <Button onClick={() => handleCity(data.city)} className={cx('button-background')}>
+            <Button
+              onClick={() => handleCity(data.city)}
+              className={cx('slide-base', data.image)}
+              key={data.image}
+            >
+              <Button className={cx('button-background')}>
                 <Typography.Title level={3} className={cx('city-names')}>
                   {data.city}
                 </Typography.Title>
               </Button>
-            </div>
+            </Button>
           ))}
         </>
       </Space>

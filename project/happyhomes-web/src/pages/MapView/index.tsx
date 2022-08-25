@@ -67,7 +67,6 @@ function MapViewPage(): JSX.Element {
             defaultFilters={defaultFilters.data}
           />
         )}
-        {!defaultFilters.data && <Typography.Text>Error</Typography.Text>}
         <br />
         {!initialData && (
           <Col className={cx('city-picker-col')} {...APARTMENT_CARD.BASE}>

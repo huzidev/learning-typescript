@@ -18,9 +18,11 @@ function HomeForm(): JSX.Element {
   const auth = useAuth();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onFinish = (data: any) => {
+    // if user is at loginIn page then onFinish data will be sends to singIn page
     if (isLogInForm) {
       auth.signIn(data);
-    } else {
+    } // if user is at signUp page then onFinish data will be sends to signUp page
+    else {
       auth.signUp(data);
     }
   };
@@ -28,7 +30,9 @@ function HomeForm(): JSX.Element {
   useHomeFormHook();
 
   const title = isLogInForm ? 'Log In' : 'Register';
+  // if user is in signUp page then already Have an account ?login will be print if and if user is in signIn page then Don't have an account ?Register will be print
   const titleReverse = isLogInForm ? 'Register' : 'Log In';
+  // descReverse will be Don't have an account ? if user is in logIn page and Already have an account ? if user is in signUp page
   const descReverse = isLogInForm ? "Don't have an account ?" : 'Already have an account ?';
 
   const initialValues = {};
@@ -40,6 +44,7 @@ function HomeForm(): JSX.Element {
       <Col className={cx('home-form')} {...responsive.form}>
         <Card title={title} data-cy="auth-card-header">
           <Form key={title} layout="vertical" onFinish={onFinish} initialValues={initialValues}>
+            {/* if not on LogInForm then user will be at SignUp page */}
             {!isLogInForm && (
               <Form.Item
                 required

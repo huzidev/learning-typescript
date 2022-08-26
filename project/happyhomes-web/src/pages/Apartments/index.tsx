@@ -135,7 +135,7 @@ function ApartmentsPage(): JSX.Element {
                 onChange={(pagination, filters, sorter) => {
                   onTableChange(
                     history,
-                    // as admin or realtor wanted to go to next page then it'll check the condition if realtor is loggedIn then apartmentByMe else
+                    // as admin or realtor wanted to go to next page then it'll check the condition if realtor is loggedIn then apartmentByMe else all the apartments for admin
                     isMe ? ROUTE_PATHS.APARTMENTS_BY_ME : ROUTE_PATHS.APARTMENTS,
                     pagination,
                     // if any filters are applied then they'll remains same

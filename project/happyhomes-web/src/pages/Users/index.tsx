@@ -116,7 +116,7 @@ function UsersPage(): JSX.Element {
                   total: meta?.total,
                   // showSizeChanger is basically a small bar in which all the pages are available so user can select any page user wanted therefore we've says showSizeChanger: false
                   showSizeChanger: false,
-                  pageSize: meta?.perPage,
+                  pageSize: meta?.perPage, // means perPage 25 users
                   current: meta?.currentPage,
                 }}
                 onChange={(pagination, filters, sorter) => {

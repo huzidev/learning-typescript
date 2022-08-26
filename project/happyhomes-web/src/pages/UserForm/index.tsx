@@ -80,6 +80,7 @@ function UserFormPage(): JSX.Element {
     <Page header footer>
       <div id="user-form-page" className={cx('g-full-page ', !mode ? 'Dark-mode' : 'Light-mode')}>
         <Col {...colProps}>
+          {/* isSetting will be true when user clicked on PREFERENCES */}
           {isSetting ? (
             <Card
               className={cx(!mode ? 'Dark-mode' : 'Light-mode')}
@@ -104,7 +105,7 @@ function UserFormPage(): JSX.Element {
             <Form layout="vertical" onFinish={onFinish} initialValues={initialValues}>
               <Card
                 actions={[
-                  // justify end so end button will be shown at the end
+                  // justify end so end button will be shown at the END
                   <Row justify="end">
                     <Button type="primary" htmlType="submit" loading={loading}>
                       Save
@@ -115,6 +116,7 @@ function UserFormPage(): JSX.Element {
                 title={isUpdate ? 'Update user' : 'Create User'}
                 extra={<Typography.Link onClick={() => history.goBack()}>Go back</Typography.Link>}
               >
+                {/* for creating new user as a ADMIN */}
                 <Form.Item
                   required={isCreate}
                   name="name"

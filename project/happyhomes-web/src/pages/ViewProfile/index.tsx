@@ -27,7 +27,7 @@ function ViewProfilePage(): JSX.Element {
   useViewProfileHooks();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const params = useParams<any>();
-  const isMe = params.id === 'me'; // isMe is for matching id if realtor clicked on the user name of it's own then isMe will be true
+  const isMe = params.id === auth.user?.id; // isMe is for matching id if realtor clicked on the user name of it's own then isMe will be true
   const userId = isMe ? auth.user?.id : params.id; // auth.user?.id have the id of loggedIn user and params.Id have id of realtor on which user clicked
   const state = user.idsState[userId]; // state have action type like action="get" and user's data according to ID like is_active, is_verified, email, name and loading state and error state
   const apartments = useApartment().listByUserIDState[userId];

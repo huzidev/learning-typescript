@@ -120,7 +120,15 @@ function UsersPage(): JSX.Element {
                   current: meta?.currentPage,
                 }}
                 onChange={(pagination, filters, sorter) => {
-                  onTableChange(history, ROUTE_PATHS.USERS, pagination, filters, sorter);
+                  onTableChange(
+                    history,
+                    ROUTE_PATHS.USERS,
+                    pagination,
+                    // if any filters are applied then they'll remains same for next page
+                    filters,
+                    // if any sort method is used then they'll also remains same for next page
+                    sorter,
+                  );
                 }}
               />
             </Space>

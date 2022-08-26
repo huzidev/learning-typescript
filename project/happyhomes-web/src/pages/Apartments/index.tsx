@@ -138,9 +138,9 @@ function ApartmentsPage(): JSX.Element {
                     // as admin or realtor wanted to go to next page then it'll check the condition if realtor is loggedIn then apartmentByMe else all the apartments for admin
                     isMe ? ROUTE_PATHS.APARTMENTS_BY_ME : ROUTE_PATHS.APARTMENTS,
                     pagination,
-                    // if any filters are applied then they'll remains same
+                    // if any filters are applied then they'll remains same for next page
                     filters,
-                    // if any sort method is used then they'll also remains same
+                    // if any sort method is used then they'll also remains same for next page
                     sorter,
                   );
                 }}

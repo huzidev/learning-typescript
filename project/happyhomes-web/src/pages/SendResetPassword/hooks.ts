@@ -20,7 +20,8 @@ export function useResetPasswordPageHooks(form: FormInstance<ResetPasswordSendCo
     if (prev?.sendState?.loading) {
       if (state.sendState.error) {
         errorNotification('Error', state.sendState);
-      } else if (!state.sendState.loading) {
+      } // this will send the user to reset_password page and search: qs (query string) will adds the email into the querystring therefore we've used .getFieldsValue()
+      else if (!state.sendState.loading) {
         history.push({
           pathname: ROUTE_PATHS.RESET_PASSWORD,
           // eslint-disable-next-line @typescript-eslint/no-explicit-any

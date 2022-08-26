@@ -60,6 +60,8 @@ function UsersPage(): JSX.Element {
                 dataSource={state.data}
                 rowKey={(record) => record.id}
                 columns={columns
+                  // .concat combines two or more array
+                  // here columns is an array with all the values like id, name, email, role etc and we are linking with another array of data like user update
                   .concat({
                     title: 'Action',
                     key: 'action',

@@ -2,6 +2,7 @@ import { UserDetail } from '@store/user/types';
 import { ColumnsType } from 'antd/lib/table';
 import startCase from 'lodash/startCase';
 
+// these columnKeys will be shown at top when Admin clicked on manage users
 const columnsKeys = [
   'id',
   'name',

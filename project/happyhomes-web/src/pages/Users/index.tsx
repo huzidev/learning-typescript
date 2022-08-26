@@ -51,6 +51,7 @@ function UsersPage(): JSX.Element {
               Create User
             </Button>
           </Row>
+          {/* means if loading is TRUE and if no data is fetched then (Skeleton) loading will be shown (Skeleton) is just a loading design */}
           {loading && !state?.data && <Skeleton paragraph={{ rows: 10 }} />}
           {!!state?.data && (
             <Space size="large">

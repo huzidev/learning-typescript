@@ -89,7 +89,7 @@ function UsersPage(): JSX.Element {
                           >
                             Update
                           </Button>
-                          {/* record.id is the id of USER admin wanted to change or update auth.user.id is the id of loggedIn user in this case auth.user.id is the id of admin as only admin can ONLY (MANAGE USERS) and record.id !== auth?.user?.id will shows remove button for every user except for admin own self means admin can't remove own self as record.id !== auth.user.id */}
+                          {/* record.id is the id of that USER whom admin wanted to change or update auth.user.id is the id of loggedIn user in this case auth.user.id is the id of admin as only admin can ONLY (MANAGE USERS) and record.id !== auth?.user?.id will shows remove button for every user except for admin own self means admin can't remove own self as record.id !== auth.user.id */}
                           {/* in simple if admin id is 1 so record.id is equals to auth.user.id as both have 1 id therefore condition is false because we asked 1 !== 1 and if record.id is 2 and auth.user.id of admin is 1 now condition is true because 2 !== 1 */}
                           {record.id !== auth?.user?.id && (
                             <Button
@@ -110,9 +110,11 @@ function UsersPage(): JSX.Element {
                       );
                     },
                   })
+                  // for the boolean values columns like isActive, isBanned, isVerified
                   .map((v) => mapBoolColumns<UserDetail>(v, boolKeys))}
                 pagination={{
                   total: meta?.total,
+                  // showSizeChanger is basically a small bar in which all the pages are available so user can select any page user wanted therefore we've says showSizeChanger: false
                   showSizeChanger: false,
                   pageSize: meta?.perPage,
                   current: meta?.currentPage,

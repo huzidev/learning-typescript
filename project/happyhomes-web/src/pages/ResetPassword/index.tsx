@@ -20,6 +20,7 @@ import './styles.less';
 function SendResetPasswordPage(): JSX.Element {
   const resetPassword = useResetPassword();
   const [otp, setOtp] = useState('');
+  // setOtpTouch will be true when user enter the code in all 6 blocks of OTP
   const [otpTouch, setOtpTouch] = useState(false);
   const history = useHistory();
   const [form] = Form.useForm<ResetPasswordRequest>();
@@ -33,6 +34,7 @@ function SendResetPasswordPage(): JSX.Element {
   console.log('WHTA IS OTP LENTGTH', otp.length);
   console.log('WHTA IS !OTP LENTGTH', !otp.length);
   console.log('WHTA IS OTP valid', isOtpInvalid);
+  console.log('WHTA IS OTP touch', otpTouch);
   useResetPasswordPageHooks();
   useEffect(() => {
     if (!search) {
@@ -56,11 +58,13 @@ function SendResetPasswordPage(): JSX.Element {
             form={form}
             layout="vertical"
             initialValues={params}
+            // onFinishFailed means when user didn't complete the 6 blocks of otp
             onFinishFailed={() => {
               if (!otp.length) {
                 setOtpTouch(true);
               }
             }}
+            // onFinish when user completed the 6 blocks of otp
             onFinish={(data) => {
               if (isOtpInvalid || !otp.length) {
                 setOtpTouch(true);

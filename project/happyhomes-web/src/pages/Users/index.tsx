@@ -38,6 +38,7 @@ function UsersPage(): JSX.Element {
 
   // this page will appear when admin clicked on manage users
   return (
+    // fullWidth is used so all the data in the header will appear in fullWidth
     <Page header footer fullWidth>
       <div id="users-page" className={cx('g-full-page')}>
         <Col span={22} offset={1}>

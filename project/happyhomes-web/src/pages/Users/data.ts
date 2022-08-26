@@ -15,11 +15,13 @@ const columnsKeys = [
   'updatedAt',
 ];
 
+// boolKeys means they'll either be true(yes) or false(no)
 export const boolKeys = ['isActive', 'isBanned', 'isVerified'];
 
 export const columns: ColumnsType<UserDetail> = columnsKeys.map((key) => ({
   key,
   dataIndex: key,
   sorter: true,
+  // startCase will make first letter Capital of any word
   title: startCase(key),
 }));

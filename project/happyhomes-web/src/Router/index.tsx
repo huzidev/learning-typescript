@@ -27,6 +27,7 @@ function AppRouter(): JSX.Element {
               />
             );
           })}
+          {/* if wrong path then NotFoundPage therefore we've used * for path */}
           <Route path="*" component={NotFoundPage} />
         </Switch>
       </Suspense>

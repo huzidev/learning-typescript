@@ -31,11 +31,12 @@ function UserFormPage(): JSX.Element {
     `is Update state is ${isUpdate} and isCreate state is ${isCreate} AND IS SETTTTINGSSS ${isSetting}`,
   );
 
+  // for darkMode therefore mode
   const [mode, setMode] = useState(false);
   const isMe = history.location.pathname.endsWith('me'); // when admin or user is updating own self the URL will be like (user/update/me) it endsWith('me')
   const userId = isMe ? auth.user?.id : params.id;
   const profile = user.idsState[userId]; // profile helps to bring all the previous (data) of user when updating any user
-  const isSameUser = isMe || auth.user?.id?.toString() === params.id; // isSame will only be true when admin or user is updating own self
+  const isSameUser = isMe || auth.user?.id?.toString() === params.id; // isSame will only be true when admin OR user is updating OWN self
   console.log('Profile', profile);
   console.log('isSame user', isSameUser);
 

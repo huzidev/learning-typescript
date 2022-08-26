@@ -19,7 +19,7 @@ export function useUserFormHooks(): void {
   const isMe = history.location.pathname.endsWith('update/me');
   console.log(`Form HOOOOKS isUpdate is ${isUpdate} and isME ME is ${isMe}`);
   // eslint-disable-next-line no-nested-ternary
-  const state: UserIDSubState = isUpdate // userIDsubState is just type already defined in store/user/types which defines types like data: userDetails, action?: ActionType
+  const state: UserIDSubState = isUpdate // (userIDsubState) is just type already defined in store/user/types which defines types like data: userDetails, action?: ActionType
     ? isMe // means if isUpdate and isMe both are true then then user.meState as UserIDSubState where types are already defined
       ? (user.meState as UserIDSubState)
       : user.idsState[params.id] // if isMe is false and admin is updating some other user then simple params.id for that user

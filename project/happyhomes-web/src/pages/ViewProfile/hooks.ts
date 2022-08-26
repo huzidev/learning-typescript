@@ -17,7 +17,7 @@ export function useViewProfileHooks(): void {
   const apartment = useApartment();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const params = useParams<any>();
-  const isMe = params.id === 'me';
+  const isMe = params.id === auth.user?.id;
   const userId = isMe ? auth.user?.id : params.id;
   const state = user.idsState[userId];
   const prev = usePrevious(state);

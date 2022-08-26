@@ -23,6 +23,7 @@ function VerifyUserPage(): JSX.Element {
     emailVerification.verifyState.loading ||
     auth.signOutState.loading;
 
+  // this page will run when user is at verification page after creating account
   return (
     <Page header footer>
       <div id="verify-page" className={cx('g-full-page')}>
@@ -35,6 +36,7 @@ function VerifyUserPage(): JSX.Element {
         >
           <Typography.Text className={cx('description')}>
             Please enter the verification code we sent to your email{' '}
+            {/* auth.user?.email for user's email who wanted to verify */}
             <span className={cx('highlight')}>{auth.user?.email}</span>
           </Typography.Text>
           <OTPInput value={otp} onChange={setOtp} />

@@ -8,6 +8,7 @@ import { cx } from 'alias';
 
 import { ResetPasswordRequest } from '@store/resetPassword/types';
 import { useResetPassword } from '@store/resetPassword';
+import { useAuth } from '@store/auth';
 
 import PageCardContent from 'components/PageCardContent';
 import OTPInput from 'components/OTPInput';
@@ -27,7 +28,7 @@ function SendResetPasswordPage(): JSX.Element {
   // isOtpInvalid will be true until user didn't enter all 6 code therefore here we've says !== 6
   // as all 6 blocks of otp are full then isOtpInvalid will be false
   const isOtpInvalid = otp.length !== 6;
-
+  const auth = useAuth();
   const { loading } = resetPassword.resetState;
   const { search } = history.location;
 

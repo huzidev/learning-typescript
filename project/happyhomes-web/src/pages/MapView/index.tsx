@@ -41,6 +41,7 @@ function MapViewPage(): JSX.Element {
   }));
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { clusters, supercluster } = useSupercluster<any, any>({
+    // clusters are used for when user clicked on apartment marker then it'll zoom in this is for cluster is used for
     zoom,
     points,
     bounds: [bounds?.nw.lng ?? 0, bounds?.se.lat ?? 0, bounds?.se.lng ?? 0, bounds?.nw.lat ?? 0],
@@ -92,6 +93,8 @@ function MapViewPage(): JSX.Element {
                 bootstrapURLKeys={{ key: GOOGLE_MAP_KEY }}
                 onChange={(change) => {
                   setZoom(change.zoom);
+                  // the google maps will crashed when their is no apartment marker therefore when we remove setBounds(change.bounds) the google map won't crashed even when their is no apartment marker
+                  // setBounds(change.bounds)
                 }}
               >
                 {clusters.map((cluster) => {

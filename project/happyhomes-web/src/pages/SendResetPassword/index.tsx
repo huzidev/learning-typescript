@@ -1,5 +1,6 @@
 import { Button, Form, Input, Typography } from 'antd';
 import { useHistory } from 'react-router-dom';
+import qs from 'query-string';
 
 import { ResetPasswordSendCodeRequest } from '@store/resetPassword/types';
 import { useResetPassword } from '@store/resetPassword';

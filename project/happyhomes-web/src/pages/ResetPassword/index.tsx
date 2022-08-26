@@ -47,7 +47,7 @@ function SendResetPasswordPage(): JSX.Element {
     password: '',
     passwordConfirmation: '',
   };
-  console.log('params params', params);
+  // console.log('params params', params);
   console.log('form form', [form]);
   console.log('resetPassword', resetPassword);
   return (

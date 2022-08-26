@@ -36,7 +36,7 @@ export function useViewProfileHooks(): void {
         errorNotification('Error', state);
       } else if (!state.loading && state.data) {
         if (hasPermission('client', auth.user?.role)) {
-          // since client can't upload any apartment therefore the getListByUserID will not fetch any apartment when auth.user?.role is of client therefore we've used && so if any condition gets false it won't work but when realtor or admin loggedIn both the condition will be true because then role will be anything BUT client therefore then auth.user?.role !== 'client'
+          // permission for client so all the others role like realtor, admin, super-admin will gets the permission automatically because admin and realtor roles are greater than the role of client
           apartment.getListByUserID(userId, 1);
           console.log('newid newid newid', userId);
         }

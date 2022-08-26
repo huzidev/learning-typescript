@@ -23,11 +23,16 @@ function SendResetPasswordPage(): JSX.Element {
   const [otpTouch, setOtpTouch] = useState(false);
   const history = useHistory();
   const [form] = Form.useForm<ResetPasswordRequest>();
+  // isOtpInvalid will be true until user didn't enter all 6 code therefore here we've says !== 6
+  // as all 6 blocks of otp are full then isOtpInvalid will be false
   const isOtpInvalid = otp.length !== 6;
 
   const { loading } = resetPassword.resetState;
   const { search } = history.location;
 
+  console.log('WHTA IS OTP LENTGTH', otp.length);
+  console.log('WHTA IS !OTP LENTGTH', !otp.length);
+  console.log('WHTA IS OTP valid', isOtpInvalid);
   useResetPasswordPageHooks();
   useEffect(() => {
     if (!search) {

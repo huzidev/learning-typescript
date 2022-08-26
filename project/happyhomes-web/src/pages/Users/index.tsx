@@ -36,6 +36,7 @@ function UsersPage(): JSX.Element {
   const loading = state?.loading;
   const meta = state?.meta;
 
+  // this page will appear when admin clicked on manage users
   return (
     <Page header footer fullWidth>
       <div id="users-page" className={cx('g-full-page')}>

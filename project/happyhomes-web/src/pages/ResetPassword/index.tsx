@@ -60,12 +60,14 @@ function SendResetPasswordPage(): JSX.Element {
             initialValues={params}
             // onFinishFailed means when user didn't complete the 6 blocks of otp
             onFinishFailed={() => {
+              // !otp.length means when blocks for otp are completely empty
               if (!otp.length) {
                 setOtpTouch(true);
               }
             }}
             // onFinish when user completed the 6 blocks of otp
             onFinish={(data) => {
+              // !otp.length means when blocks for otp are completely empty
               if (isOtpInvalid || !otp.length) {
                 setOtpTouch(true);
                 return;

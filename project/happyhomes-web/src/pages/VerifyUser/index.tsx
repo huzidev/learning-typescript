@@ -52,7 +52,7 @@ function VerifyUserPage(): JSX.Element {
             type="primary"
             loading={loading}
             disabled={otp.length !== 6}
-            // (verify) is a function created in store/emailVerification/actions.ts to (VERIFY) random code for emailVerification and verify function takes a parameter which verificationCode
+            // (verify) is a function created in store/emailVerification/actions.ts to (VERIFY) random code for emailVerification and verify function takes a parameter which is verificationCode
             onClick={() => emailVerification.verify({ code: otp })}
           >
             Verify

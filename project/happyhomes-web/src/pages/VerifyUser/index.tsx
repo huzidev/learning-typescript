@@ -13,6 +13,7 @@ import { useVerifyUserPageHooks } from './hooks';
 import './styles.less';
 
 function VerifyUserPage(): JSX.Element {
+  // otp will be empty initially
   const [otp, setOtp] = useState('');
   const emailVerification = useEmailVerification();
   const auth = useAuth();

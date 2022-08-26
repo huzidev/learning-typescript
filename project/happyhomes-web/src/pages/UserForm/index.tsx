@@ -47,6 +47,7 @@ function UserFormPage(): JSX.Element {
     console.log('test');
     setMode((prevState) => !prevState);
   };
+  // it'll print if dark mode is on then current theme is dark and if light mode is on then current theme is light will be print
   const appear = mode ? 'Light' : 'Dark';
   console.log('APPEARRRRR', auth.user?.isTheme);
   const onFinish = (data: UpdateByIdReq) => {
@@ -66,8 +67,8 @@ function UserFormPage(): JSX.Element {
   }
 
   const initialValues = {
-    isVerified: true, // isVerified state will be true byDefault
-    role: roles[0], // means byDefault OR initialValues will be client if we changes role to 2 then role will admin as a initialValue
+    isVerified: true, // isVerified state will be true byDefault while creating new user
+    role: roles[0], // means byDefault OR initialValues will be client if we changes role to 2 then role will admin as a initialValue while creating new user
     ...(profile?.data ?? {}), // so when admin wanted to update any user data so all the previous value will stay same therefore we've used ...(profile.data) profile have all the data of user info like name, email, role etc
   };
 

@@ -20,9 +20,11 @@ export default class ApartmentV1Controller { // HttpContextContract holds the in
   }
 
   // for getting all apartments
-  public async getAll({ request, auth, params }: HttpContextContract) { // HttpContextContract because using request
+  public async getAll({ request, auth, params }: HttpContextContract) {
+    // HttpContextContract because using request
     const data = Utils.parseQS(request.qs(), ['sort', 'nw', 'se']) // parseQS() will takes 2 params first is query of any type and second is array of string and these three are .members() from ApartmentV1ListFilters
-    const filters = await validator.validate({ // it check if user is valid therefore it return promise that after checking it'll tell either to fulfil or reject
+    const filters = await validator.validate({
+      // it check if user is valid therefore it return promise that after checking it'll tell either to fulfil or reject
       schema: ApartmentV1ListFilters.schema, // by default we don't have validator for query string therefore we've to import validator from adonis and then request.qs
       // query string is the string written after ? in ours URL for ex ?name="test"%num="20"
       messages: ApartmentV1ListFilters.messages,
@@ -30,20 +32,21 @@ export default class ApartmentV1Controller { // HttpContextContract holds the in
     })
     let userId // and userId is also defined in ours v1.ts as path /list/:userId/:page
 
-    const byMe = request.url().includes('/me') // /me is the url path when realtor check those apartment which REALTOR have uploaded by that realtor therefore we've used variable const byMe
+    const byMe = params.id === auth.user?.id
+    // is the url path when realtor check those apartment which REALTOR have uploaded by own therefore we've used variable const byMe
 
-    let profileId = params.userId
-    let userID = auth.user?.id
+    let userID
 
     console.log('get all aparment id')
     console.log('id')
     console.log('id')
-    console.log('id id id', profileId)
     console.log('userID', userID)
 
-    if (params.userId) { // when user go for view profile then according to ID the data will show like name etc
+    if (params.userId) {
+      // when user go for view profile then according to ID the data will show like name etc
       userId = params.userId
-    } else if (byMe) { // respective id for user and admin
+    } else if (byMe) {
+      // respective id for user and admin
       userId = auth.user?.id
     }
 
@@ -121,6 +124,7 @@ export default class ApartmentV1Controller { // HttpContextContract holds the in
 
   // for deleting apartments
   public async remove(context: HttpContextContract) {
+    // while removing apartment the isActive state will be changes to false so apartment can be removed completely
     context.request.updateBody({ isActive: false })
     return this.update(context, `Apartment ${context.params.id} removed successfully`)
   }

@@ -1,4 +1,5 @@
 import { Col, Row, Typography } from 'antd';
+import LightModeIcon from '@mui/icons-material/LightMode';
 import React from 'react';
 
 export default function Top() {
@@ -11,9 +12,7 @@ export default function Top() {
                 </Typography.Title>
             </Col>
             <Col span={6}>
-                <Typography.Title>
-                    Todo List
-                </Typography.Title>
+                <LightModeIcon />
             </Col>
         </Row>
     </div>

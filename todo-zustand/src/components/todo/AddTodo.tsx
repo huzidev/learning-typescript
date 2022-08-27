@@ -4,14 +4,29 @@ import { Input, Button, Col, Row } from 'antd';
 import useStore from '../store';
 
 export default function AddTodo () {
+  const store = useStore();
+
+  function addTodo() {
+    store.addTodo()
+  }
+
   return (
     <div>
         <Row justify='space-around'>
             <Col span={12}>
-                <Input placeholder="Add todo" />
+                <Input 
+                  placeholder="New todo"
+                  value={store.newTodo}
+                  onChange={(event) => store.setNewTodo(event.target.value)}  
+                />
             </Col>
             <Col span={8}>
-                <Button type="primary">Add Todo</Button>
+                <Button 
+                  type="primary"
+                  onClick={addTodo}
+                >
+                  Add Todo
+                </Button>
             </Col>
         </Row>
     </div>

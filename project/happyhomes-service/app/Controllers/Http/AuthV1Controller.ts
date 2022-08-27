@@ -213,6 +213,7 @@ export default class AuthV1Controller {
     }
   }
 
+  // send code for reset password
   public async resetPasswordSendCode({ request }: HttpContextContract) {
     const body = await request.validate(AuthV1ResetPasswordSendCode)
     const user = await User.query().where('email', body.email).where('isActive', true).first() // we've used .first() here as well so to check whether the email is in DATABASE or NOT

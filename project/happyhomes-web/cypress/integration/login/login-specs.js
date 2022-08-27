@@ -44,7 +44,7 @@ describe('Login Page', () => {
     expect(cy.get(selectors.ERROR_ALERT).contains(loginPageTexts.passwordMinLengthError));
   });
 
-  it('should render toast with error when invalid credentails are submitted', () => {
+  it('should render toast with error when invalid credentials are submitted', () => {
     cy.visit('/');
     cy.wait(500);
     cy.get(selectors.EMAIL_FIELD).focus().clear().type(testCredentials.email);

@@ -5,21 +5,27 @@ import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 
 export default function TodoList() {
   const store = useStore();
-  const onChange = (e: CheckboxChangeEvent) => {
-    console.log(`checked = ${e.target.checked}`);
-  };
   return (
     <div>
       {store.todos.map((data) => (
         <div key={data.id}>
           <Input value={data.text} />
           <Checkbox 
-            onChange={onChange}
             checked={data.done}
             onClick={() => store.toggle(data.id)}
           >
-              Checkbox
+              Completed
           </Checkbox>
+          <Input 
+            value={data.text}
+            onChange={(event) => store.update(data.id, event.target.value)}
+          />
+          <Button 
+            type='primary'
+            onClick={() => store.remove(data.id)}
+          >
+            Delete
+          </Button>
         </div>
       ))}
     </div>

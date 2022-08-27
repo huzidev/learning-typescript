@@ -7,7 +7,7 @@ export default function AddTodo () {
   const store = useStore();
 
   function addTodo() {
-    store.addTodo()
+    store.add()
   }
 
   return (

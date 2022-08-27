@@ -124,6 +124,7 @@ export default class AuthV1Controller {
     return { message: 'User logged out successfully' }
   }
 
+  // sends code
   public async verifyEmailSendCode({ auth }: HttpContextContract) {
     const code = await EmailVerificationCode.findBy('user_id', auth.user?.id!)
     // this will runs a timer for 1 minutes before UPDATING verification code with a new one
@@ -144,6 +145,7 @@ export default class AuthV1Controller {
     }
   }
 
+  // verify code
   public async verifyEmailVerifyCode({ request, auth }: HttpContextContract) {
     const trx = await Database.transaction()
     try {
@@ -163,8 +165,10 @@ export default class AuthV1Controller {
         throw { message: 'Expired code', status: 422 }
       }
       verificationCode.useTransaction(trx)
+      // before verifying code isActive state is false
       verificationCode.isActive = false
       auth.user!.useTransaction(trx)
+      // after verifying code isActive state is true
       auth.user!.isVerified = true
       await Promise.all([auth.user?.save(), verificationCode.save()])
       await trx.commit()

@@ -2,8 +2,11 @@ import { selectors, loginPageTexts, testCredentials } from '../../Pages/LoginPag
 
 describe('Login Page', () => {
   it('should render login page successfully', () => {
+    // visit homepage
     cy.visit('/');
+    // wait 500ms
     cy.wait(500);
+    // means login page must contain header and text some text like loginHeading
     expect(cy.get(selectors.LOGIN_CARD_HEADER).contains(loginPageTexts.loginHeading));
   });
 

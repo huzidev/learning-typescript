@@ -36,8 +36,13 @@ export function onTableChange<J>(
   sorter: SorterResult<J> | SorterResult<J>[],
 ): void {
   const { search } = history.location;
+  // search will be like ?sort=%.....
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const initial: any = search ? qs.parse(search) : {};
+  // initial will be "id": "asc" or "id": "desc" if user sort the (id) in ascending or desc order and if user change the sort of name then it'll be "name": "asc" or "name": "desc"
+  // therefore we've used condition which says if search is true means if sort value is change then (qs.parse) means parse query string (URL)
+  console.log('INITIAL INITAL FROM UTILS', initial);
+  console.log('INITIAL INITAL SEARCH', search);
   if (sorter) {
     initial.sort = sortToQs<J>(sorter as SorterResult<J>);
   }

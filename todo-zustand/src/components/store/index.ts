@@ -4,6 +4,10 @@ import create from 'zustand';
 import { Store } from './types';
 import { Todo } from './types';
 
+const removeTodo = (todos: Todo[], id: number): Todo[] => {
+    todos.filter((d) => d.id !== id)
+}
+
 const addTodo = (todos: Todo[], text:string): Todo[] => [
     ...todos,
     {

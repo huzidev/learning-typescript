@@ -7,8 +7,8 @@ export default function TodoList() {
   return (
     <div>
       {store.todos.map((data) => (
-        <div key={1}>
-          <Input value={todo.text} />
+        <div key={data.id}>
+          <Input value={data.text} />
         </div>
       ))}
     </div>

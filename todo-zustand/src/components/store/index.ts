@@ -48,6 +48,24 @@ const useStore = create<Store>((set) => ({
             // newTodo as text which is of type string
             newTodo: text
         }))
+    },
+    updateTodo(id: number, text: string) {
+        set((state) => ({
+            ...state,
+            todos: updateTodo(state.todos, id, text)
+        }));
+    },
+    toggle(id: number) {
+        set((state) => ({
+            ...state,
+            todos: toggleTodo(state.todos, id)
+        }));
+    },
+    remove(id: number) {
+        set((state) => ({
+            ...state,
+            todos: removeTodo(state.todos, id)
+        }));
     }
 }));
 

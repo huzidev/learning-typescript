@@ -186,6 +186,7 @@ export default class AuthV1Controller {
       const body = await request.validate(AuthV1ResetPassword)
       let verificationCode = await ResetPasswordCode.query()
         .where('code', body.code)
+        // user must have to be active for reset password
         .where('isActive', true)
         .preload('user', (query) => query.where('isActive', true))
         .first() // Fetch the first record from the database Returns null when there are no records since we are in resetPassword function so if user enters a email which doesn't exist in DATABASE then result will be null therefore we've used .first()

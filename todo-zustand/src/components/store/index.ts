@@ -32,7 +32,7 @@ const addTodo = (todos: Todo[], text:string): Todo[] => [
 const useStore = create<Store>((set) => ({
     todos: [],
     newTodo: "",
-    addTodo() {
+    add() {
         set((state) => ({
             ...state,
             // since we are adding newTodo through addTodo function therefore todos: addTodo(state.todos, state.newTodo)
@@ -49,7 +49,7 @@ const useStore = create<Store>((set) => ({
             newTodo: text
         }))
     },
-    updateTodo(id: number, text: string) {
+    update(id: number, text: string) {
         set((state) => ({
             ...state,
             todos: updateTodo(state.todos, id, text)

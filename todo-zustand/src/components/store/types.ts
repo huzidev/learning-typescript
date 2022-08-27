@@ -7,11 +7,11 @@ export interface Todo {
 
 export interface Functions {
     // addTodo function with no-parameter
-    addTodo: () => void;
+    add: () => void;
     // this will update the value of newTodo therefore parameter is (text of type string)
     setNewTodo: (text: string) => void;
     // for update an existing todo (id) of the todo that we wanted to update and (text) that we wanted to add
-    updateTodo: (id: number, text: string) => void
+    update: (id: number, text: string) => void
     // for clicking on check-box when todo is completed we don't want text here
     toggle: (id: number) => void
     // for deleting todo

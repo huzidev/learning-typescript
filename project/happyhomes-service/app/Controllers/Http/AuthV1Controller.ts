@@ -51,6 +51,7 @@ export default class AuthV1Controller {
       // if not Verified user tries to login
       if (!auth.user?.isVerified) {
         const code = await EmailVerificationCode.findBy('user_id', auth.user?.id!)
+        // generate random code each time user asked for
         code?.generateCode()
         await code?.save()
         console.log('Verification code for user is', code!.code)

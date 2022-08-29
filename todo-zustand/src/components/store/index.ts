@@ -46,10 +46,12 @@ const useStore = create<Store>((set) => ({
             // since we are adding newTodo through addTodo function therefore todos: addTodo(state.todos, state.newTodo)
             // in addTodo we've passed 2 parameter state.todos is the initial state and state.newTodo is the new todo text that is going to be added in todos: Todo[] (array)
             todos: addTodo(state.todos, state.newTodo),
-            // newTodo as a empty string first
+            // newTodo as a empty string first otherwise the PREVIOUS text will appear while creating newTodo
+            // therefore we've used newTodo="" (as empty string) after all the other functions run
             newTodo: ""
         }));
     },
+    // for CREATING new todo
     setNewTodo(text: string) {
         set((state) => ({
             ...state,

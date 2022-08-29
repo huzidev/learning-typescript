@@ -39,7 +39,7 @@ const addTodo = (todos: Todo[], text:string): Todo[] => [
 
 
 // here we've used ours interface Store in which types are defined like todos: Todo[], newTodo: string, addTodo function
-const useStore = create<Store>((set) => ({
+export const useStore = create<Store>((set) => ({
     todos: [],
     newTodo: "",
     add() {
@@ -81,5 +81,3 @@ const useStore = create<Store>((set) => ({
         }));
     }
 }));
-
-export default useStore;

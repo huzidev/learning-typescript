@@ -12,6 +12,7 @@ export default function TodoList() {
           <Input value={data.text} />
           <Checkbox 
             checked={data.done}
+            // toggle function is taking only id as a parameter and we've defined it in store/types.ts
             onClick={() => store.toggle(data.id)}
           >
               Completed

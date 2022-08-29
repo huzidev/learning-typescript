@@ -8,7 +8,6 @@ export const updateTodo = (todos: Todo[], id: number, text: string): Todo[] =>
     text: data.id === id ? text : data.text,
   }));
 
-
 // for check-box
 export const toggleTodo = (todos: Todo[], id: number): Todo[] =>
   todos.map((data) => ({
@@ -16,11 +15,9 @@ export const toggleTodo = (todos: Todo[], id: number): Todo[] =>
     done: data.id === id ? !data.done : data.done,
   }));
 
-
 // for deleting todo
 export const removeTodo = (todos: Todo[], id: number): Todo[] =>
   todos.filter((data) => data.id !== id);
-
 
 // for adding todo
 export const addTodo = (todos: Todo[], text:string): Todo[] => [

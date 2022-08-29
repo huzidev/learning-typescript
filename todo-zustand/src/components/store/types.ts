@@ -1,10 +1,11 @@
 export interface Todo {
     id: number;
     text: string;
-    // check-box for done
+    // check-box for completed todo
     done: boolean;
 }
 
+// types for FUNCTIONS
 export interface Functions {
     // addTodo function with no-parameter
     add: () => void;

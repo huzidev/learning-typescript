@@ -8,7 +8,6 @@ export default function TodoList() {
     <div>
       {store.todos.map((data) => (
         <div key={data.id}>
-          <Input value={data.text} />
           <Checkbox 
             checked={data.done}
             // toggle function is taking only id as a parameter and we've defined it in store/types.ts
@@ -16,6 +15,7 @@ export default function TodoList() {
           >
               Completed
           </Checkbox>
+          {/* this input have the text (TODO) which user have added and therefore we've used (update) function on it so user can update this todo */}
           <Input 
             value={data.text}
             // update function is taking id and text(value) as a parameter and we've defined it in store/types.ts

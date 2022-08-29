@@ -50,7 +50,7 @@ export const useStore = create<Store>((set) => ({
             ...state,
             // since we are adding newTodo through addTodo function therefore todos: addTodo(state.todos, state.newTodo)
             // in addTodo we've passed 2 parameter state.todos is the initial state and state.newTodo is the new todo text that is going to be added in todos: Todo[] (array)
-            todos: addTodo(state.todos, state.newTodo),
+            todos: actions.addTodo(state.todos, state.newTodo),
             // newTodo as a empty string first otherwise the PREVIOUS text will appear while creating newTodo
             // therefore we've used newTodo="" (as empty string) after all the other functions run
             newTodo: ""
@@ -68,19 +68,19 @@ export const useStore = create<Store>((set) => ({
         set((state) => ({
             ...state,
             // here state.todos brings all the previous todos because we've defined these parameters already above THAT updateTodo will takes 3 parameters
-            todos: updateTodo(state.todos, id, text)
+            todos: actions.updateTodo(state.todos, id, text)
         }));
     },
     toggle(id: number) {
         set((state) => ({
             ...state,
-            todos: toggleTodo(state.todos, id)
+            todos: actions.toggleTodo(state.todos, id)
         }));
     },
     remove(id: number) {
         set((state) => ({
             ...state,
-            todos: removeTodo(state.todos, id)
+            todos: actions.removeTodo(state.todos, id)
         }));
     }
 }));

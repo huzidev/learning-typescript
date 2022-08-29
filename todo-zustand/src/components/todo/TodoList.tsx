@@ -3,6 +3,7 @@ import useStore from '../store'
 import { Input, Button, Col, Row, Checkbox } from 'antd';
 
 export default function TodoList() {
+  // Zustand store functions
   const store = useStore();
   return (
     <div>

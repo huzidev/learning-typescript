@@ -23,7 +23,7 @@ const toggleTodo = (todos: Todo[], id: number): Todo[] =>
 
 // for deleting todo
 const removeTodo = (todos: Todo[], id: number): Todo[] =>
-  todos.filter((d) => d.id !== id);
+  todos.filter((data) => data.id !== id);
 
 
 // for adding todo
@@ -32,6 +32,7 @@ const addTodo = (todos: Todo[], text:string): Todo[] => [
     {
         id: Math.max(0, Math.max(...todos.map(({id}) => id))) + 1,
         text,
+        // by default done (check-box) will be false
         done: false
     },
 ];

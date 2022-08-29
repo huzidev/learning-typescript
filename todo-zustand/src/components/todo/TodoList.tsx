@@ -1,7 +1,6 @@
 import React from 'react';
 import useStore from '../store'
 import { Input, Button, Col, Row, Checkbox } from 'antd';
-import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 
 export default function TodoList() {
   const store = useStore();
@@ -19,6 +18,7 @@ export default function TodoList() {
           </Checkbox>
           <Input 
             value={data.text}
+            // toggle function is taking id and text as a parameter and we've defined it in store/types.ts
             onChange={(event) => store.update(data.id, event.target.value)}
           />
           <Button 

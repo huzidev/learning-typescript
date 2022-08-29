@@ -5,6 +5,7 @@ import { Store } from './types';
 import { Todo } from './types';
 
 // for updating todo
+// here todos: Todo[] will takes all the data of todos in an array means it is complete list of todos therefore we've used (todos.map) function because todos will have all the data
 const updateTodo = (todos: Todo[], id: number, text: string): Todo[] =>
   todos.map((data) => ({
     ...data,
@@ -62,6 +63,7 @@ const useStore = create<Store>((set) => ({
     update(id: number, text: string) {
         set((state) => ({
             ...state,
+            // here state.todos brings all the previous todos because we've defined these parameters already above THAT updateTodo will takes 3 parameters
             todos: updateTodo(state.todos, id, text)
         }));
     },

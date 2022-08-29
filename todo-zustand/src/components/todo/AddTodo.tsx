@@ -1,4 +1,3 @@
-import React from 'react';
 import { Input, Button, Col, Row } from 'antd';
 // zustand store
 import { useStore } from '../store';

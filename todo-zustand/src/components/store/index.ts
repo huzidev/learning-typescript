@@ -44,5 +44,11 @@ export const useStore = create<Store>((set) => ({
             ...state,
             todos: actions.removeTodo(state.todos, id)
         }));
+    },
+    darkMode() {
+        set((state) => ({
+            ...state,
+            todos: actions.darkMode(state.todos)
+        }))
     }
 }));

@@ -17,6 +17,8 @@ export interface Functions {
     toggle: (id: number) => void
     // for deleting todo
     remove: (id: number) => void
+    // for dark Mode
+    darkMode: () => void
 }
 
 export interface Store extends Functions {

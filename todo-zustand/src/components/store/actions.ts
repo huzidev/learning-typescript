@@ -29,3 +29,9 @@ export const addTodo = (todos: Todo[], text:string): Todo[] => [
         done: false
     },
 ];
+
+export const darkMode = (todos: Todo[]): Todo[] =>
+  todos.map((data) => ({
+    ...data,
+    state: !data.done
+  }))

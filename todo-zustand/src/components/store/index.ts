@@ -4,21 +4,28 @@ import create from 'zustand';
 import { Store } from './types';
 import { Todo } from './types';
 
+// for updating todo
 const updateTodo = (todos: Todo[], id: number, text: string): Todo[] =>
   todos.map((data) => ({
     ...data,
     text: data.id === id ? text : data.text,
   }));
 
+
+// for check-box
 const toggleTodo = (todos: Todo[], id: number): Todo[] =>
   todos.map((data) => ({
     ...data,
     done: data.id === id ? !data.done : data.done,
   }));
 
+
+// for deleting todo
 const removeTodo = (todos: Todo[], id: number): Todo[] =>
   todos.filter((d) => d.id !== id);
 
+
+// for adding todo
 const addTodo = (todos: Todo[], text:string): Todo[] => [
     ...todos,
     {

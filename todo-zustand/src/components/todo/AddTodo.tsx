@@ -17,6 +17,7 @@ export default function AddTodo () {
                 <Input 
                   placeholder="New todo"
                   value={store.newTodo}
+                  // setNewTodo function is taking only text(value) as a parameter and we've defined it in store/types.ts
                   onChange={(event) => store.setNewTodo(event.target.value)}  
                 />
             </Col>

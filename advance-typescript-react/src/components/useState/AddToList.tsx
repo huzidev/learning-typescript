@@ -38,7 +38,6 @@ export default function AddToList() {
             onChange={handleInput}
             />
         <textarea 
-            type="text"
             placeholder="Note (Optional)"
             name="note"
             value={input.note}

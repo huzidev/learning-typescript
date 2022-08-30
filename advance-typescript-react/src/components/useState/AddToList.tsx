@@ -16,7 +16,7 @@ export default function AddToList() {
     setInput({
         ...input,
         [event.target.name]: event.target.value
-    })  
+    })
   }
 
   return (

@@ -6,7 +6,7 @@ import Top from './todo/Top';
 import 'antd/dist/antd.css';
 import { useStore } from './store/index';
 import { GlobalStyles } from './styled-components/Global.styled';
-import { Container } from './styled-components/Container.styled';
+import { Tets } from './styled-components/Container.styled';
 
 export default function App (): JSX.Element {
   const store = useStore()
@@ -16,11 +16,13 @@ export default function App (): JSX.Element {
   return (
     <>
       <GlobalStyles />
+      <Tets dark={dark}>
         <Col span={20}>
           <Top />
           <AddTodo />
           <TodoList />
         </Col>
+      </Tets>
     </>
   )
 }

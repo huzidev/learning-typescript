@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
-type Test = {
-    property: string;
+interface Props {
+    dark: boolean;
 }
 
-export const Conatiner = styled.div<Test>`
+export const Tets = styled.div<Props>`
     margin: 50px;
+    background-color: ${((props) => props.dark ? "black" : "white")};
 `

@@ -1,3 +1,4 @@
+import React from 'react'
 import { useStore } from '../store'
 import { Input, Button, Col, Row, Checkbox } from 'antd';
 

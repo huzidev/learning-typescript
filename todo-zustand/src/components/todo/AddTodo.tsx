@@ -1,6 +1,7 @@
 import { Input, Button, Col, Row } from 'antd';
 // zustand store
 import { useStore } from '../store';
+import TodoList from './TodoList';
 
 export default function AddTodo (): JSX.Element {
   const store = useStore();

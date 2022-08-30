@@ -21,13 +21,15 @@ export default function AddTodo (): JSX.Element {
                   placeholder="New todo"
                   value={store.newTodo}
                   // setNewTodo function is taking only text(value) as a parameter and we've defined it in store/types.ts
-                  onChange={(event) => store.setNewTodo(event.target.value)}  
+                  onChange={(event) => store.setNewTodo(event.target.value)}
+                  className={classForDark}
                 />
             </Col>
             <Col span={8}>
                 <Button 
                   type="primary"
                   onClick={addTodo}
+                  className={classForDark}
                 >
                   Add Todo
                 </Button>

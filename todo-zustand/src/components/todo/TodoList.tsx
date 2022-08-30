@@ -13,6 +13,7 @@ export default function TodoList (): JSX.Element {
             checked={data.done}
             // toggle function is taking only id as a parameter and we've defined it in store/types.ts
             onClick={() => store.toggle(data.id)}
+            className={classForDark}
           >
               Completed
           </Checkbox>
@@ -21,10 +22,12 @@ export default function TodoList (): JSX.Element {
             value={data.text}
             // update function is taking id and text(value) as a parameter and we've defined it in store/types.ts
             onChange={(event) => store.update(data.id, event.target.value)}
+            className={classForDark}
           />
           <Button 
             type='primary'
             onClick={() => store.remove(data.id)}
+            className={classForDark}
           >
             Delete
           </Button>

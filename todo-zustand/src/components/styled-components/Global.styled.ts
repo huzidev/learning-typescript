@@ -16,7 +16,7 @@ export const GlobalStyles = createGlobalStyle`
         transition: all 700ms ease-in-out;
         .dark-mode {
             transition: all 700ms ease-in-out;
-            color: white
+            color: white;
         }
     }
     .light-mode {

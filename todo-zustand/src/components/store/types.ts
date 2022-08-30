@@ -26,4 +26,6 @@ export interface Store extends Functions {
     todos: Todo[];
     // newTodo of type string for typing new todo
     newTodo: string;
+    // for dark-mode
+    dark: boolean;
 }

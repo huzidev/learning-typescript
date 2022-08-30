@@ -17,7 +17,7 @@ export default function Top() {
 
   // const mode = state ? <LightModeIcon /> : <NightlightIcon />
 
-  console.log('tetss', !!store.darkMode);
+  console.log('tetss', store.dark);
 
   return (
     <div>

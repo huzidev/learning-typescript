@@ -11,9 +11,11 @@ export default function AddTodo (): JSX.Element {
       : store.add()
   }
 
+  const classForDark = store.dark ? 'dark-mode' : 'light-mode'
+
   return (
     <div>
-        <Row justify='space-around'>
+        <Row justify='space-around' className={classForDark}>
             <Col span={12}>
                 <Input 
                   placeholder="New todo"

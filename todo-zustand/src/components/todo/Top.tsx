@@ -9,14 +9,15 @@ import { useStore } from '../store'
 export default function Top() {
   const store = useStore()
  
-  const [state, setState] = useState(false)
+  // const [state, setState] = useState(false)
 
   function dark() {
     store.darkMode()
-    setState((prevState) => !prevState)
   }
 
-  const mode =  state ? <LightModeIcon /> : <NightlightIcon />
+  // const mode = state ? <LightModeIcon /> : <NightlightIcon />
+
+  console.log('tetss', !!store.darkMode);
 
   return (
     <div>
@@ -28,7 +29,8 @@ export default function Top() {
             </Col>
             <Col span={6}>
                 <Button onClick={dark}>
-                    {mode}
+                    {/* {mode} */}
+                    button
                 </Button>
             </Col>
         </Row>

@@ -6,6 +6,7 @@ interface Props {
 }
 
 export const Wrapper = styled.div<Props>`
-    margin: 50px;
     background-color: ${((props) => props.dark ? "black" : "white")};
+    color: ${((props) => props.dark ? "white" : "black")};
+    transition: all 500ms ease-in-out;
 `

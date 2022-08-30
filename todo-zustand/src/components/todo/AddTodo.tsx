@@ -6,7 +6,9 @@ export default function AddTodo (): JSX.Element {
   const store = useStore();
 
   function addTodo() {
-    store.add()
+    store.newTodo.length <= 0
+      ? window.alert("add some value, you can't add empty todo") 
+      : store.add()
   }
 
   return (

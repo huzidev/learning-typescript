@@ -8,8 +8,6 @@ import { useStore } from '../store'
 export default function Top (): JSX.Element {
   const store = useStore()
  
-  // const [state, setState] = useState(false)
-
   function dark() {
     store.darkMode()
   }

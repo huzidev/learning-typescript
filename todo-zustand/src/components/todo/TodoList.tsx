@@ -1,9 +1,10 @@
 import { useStore } from '../store'
 import { Input, Button, Col, Row, Checkbox } from 'antd';
 
-export default function TodoList() {
+export default function TodoList (): JSX.Element {
   // Zustand store functions
   const store = useStore();
+  console.log('is it?', store.todos);
   return (
     <div>
       {store.todos.map((data) => (

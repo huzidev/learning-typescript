@@ -6,7 +6,7 @@ import NightlightIcon from '@mui/icons-material/Nightlight';
 import { useStore } from '../store'
 
 
-export default function Top() {
+export default function Top (): JSX.Element {
   const store = useStore()
  
   // const [state, setState] = useState(false)

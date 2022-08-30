@@ -2,7 +2,7 @@ import { Input, Button, Col, Row } from 'antd';
 // zustand store
 import { useStore } from '../store';
 
-export default function AddTodo () {
+export default function AddTodo (): JSX.Element {
   const store = useStore();
 
   function addTodo() {

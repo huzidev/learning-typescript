@@ -4,30 +4,22 @@ import AddTodo from './todo/AddTodo';
 import TodoList from './todo/TodoList';
 import Top from './todo/Top';
 import 'antd/dist/antd.css';
-import { ThemeProvider } from "styled-components";
+import { useStore } from './store/index';
 import { GlobalStyles } from './styled-components/Global.styled';
 
-export default function App() {
+export default function App (): JSX.Element {
+  const store = useStore()
 
-  const theme = {
-    colors : {
-        darkModeText : "white",
-        darkModeColor : "black",
-        lightModeText : "black",
-        lightModeColor : "white"
-    }
-}
+  const dark = store.dark;
 
   return (
-    <ThemeProvider theme={theme}>
-      <div>
-        <GlobalStyles />
+    <div>
+      <GlobalStyles />
         <Col span={20}>
           <Top />
           <AddTodo />
           <TodoList />
         </Col>
-      </div>
-    </ThemeProvider>
+    </div>
   )
 }

@@ -15,7 +15,7 @@ export default function Top() {
     store.darkMode()
   }
 
-  // const mode = state ? <LightModeIcon /> : <NightlightIcon />
+  const mode = store.dark ? <LightModeIcon /> : <NightlightIcon />
 
   console.log('tetss', store.dark);
 
@@ -29,8 +29,7 @@ export default function Top() {
             </Col>
             <Col span={6}>
                 <Button onClick={dark}>
-                    {/* {mode} */}
-                    button
+                    {mode}
                 </Button>
             </Col>
         </Row>

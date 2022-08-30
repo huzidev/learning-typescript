@@ -11,10 +11,10 @@ export default function App() {
 
   const theme = {
     colors : {
-        fontColor : "blue",
-        backgroundColor : "aqua",
-        hoverColorBG : "purple",
-        hoverColorF : "white"
+        darkModeText : "white",
+        darkModeColor : "black",
+        lightModeText : "black",
+        lightModeColor : "white"
     }
 }
 

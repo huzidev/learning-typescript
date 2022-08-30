@@ -1,4 +1,4 @@
-import { Todo } from './types';
+import { Todo, Store } from './types';
 
 // for updating todo
 // here todos: Todo[] will takes all the data of todos in an array means it is complete list of todos therefore we've used (todos.map) function because todos will have all the data
@@ -29,9 +29,3 @@ export const addTodo = (todos: Todo[], text:string): Todo[] => [
         done: false
     },
 ];
-
-// export const darkMode = (todos: Todo[]): Todo[] =>
-//   todos.map((data) => ({
-//     ...data,
-//     dark: true
-//   }))

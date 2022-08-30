@@ -7,6 +7,7 @@ import * as actions from './actions';
 export const useStore = create<Store>((set) => ({
     todos: [],
     newTodo: "",
+    // byDefault state for dark-mode
     dark: false,
     add() {
         set((state) => ({

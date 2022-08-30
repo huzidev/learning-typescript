@@ -6,6 +6,7 @@ export default function UseState() {
   // defining types with useState
   const [number, setNumber] = useState<number>(0);
   const [state, setState] = useState<boolean>(false);
+  const [input, setInput] = useState<string>('');
 
   // for increment number by one
   function inc() {
@@ -17,6 +18,10 @@ export default function UseState() {
   }
 
   const showState = state ? 'True' : 'False'
+
+  function handleInput(event: React.FormEvent) {
+    event.preventDefault()
+  }
 
   return (
     <div>

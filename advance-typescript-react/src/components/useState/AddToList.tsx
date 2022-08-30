@@ -8,15 +8,11 @@ export default function AddToList() {
     note: ""
   });
 
-  let name, value;
-  
-  function handleInput(event: React.FormEvent) {
-    name = event.target.name;
-    value = event.target.value;
+  function handleInput(e) {
     setInput({
         ...input,
-        [name]: value
-    })
+        [e.target.name]: e.target.value
+    })  
   }
 
   return (
@@ -27,18 +23,21 @@ export default function AddToList() {
             placeholder="Name"
             name="name"
             value={input.name}
+            onChange={handleInput}
             />
         <input 
             type="text"
             placeholder="Age"
             name="age"
             value={input.age}
+            onChange={handleInput}
             />
         <input 
             type="text"
             placeholder="Note (Optional)"
             name="note"
             value={input.note}
+            onChange={handleInput}
         />
     </div>
   )

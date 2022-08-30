@@ -11,13 +11,13 @@ export const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
     }
     .dark-mode {
-        background-color: black;
+        background-color: #292929;
         color: white;
         transition: all 700ms ease-in-out;
     }
     .light-mode {
         background-color: white;
-        color: black;
+        color: #292929;
         transition: all 700ms ease-in-out;
     }
  

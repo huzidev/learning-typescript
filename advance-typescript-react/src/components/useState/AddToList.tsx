@@ -20,29 +20,41 @@ export default function AddToList() {
     })
   }
 
+
+  function handleClick() {
+    
+  }
+
   return (
     <div>
         Add To list
+        <br />
         <input 
             type="text"
             placeholder="Name"
             name="name"
             value={input.name}
             onChange={handleInput}
-            />
+        />
+        <br />
         <input 
             type="text"
             placeholder="Age"
             name="age"
             value={input.age}
             onChange={handleInput}
-            />
+        />
+        <br />
         <textarea 
             placeholder="Note (Optional)"
             name="note"
             value={input.note}
             onChange={handleInput}
         />
+        <br />
+        <button onClick={handleClick}>
+            Add to list
+        </button>
     </div>
   )
 }

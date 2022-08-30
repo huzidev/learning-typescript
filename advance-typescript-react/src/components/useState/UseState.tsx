@@ -36,6 +36,12 @@ export default function UseState() {
         <button onClick={chnageState}>
           Change State
         </button>
+        <br />
+        <input 
+          type="text" 
+          value={input}
+          onChange={(event) => event.target.value}
+        />
     </div>
   )
 }

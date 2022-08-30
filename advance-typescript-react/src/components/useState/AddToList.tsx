@@ -8,6 +8,10 @@ export default function AddToList() {
     note: ""
   })
 
+  function handleInput() {
+    
+  }
+
   return (
     <div>
         Add To list

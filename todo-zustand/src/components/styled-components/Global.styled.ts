@@ -14,11 +14,18 @@ export const GlobalStyles = createGlobalStyle`
         background-color: #292929;
         color: white;
         transition: all 700ms ease-in-out;
+        .dark-mode {
+            transition: all 700ms ease-in-out;
+            color: white
+        }
     }
     .light-mode {
         background-color: white;
         color: #292929;
         transition: all 700ms ease-in-out;
     }
- 
+    .toggle-dark-mode {
+        cursor: pointer;
+        width: 200px;
+    }
 `

@@ -22,14 +22,14 @@ export default function Top (): JSX.Element {
     <div className={classForDark}>
         <Row>
             <Col span={18}>
-                <Typography.Title className='test'>
+                <Typography.Title className={classForDark}>
                     Todo List
                 </Typography.Title>
             </Col>
             <Col span={6}>
-                <Button onClick={dark}>
+                <button onClick={dark} className={`${classForDark} toggle-dark-mode`}>
                     {mode}
-                </Button>
+                </button>
             </Col>
         </Row>
     </div>

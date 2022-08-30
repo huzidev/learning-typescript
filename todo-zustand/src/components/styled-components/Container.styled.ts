@@ -9,5 +9,5 @@ export const Wrapper = styled.div<Props>`
     height: 100vh;
     width: 100%;
     background-color: ${((props) => props.dark ? 'black' : 'white')};
-    transition: all 500ms ease-in-out;
+    transition: all 700ms ease-in-out;
 `

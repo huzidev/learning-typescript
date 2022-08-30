@@ -13,11 +13,12 @@ export const GlobalStyles = createGlobalStyle`
     .dark-mode {
         background-color: black;
         color: white;
-        transition: all 500ms ease-in-out;
+        transition: all 700ms ease-in-out;
     }
     .light-mode {
         background-color: white;
         color: black;
-        transition: all 500ms ease-in-out;
+        transition: all 700ms ease-in-out;
     }
+ 
 `

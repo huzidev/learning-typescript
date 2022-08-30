@@ -4,7 +4,6 @@ import { Input, Button, Col, Row, Checkbox } from 'antd';
 export default function TodoList (): JSX.Element {
   // Zustand store functions
   const store = useStore();
-  console.log('is it?', store.todos);
   const classForDark = store.dark ? 'dark-mode' : 'light-mode'
   return (
     <div className={classForDark}>

@@ -22,7 +22,7 @@ export default function Top (): JSX.Element {
     <div className={classForDark}>
         <Row>
             <Col span={18}>
-                <Typography.Title className={classForDark}>
+                <Typography.Title className='test'>
                     Todo List
                 </Typography.Title>
             </Col>

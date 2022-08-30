@@ -6,10 +6,17 @@ export default function AddToList() {
     name: "",
     age: "",
     note: ""
-  })
+  });
 
-  function handleInput() {
-    
+  let name, value;
+  
+  function handleInput(event: React.FormEvent) {
+    name = event.target.name;
+    value = event.target.value;
+    setInput({
+        ...input,
+        [name]: value
+    })
   }
 
   return (

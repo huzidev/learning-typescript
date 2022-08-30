@@ -25,9 +25,9 @@ export default function Top (): JSX.Element {
                 </Typography.Title>
             </Col>
             <Col span={6}>
-                <Button onClick={dark}>
+                <button onClick={dark}>
                     {mode}
-                </Button>
+                </button>
             </Col>
         </Row>
     </div>

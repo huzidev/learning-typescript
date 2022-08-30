@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components"
 
 import { useStore } from "../store/index"
 
-const store = useStore;
+const Store = useStore;
 
 export const GlobalStyles = createGlobalStyle`
     * {

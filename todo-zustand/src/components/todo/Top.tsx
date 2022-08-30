@@ -14,20 +14,22 @@ export default function Top (): JSX.Element {
 
   const mode = store.dark ? <LightModeIcon /> : <NightlightIcon />
 
+  const classForDark = store.dark ? 'dark-mode' : 'light-mode'
+
   console.log('tetss', store.dark);
 
   return (
-    <div>
+    <div className={classForDark}>
         <Row>
             <Col span={18}>
-                <Typography.Title>
+                <Typography.Title className={classForDark}>
                     Todo List
                 </Typography.Title>
             </Col>
             <Col span={6}>
-                <button onClick={dark}>
+                <Button onClick={dark}>
                     {mode}
-                </button>
+                </Button>
             </Col>
         </Row>
     </div>

@@ -5,8 +5,9 @@ export default function TodoList (): JSX.Element {
   // Zustand store functions
   const store = useStore();
   console.log('is it?', store.todos);
+  const classForDark = store.dark ? 'dark-mode' : 'light-mode'
   return (
-    <div>
+    <div className={classForDark}>
       {store.todos.map((data) => (
         <div key={data.id}>
           <Checkbox 

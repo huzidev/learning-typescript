@@ -10,5 +10,14 @@ export const GlobalStyles = createGlobalStyle`
         padding: 0px;
         box-sizing: border-box;
     }
-
+    .dark-mode {
+        background-color: black;
+        color: white;
+        transition: all 500ms ease-in-out;
+    }
+    .light-mode {
+        background-color: white;
+        color: black;
+        transition: all 500ms ease-in-out;
+    }
 `

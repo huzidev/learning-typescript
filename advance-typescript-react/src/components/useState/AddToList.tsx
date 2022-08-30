@@ -8,7 +8,7 @@ export default function AddToList() {
     note: ""
   });
 
-  function handleInput(e) {
+  function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
     setInput({
         ...input,
         [e.target.name]: e.target.value

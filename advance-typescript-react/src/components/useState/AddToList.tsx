@@ -5,7 +5,7 @@ import { Data as Props } from './types';
 interface DataTypes {
   // props[] have types name: string, age: number
   person: Props[]
-  // we know that (setPerson) is function and for type if it we simply (HOVER) over the (setPerson) created in UseState.tsx components
+  // (setPerson) is function for type (HOVER) over the (setPerson) created in UseState.tsx components
   setPerson: React.Dispatch<React.SetStateAction<Props[]>>
 }
 
@@ -52,11 +52,19 @@ export default function AddToList({ person, setPerson }: DataTypes): JSX.Element
       ...person,
       {
         name: input.name,
-        age: input.age,
+        // because typescript wants type and age is saving as string in JSON
+        // use arseInt(input.age) for number
+        age: parseInt(input.age),
         note: input.note
       }
     ])
 
+    // input tag to empty after submit
+    setInput({
+      name: "",
+      age: "",
+      note: ""
+    })
   }
 
   return (
@@ -72,7 +80,7 @@ export default function AddToList({ person, setPerson }: DataTypes): JSX.Element
         />
         <br />
         <input 
-            type="text"
+            type="number"
             placeholder="Age"
             name="age"
             value={input.age}

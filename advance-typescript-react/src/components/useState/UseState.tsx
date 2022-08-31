@@ -48,7 +48,7 @@ export default function UseState() {
         </button>
         <br />
         <List person={person}/>
-        <AddToList />
+        <AddToList person={person} setPerson={setPerson}/>
     </div>
   )
 }

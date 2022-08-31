@@ -1,7 +1,7 @@
 import React from 'react';
 import Home from './home/Home';
 import UseState from './useState/UseState';
-import ShoppingCart from './cart/ShoppingCart';
+import ShoppingCart from './cart';
 import Error from './error/Error';
 import { GlobalStyles } from './styled-components/Global.styled';
 import {
@@ -18,7 +18,7 @@ export default function App(): JSX.Element {
           <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/state" element={<UseState />} />
-              <Route path="/shoppingCart" element={<ShoppingCart />} />
+              <Route path="/cart" element={<ShoppingCart />} />
               <Route path="*" element={<Error />} />
           </Routes>
       </Router>

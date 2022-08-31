@@ -47,6 +47,7 @@ export default function UseState() {
           Change State
         </button>
         <br />
+        {/* person from useState have the data like age, name and we've passed it as a props (BECAUSE) in List component we've used (map) method for displaying */}
         <List person={person}/>
         <AddToList person={person} setPerson={setPerson}/>
     </div>

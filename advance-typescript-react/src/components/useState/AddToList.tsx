@@ -33,7 +33,13 @@ export default function AddToList({ person, setPerson }: DataTypes): JSX.Element
 
 
   function handleClick() {
-    
+    if (
+      input.name.length <= 0 ||
+      input.age.length <= 0
+      // note? is optional
+    ) {
+      
+    }
   }
 
   return (

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Data as Props } from './types'; 
 
 // for adding data to list
 export default function AddToList() {

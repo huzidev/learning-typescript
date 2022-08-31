@@ -22,7 +22,7 @@ export default function List({ person }: DataTypes): JSX.Element {
                     {data.note}
                 </h3>
             </div>
-        )}
+        ))}
     </div>
   )
 }

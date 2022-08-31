@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { Data as Props } from './types'; 
+import { Data as Props } from './types';
+
+
+interface DataTypes {
+  person: Props[]
+  setPerson: React.Dispatch<React.SetStateAction<Props[]>>
+}
 
 // for adding data to list
 export default function AddToList() {

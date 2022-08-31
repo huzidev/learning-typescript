@@ -1,7 +1,7 @@
 import React from 'react';
 import Home from './home/Home';
 import UseState from './useState/UseState';
-import ShoppingCart from './cart/shoppingCart';
+import ShoppingCart from './cart/ShoppingCart';
 import {
   BrowserRouter as Router,
   Routes,
@@ -11,9 +11,6 @@ import {
 export default function App(): JSX.Element {
   return (
     <div>
-      <h3>
-        Home page
-      </h3>
       <Router>
           <Routes>
               <Route path="/" element={<Home />} />

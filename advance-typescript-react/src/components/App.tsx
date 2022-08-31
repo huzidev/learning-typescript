@@ -2,6 +2,7 @@ import React from 'react';
 import Home from './home/Home';
 import UseState from './useState/UseState';
 import ShoppingCart from './cart/ShoppingCart';
+import Error from './error/Error';
 import {
   BrowserRouter as Router,
   Routes,
@@ -16,6 +17,7 @@ export default function App(): JSX.Element {
               <Route path="/" element={<Home />} />
               <Route path="/state" element={<UseState />} />
               <Route path="/shoppingCart" element={<ShoppingCart />} />
+              <Route path="*" element={<Error />} />
           </Routes>
       </Router>
     </div>

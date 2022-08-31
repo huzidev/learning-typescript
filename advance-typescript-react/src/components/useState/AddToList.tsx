@@ -33,12 +33,13 @@ export default function AddToList({ person, setPerson }: DataTypes): JSX.Element
 
 
   function handleClick() {
-    if (
-      input.name.length <= 0 ||
-      input.age.length <= 0
-      // note? is optional
-    ) {
-      
+    if (input.name.length <= 0) {
+        window.alert(`name field must be greater than 1 character`)
+        return
+      }
+    else if (input.age.length <= 0) {
+      window.alert(`name field must be greater than 1 character`)
+      return
     }
   }
 

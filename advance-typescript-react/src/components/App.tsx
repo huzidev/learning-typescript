@@ -1,7 +1,7 @@
 import React from 'react';
 import Home from './home/Home';
 import UseState from './useState/UseState';
-import ShoppingCart from './cart';
+import ShoppingCart from './cart/index';
 import Error from './error/Error';
 import { GlobalStyles } from './styled-components/Global.styled';
 import {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Data as Props } from './types';
 
 
@@ -42,7 +42,7 @@ export default function AddToList({ person, setPerson }: DataTypes): JSX.Element
       return
     }
     // note? is optional
-
+    
     // for adding data to array
     setPerson([
       // all previous data in array
@@ -63,24 +63,6 @@ export default function AddToList({ person, setPerson }: DataTypes): JSX.Element
       note: ""
     })
   }
-
-  let initData;
-
-  if(!localStorage.getItem("info")){
-
-    initData = []
-
-  }
-
-  else{
-
-    initData = JSON.parse(localStorage.getItem("info"))
-
-  }
-
-  React.useEffect(() => {
-    localStorage.setItem("info", JSON.stringify())
-  }, [])
 
   return (
     <div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+// for adding data to list
 export default function AddToList() {
 
   const [input, setInput] = useState({

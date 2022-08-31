@@ -4,15 +4,14 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import UseState from './useState/UseState';
+import Home from './home/Home';
 
-export default function App() {
+export default function App(): JSX.Element {
   return (
     <div>
       <Router>
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/" element={<UseState />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </Router>
     </div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import AddToList from './AddToList';
 import List from './List';
 import { Data } from './types';
+import { Link } from 'react-router-dom';
 
 export default function UseState() {
 
@@ -51,6 +52,9 @@ export default function UseState() {
         <List person={person}/>
         {/* person and setPerson both are from React.useState and we've passed it as props at addToList component because their we've defined all the input tag to add data to list */}
         <AddToList person={person} setPerson={setPerson}/>
+        <Link to='/'>
+          Go bact to home
+        </Link>
     </div>
   )
 }

@@ -15,6 +15,7 @@ export default function AddToList() {
   // and remember we've used textarea for notes therefore we've used (union) for textarea
   function handleInput(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void {
     setInput({
+        // here ...input what ever the current input element is if we hover over ...input we can see some empty string with keys like name: "", age: ""
         ...input,
         [event.target.name]: event.target.value
     })

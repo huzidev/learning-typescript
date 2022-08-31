@@ -2,6 +2,7 @@ import React from 'react';
 import { Data as Props } from './types'; 
 
 interface DataTypes {
+    // because the types is an array of object
     person: Props[]
 }
 

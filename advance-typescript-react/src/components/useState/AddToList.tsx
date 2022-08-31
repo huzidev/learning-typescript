@@ -42,10 +42,7 @@ export default function AddToList({ person, setPerson }: DataTypes): JSX.Element
       return
     }
     // note? is optional
-    else if (input.note.length <= 0) {
-      return "NIL"
-    }
-
+    
     // for adding data to array
     setPerson([
       // all previous data in array

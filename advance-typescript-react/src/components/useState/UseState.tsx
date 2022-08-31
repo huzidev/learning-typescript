@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import AddToList from './AddToList';
+import List from './List';
 
 export default function UseState() {
 
@@ -21,8 +22,7 @@ export default function UseState() {
 
 
   // for array of objects {}[]
-
-  interface Data {
+  export interface Data {
     name: string,
     age: number,
     // means note of type optional
@@ -52,6 +52,7 @@ export default function UseState() {
           Change State
         </button>
         <br />
+        <List />
         <AddToList person={person} />
     </div>
   )

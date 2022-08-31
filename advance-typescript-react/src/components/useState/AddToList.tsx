@@ -8,7 +8,7 @@ interface DataTypes {
 }
 
 // for adding data to list
-export default function AddToList() {
+export default function AddToList({ person, setPerson }: DataTypes): JSX.Element {
 
   const [input, setInput] = useState({
     name: "",

@@ -49,6 +49,7 @@ export default function UseState() {
         <br />
         {/* person from useState have the data like age, name and we've passed it as a props (BECAUSE) in List component we've used (map) method for displaying */}
         <List person={person}/>
+        {/* person and setPerson both are from React.useState and we've passed it as props at addToList component because their we've defined all the input tag to add data to list */}
         <AddToList person={person} setPerson={setPerson}/>
     </div>
   )

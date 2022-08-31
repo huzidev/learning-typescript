@@ -41,6 +41,22 @@ export default function AddToList({ person, setPerson }: DataTypes): JSX.Element
       window.alert(`name field must be greater than 1 character`)
       return
     }
+    // note? is optional
+    else if (input.note.length <= 0) {
+      return "NIL"
+    }
+
+    // for adding data to array
+    setPerson([
+      // all previous data in array
+      ...person,
+      {
+        name: input.name,
+        age: input.age,
+        note: input.note
+      }
+    ])
+
   }
 
   return (

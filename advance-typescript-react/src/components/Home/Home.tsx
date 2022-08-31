@@ -1,5 +1,6 @@
 import React from 'react';
 import UseState from '../useState/UseState';
+import ShoppingCart from '../shoppingCart/shoppingCart';
 import {
     BrowserRouter as Router,
     Routes,
@@ -16,7 +17,8 @@ export default function Home(): JSX.Element {
             <li>
                 <Router>
                     <Routes>
-                        <Route path="/" element={<UseState />} />
+                        <Route path="/State" element={<UseState />} />
+                        <Route path="/ShoppingCart" element={<ShoppingCart />} />
                     </Routes>
                 </Router>
             </li>

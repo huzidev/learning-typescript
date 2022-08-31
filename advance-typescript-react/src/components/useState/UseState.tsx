@@ -22,8 +22,8 @@ export default function UseState() {
   
 
 
+  
   // for array of objects {}[]
-
   // here if we din't used (DATA) which is ours interface then we cab't specify that whether is is array of number, array of strings, array of boolean IF we just used useState([])
   // it is mandatory to use the (array sign []) with <Data[]> because we've to defined that it is {array of object} as interface is already as a type object because we've used {} curly braces
   // therefore we've used useState<Data[]>([]) and it is mandatory to use like this <Data[]>

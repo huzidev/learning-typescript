@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import AddToList from './AddToList';
 
 export default function UseState() {
 
@@ -51,11 +52,7 @@ export default function UseState() {
           Change State
         </button>
         <br />
-        <input 
-          type="text" 
-          value={input}
-          onChange={(event) => event.target.value}
-        />
+        <AddToList />
     </div>
   )
 }

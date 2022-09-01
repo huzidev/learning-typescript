@@ -6,6 +6,9 @@ export function NavBar(): JSX.Element {
   return (
     <>
       <Nav>
+        <Link to='/' className='link'>
+          Home
+        </Link>
         <Link to='/cart/data' className='link'>
           Data
         </Link>

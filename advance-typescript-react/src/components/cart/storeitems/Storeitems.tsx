@@ -30,6 +30,22 @@ export function Storeitems({ id, name, price, url }: ItemsType): JSX.Element {
             + Add To Cart
           </button>
         )
+        : (
+          <div>
+            <button>
+              -
+            </button>
+            <div>
+              {quantity} in cart
+            </div>
+            <button>
+              +
+            </button>
+            <button>
+              Remove
+            </button>
+          </div>
+        )
       }
     </>
   )

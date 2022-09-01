@@ -19,7 +19,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
 
     function getItemQuantity(id: number) {
         // if item.id === id ? then get (total quantity) else return 0 (quantity)
-        return cartItems.find((item: any) => item.id === id)?.quanity || 0
+        return cartItems.find((item: any) => item.id === id)?.quantity || 0
     }
 
 
@@ -40,10 +40,10 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
             else {
                 return currItems.map((item: any) => {
                     if (item.id === id) {
-                        return [
+                        return {
                             ...item,
                             quantity: item.quantity + 1
-                        ]
+                        }
                     }
                     else {
                         return item
@@ -63,10 +63,10 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
             else {
                 return currItems.map((item: any) => {
                     if (item.id === id) {
-                        return [
-                            ...item,
+                        return {
+                            ...item, 
                             quantity: item.quantity - 1
-                        ]
+                        }
                     }
                     else {
                         return item

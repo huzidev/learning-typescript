@@ -17,5 +17,5 @@ export  interface ShoppingCartContextProps {
 export interface CartItem {
     // by id we can get complete data hence no need for price, name etc
     id: number
-    qunatity: number
+    quantity: number
 }

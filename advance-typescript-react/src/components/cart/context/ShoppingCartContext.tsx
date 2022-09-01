@@ -17,7 +17,11 @@ export function useShoppingCart() {
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     const [cartItems, setCartItems] = useState<CartItem[]>([])
 
-    console.log('cardadsa', cartItems);
+    // for total quantity
+    const cartQuantity = cartItems.reduce(
+        (quantity, item) => item.quantity + quantity,
+        0 // starts with zero
+    )
 
     function getItemQuantity(id: number) {
         // if item.id === id ? then get (total quantity) else return 0 (quantity)
@@ -89,7 +93,9 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
             getItemQuantity,
             increaseCartQuantity,
             decreaseCartQuantity,
-            removeFromCart
+            removeFromCart,
+            cartItems,
+            cartQuantity
         }}>
             {children}
         </ShoppingCartContext.Provider>

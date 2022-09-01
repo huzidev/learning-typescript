@@ -1,6 +1,6 @@
 import React from 'react';
 import Items from '../../data/items.json';
-import { Storeitems } from '../../storeitems/Storeitems';
+import { Storeitems } from '../storeitems/Storeitems';
 import { Container } from '../../styled-components/Container.styled';
 
 export function Store(): JSX.Element {

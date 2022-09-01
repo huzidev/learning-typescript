@@ -3,7 +3,7 @@ import Items from '../../data/items.json';
 import { Storeitems } from '../../storeitems/Storeitems';
 import { Container } from '../../styled-components/Container.styled';
 
-export function Store() {
+export function Store(): JSX.Element {
   return (
     <Container>
       Store
@@ -11,6 +11,7 @@ export function Store() {
         {Items.map((data) => (
           <div key={data.id}>
             {/* passing props */}
+            {/* ...data spread operator to pass all data id, name, url price */}
             <Storeitems {...data} />
           </div>
         ))

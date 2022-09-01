@@ -2,7 +2,7 @@ import React from 'react';
 import { Nav } from '../../styled-components/Nav.styled';
 import { Link } from 'react-router-dom';
 
-export function NavBar() {
+export function NavBar(): JSX.Element {
   return (
       <Nav>
         <Link to='/cart/data' className='link'>

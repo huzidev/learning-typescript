@@ -3,6 +3,7 @@ import { FormatCurrency } from '../utils/FormatCurrency';
 
 import { ItemsType } from '../types/Types'
 import { useShoppingCart } from '../context/ShoppingCartContext';
+import { YoursCart } from '../pages/YoursCart';
 
 export function Storeitems({ id, name, price, url }: ItemsType): JSX.Element {
 
@@ -49,6 +50,7 @@ export function Storeitems({ id, name, price, url }: ItemsType): JSX.Element {
           </div>
         )
       }
+      <YoursCart />
     </>
   )
 }

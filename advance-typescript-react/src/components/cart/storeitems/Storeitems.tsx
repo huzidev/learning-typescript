@@ -32,16 +32,16 @@ export function Storeitems({ id, name, price, url }: ItemsType): JSX.Element {
         )
         : (
           <div>
-            <button>
+            <button onClick={() => decreaseCartQuantity(id)}>
               -
             </button>
             <div>
               {quantity} in cart
             </div>
-            <button>
+            <button onClick={() => increaseCartQuantity(id)}>
               +
             </button>
-            <button>
+            <button onClick={() => removeFromCart(id)}>
               Remove
             </button>
           </div>

@@ -15,7 +15,7 @@ export function useShoppingCart() {
 }
 
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
-    const [cartItems, setCartItems] = useState<CartItem[]>{[]}
+    const [cartItems, setCartItems] = useState<CartItem[]>([])
 
     function getItemQuantity(id: number) {
         // if item.id === id ? then get (total quantity) else return 0 (quantity)
@@ -86,7 +86,8 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         <ShoppingCartContext.Provider value={{ 
             getItemQuantity,
             increaseCartQuantity,
-            decreaseCartQuantity
+            decreaseCartQuantity,
+            removeFromCart
         }}>
             {children}
         </ShoppingCartContext.Provider>

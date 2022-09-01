@@ -1,8 +1,10 @@
 import React from 'react';
 import { Nav } from '../../styled-components/Nav.styled';
 import { Link } from 'react-router-dom';
+import { useShoppingCart } from '../context/ShoppingCartContext';
 
 export function NavBar(): JSX.Element {
+  const { cartQuantity } = useShoppingCart()
   return (
     <>
       <Nav>
@@ -21,7 +23,7 @@ export function NavBar(): JSX.Element {
         <button>
           Yours Cart 
           <div>
-            3 items
+            {cartQuantity}
           </div>
         </button>
       </Nav>

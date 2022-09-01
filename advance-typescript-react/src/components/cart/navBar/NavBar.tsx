@@ -15,6 +15,12 @@ export function NavBar() {
         <Link to='/cart/store'className='link'>
           Store
         </Link>
+        <button>
+          Yours Cart 
+          <div>
+            3 items
+          </div>
+        </button>
       </Nav>
   )
 }

@@ -16,5 +16,11 @@
         "name:": "Third product",
         "price": 55,
         "url": "/assets/fifth.jpg"
+    },
+    {
+        "id": 4,
+        "name:": "Second product",
+        "price": 15,
+        "url": "/assets/second.jpg"
     }
 ]

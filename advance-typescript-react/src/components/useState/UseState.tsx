@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import AddToList from './AddToList';
-import List from './List';
+import { AddToList } from './AddToList';
+import { List } from './List';
 import { Data } from './types';
 import { Link } from 'react-router-dom';
 
-export default function UseState() {
+export function UseState() {
 
   // defining types with useState
   const [number, setNumber] = useState<number>(0);

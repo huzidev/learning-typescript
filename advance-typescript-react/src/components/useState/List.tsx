@@ -7,7 +7,7 @@ interface DataTypes {
 }
 
 // for showing all the inserted data
-export default function List({ person }: DataTypes): JSX.Element {
+export function List({ person }: DataTypes): JSX.Element {
   return (
     <div>
         {person.map((data) => (

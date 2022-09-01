@@ -5,6 +5,11 @@ interface ShoppingCartProviderProps {
     children: ReactNode
 }
 
+// types for inc, dec, remove and total quantity
+interface ShoppingCartContext {
+    getItemQuantity: (id: number) => number
+}
+
 const ShoppingCartContext = createContext({})
 
 // custom hook

@@ -1,10 +1,11 @@
 import React from 'react';
 import { FormatCurrency } from '../utils/FormatCurrency';
+import { ShoppingCartProvider } from '../context/ShoppingCartContext';
 import { ItemsType } from './types'
 
 export function Storeitems({ name, price, url }: ItemsType): JSX.Element {
   return (
-    <div>
+    <ShoppingCartProvider>
       <img src={url} alt="product-img" />
       <h5>
         Product name: {name}
@@ -12,6 +13,6 @@ export function Storeitems({ name, price, url }: ItemsType): JSX.Element {
       <p>
         price: {FormatCurrency(price)}
       </p>
-    </div>
+    </ShoppingCartProvider>
   )
 }

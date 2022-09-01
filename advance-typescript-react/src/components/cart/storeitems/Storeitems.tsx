@@ -24,6 +24,13 @@ export function Storeitems({ id, name, price, url }: ItemsType): JSX.Element {
       <p>
         price: {FormatCurrency(price)}
       </p>
+      {quantity === 0
+        ? (
+          <button onClick={() => increaseCartQuantity(id)}>
+            + Add To Cart
+          </button>
+        )
+      }
     </>
   )
 }

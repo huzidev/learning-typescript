@@ -11,9 +11,6 @@ export function NavBar(): JSX.Element {
         <Link to='/' className='link'>
           Home
         </Link>
-        <Link to='/cart/data' className='link'>
-          Data
-        </Link>
         <Link to='/cart/about' className='link'>
           About
         </Link>
@@ -21,7 +18,9 @@ export function NavBar(): JSX.Element {
           Store
         </Link>
         <button>
-          Yours Cart 
+          <Link to='/cart/yours-cart'>
+            Yours Cart 
+          </Link>
           <div>
             {cartQuantity}
           </div>

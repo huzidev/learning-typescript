@@ -24,7 +24,7 @@ export default function App(): JSX.Element {
             <NavBar />
             <Routes>
                 <Route path="/" element={<Home />} />
-                {/* <Route path="/state" element={<UseState />} /> */}
+                <Route path="/state" element={<UseState />} />
                 <Route path="/cart" element={<ShoppingCart />} />
                 <Route path="/cart/data" element={<Data />} />
                 <Route path="/cart/about" element={<About />} />

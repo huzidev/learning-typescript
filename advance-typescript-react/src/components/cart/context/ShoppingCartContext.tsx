@@ -26,7 +26,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     function increaseCartQuantity(id: number) {
         setCartItems((currItems: any) => {
             // if cart empty
-            if (currItems.find((items: any) => items.id ===id) === null) {
+            if (currItems.find((items: any) => items.id === id) === null) {
                 return [
                     // all current items
                     ...currItems,
@@ -43,6 +43,29 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
                         return [
                             ...item,
                             quantity: item.quantity + 1
+                        ]
+                    }
+                    else {
+                        return item
+                    }
+                })
+            }
+        })
+    }
+
+    function decreaseCartQuantity(id: number) {
+        setCartItems((currItems: any) => {
+            // if only one item is in the cart
+            if (currItems.find((items: any) => items.id === id)?.quantity === 1) {
+                return currItems.filter((item: any) => item.id !== id)
+            }
+            // if item exist
+            else {
+                return currItems.map((item: any) => {
+                    if (item.id === id) {
+                        return [
+                            ...item,
+                            quantity: item.quantity - 1
                         ]
                     }
                     else {

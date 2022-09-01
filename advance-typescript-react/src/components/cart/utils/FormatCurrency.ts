@@ -4,8 +4,8 @@ const CURRENCY_FORAMTTER = new Intl.NumberFormat(undefined, {
     style: "currency"
 })
 
-export function FormatCurrency() {
+export function FormatCurrency(number: number) {
   return (
-
+    CURRENCY_FORAMTTER.format(number)
   )
 }

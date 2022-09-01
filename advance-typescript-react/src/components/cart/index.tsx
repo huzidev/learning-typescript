@@ -5,7 +5,6 @@ import { NavBar } from './navBar/NavBar';
 export function ShoppingCart(): JSX.Element {
   return (
     <div>
-      shoppingCart
       <NavBar />
       <br />
       <Link to='/'>

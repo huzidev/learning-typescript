@@ -9,7 +9,6 @@ export function Home(): JSX.Element {
             <ul>
                 <li>
                     <Link to='/state'>useState</Link>
-                    <Link to='/cart'>Shopping App</Link>
                 </li>
             </ul>
         </h3>

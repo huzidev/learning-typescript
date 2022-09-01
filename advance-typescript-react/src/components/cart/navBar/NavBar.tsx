@@ -1,11 +1,10 @@
 import React from 'react';
 import { Nav } from '../../styled-components/Nav.styled';
 import { Link } from 'react-router-dom';
-import { ShoppingCartProvider } from '../context/ShoppingCartContext';
 
 export function NavBar(): JSX.Element {
   return (
-    <ShoppingCartProvider>
+    <>
       <Nav>
         <Link to='/cart/data' className='link'>
           Data
@@ -23,6 +22,6 @@ export function NavBar(): JSX.Element {
           </div>
         </button>
       </Nav>
-    </ShoppingCartProvider>
+    </>
   )
 }

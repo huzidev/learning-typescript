@@ -12,21 +12,26 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import { ShoppingCartProvider } from '../components/cart/context/ShoppingCartContext';
+import { NavBar } from '../components/cart/navBar/NavBar';
 
 export default function App(): JSX.Element {
   return (
     <div>
       <Router>
-        <GlobalStyles />
-          <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/state" element={<UseState />} />
-              <Route path="/cart" element={<ShoppingCart />} />
-              <Route path="/cart/data" element={<Data />} />
-              <Route path="/cart/about" element={<About />} />
-              <Route path="/cart/store" element={<Store />} />
-              <Route path="*" element={<Error />} />
-          </Routes>
+        <ShoppingCartProvider>
+            <GlobalStyles />
+            <NavBar />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                {/* <Route path="/state" element={<UseState />} /> */}
+                <Route path="/cart" element={<ShoppingCart />} />
+                <Route path="/cart/data" element={<Data />} />
+                <Route path="/cart/about" element={<About />} />
+                <Route path="/cart/store" element={<Store />} />
+                <Route path="*" element={<Error />} />
+            </Routes>
+        </ShoppingCartProvider>
       </Router>
     </div>
   )

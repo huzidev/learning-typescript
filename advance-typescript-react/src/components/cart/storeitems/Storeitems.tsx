@@ -15,6 +15,8 @@ export function Storeitems({ id, name, price, url }: ItemsType): JSX.Element {
 
   const quantity = getItemQuantity(id)
 
+  console.log('QUANTITY', quantity);
+
   return (
     <>
       <img src={url} alt="product-img" />

@@ -17,6 +17,8 @@ export function useShoppingCart() {
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     const [cartItems, setCartItems] = useState<CartItem[]>([])
 
+    console.log('cardadsa', cartItems);
+
     function getItemQuantity(id: number) {
         // if item.id === id ? then get (total quantity) else return 0 (quantity)
         return cartItems.find((item: any) => item.id === id)?.quantity || 0
@@ -26,7 +28,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     function increaseCartQuantity(id: number) {
         setCartItems((currItems: any) => {
             // if cart empty
-            if (currItems.find((items: any) => items.id === id) === null) {
+            if (currItems.find((items: any) => items.id === id) == null) {
                 return [
                     // all current items
                     ...currItems,

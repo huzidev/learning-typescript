@@ -1,9 +1,10 @@
 import React from 'react';
+import { Nav } from '../../styled-components/Nav.styled';
 
 export function NavBar() {
   return (
-  <div>
-    NavBar
-  </div>
+    <Nav>
+      NavBar
+    </Nav>
   )
 }

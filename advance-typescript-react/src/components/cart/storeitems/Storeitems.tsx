@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormatCurrency } from '../utils/FormatCurrency';
 import { ShoppingCartProvider } from '../context/ShoppingCartContext';
-import { ItemsType } from './types'
+import { ItemsType } from '../types/Types'
 
 export function Storeitems({ name, price, url }: ItemsType): JSX.Element {
   return (

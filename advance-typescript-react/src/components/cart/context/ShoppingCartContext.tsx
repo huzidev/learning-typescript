@@ -1,16 +1,9 @@
 import { createContext, ReactNode, useContext } from "react";
+import { ShoppingCartContext } from '../types/Types';
 
 interface ShoppingCartProviderProps {
     // ReactNode is type for children property
     children: ReactNode
-}
-
-// types for inc, dec, remove and total quantity
-interface ShoppingCartContext {
-    getItemQuantity: (id: number) => number
-    increaseCartQuantity: (id: number) => void
-    decreaseCartQuantity: (id: number) => void
-    removeFromCart: (id: number) => void
 }
 
 const ShoppingCartContext = createContext({})

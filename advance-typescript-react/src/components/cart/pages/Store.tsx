@@ -8,7 +8,7 @@ export function Store(): JSX.Element {
     <Container>
       Store
       <div>
-        {Items.map((data) => (
+        {Items.map((data: any) => (
           <div key={data.id}>
             {/* passing props */}
             {/* ...data spread operator to pass all data id, name, url price */}

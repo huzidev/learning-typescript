@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { Container } from '../../styled-components/Container.styled';
 
 export function YoursCart() {
   return (
-    <div>
+    <Container>
       <h1>
-        Yours cart
+        YoursCart
       </h1>
-    </div>
+    </Container>
   )
 }

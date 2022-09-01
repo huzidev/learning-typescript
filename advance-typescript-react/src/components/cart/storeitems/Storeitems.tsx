@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormatCurrency } from '../utils/FormatCurrency';
 import { ItemsType } from './types'
 
 export function Storeitems({ name, price, url }: ItemsType): JSX.Element {
@@ -9,7 +10,7 @@ export function Storeitems({ name, price, url }: ItemsType): JSX.Element {
         Product name: {name}
       </h5>
       <p>
-        price: ${price}
+        price: {FormatCurrency(price)}
       </p>
     </div>
   )

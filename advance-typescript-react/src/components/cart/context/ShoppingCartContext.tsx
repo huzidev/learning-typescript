@@ -16,6 +16,12 @@ export function useShoppingCart() {
 
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     const [cartItems, setCartItems] = useState<CartItem[]>{[]}
+
+    function getItemQuantity(id: number) {
+        // if item.id === id ? then get (total quantity) else return 0 (quantity)
+        return cartItems.find((item) => item.id === id)?.quanity || 0
+    }
+
     return(
         <ShoppingCartContext.Provider value={{}}>
             {children}

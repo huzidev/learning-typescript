@@ -1,25 +1,25 @@
 [
     {
         "id": 1,
-        "name:": "First product",
+        "name": "First product",
         "price": 25,
         "url": "/assets/fifth.jpg"
     },
     {
         "id": 2,
-        "name:": "Second product",
+        "name": "Second product",
         "price": 35,
         "url": "/assets/second.jpg"
     },
     {
         "id": 3,
-        "name:": "Third product",
+        "name": "Third product",
         "price": 55,
         "url": "/assets/fifth.jpg"
     },
     {
         "id": 4,
-        "name:": "Second product",
+        "name": "Second product",
         "price": 15,
         "url": "/assets/second.jpg"
     }

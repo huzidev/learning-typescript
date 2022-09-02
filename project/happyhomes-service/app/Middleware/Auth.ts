@@ -67,11 +67,14 @@ export default class AuthMiddleware {
     [role]: string[] | UserRole[]
   ) {
     await this.authenticate(auth, [auth.name])
+
+    // if user is not active
     if (!auth.user?.isActive) {
       await auth.logout()
       throw { message: "User doesn't exists anymore", status: 404 }
     }
 
+    // if user is banned
     if (auth.user?.isBanned) {
       await auth.logout()
       throw { message: 'User is banned', status: 403 }
@@ -87,7 +90,8 @@ export default class AuthMiddleware {
       const guardRole = User.roles.indexOf(parsedRole)
       const userRole = User.roles.indexOf(auth.user!.role)
 
-      if (userRole < guardRole) { // because role is diff for superadmin, admin and realtor
+      if (userRole < guardRole) {
+        // because role is diff for superadmin, admin and realtor
         throw { message: 'Action not allowed', status: 401 }
       }
     }

@@ -70,6 +70,7 @@ export class UserV1Update {
     isVerified: schema.boolean.optional(),
     isActive: schema.boolean.optional(),
     isBanned: schema.boolean.optional(),
+    isTheme: schema.boolean.optional(),
   }
 
   public static messages = {

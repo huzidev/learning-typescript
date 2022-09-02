@@ -85,6 +85,7 @@ export default class UserV1sController {
           status: 400,
         }
       }
+      console.log('WHAT WILL BE BODY DATA???', body)
       const user = await User.findBy('id', userId)
       if (!user) {
         throw {

@@ -1,5 +1,6 @@
 import React from 'react';
 import Error from './error/Error';
+import Home from './home/Home';
 import { GlobalStyles } from './styled-components/Global.styled';
 
 import {
@@ -14,7 +15,7 @@ export default function App(): JSX.Element {
       <Router>
         <GlobalStyles />
         <Routes>
-            <Route path="/home" element={<UseState />} />
+            <Route path="/" element={<Home />} />
             <Route path="*" element={<Error />} />
         </Routes>
       </Router>

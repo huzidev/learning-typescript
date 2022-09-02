@@ -14,6 +14,7 @@ export default function App(): JSX.Element {
       <Router>
         <GlobalStyles />
         <Routes>
+            <Route path="/home" element={<UseState />} />
             <Route path="*" element={<Error />} />
         </Routes>
       </Router>

@@ -47,6 +47,18 @@ export class AuthV1VerifyEmailVerificationCode {
   }
 }
 
+export class AuthV1ResetPasswordSendCode {
+  public schema = schema.create({
+    // only email is required to send code
+    email: schema.string({}, [rules.email()]),
+  })
+
+  public messages = {
+    ...authValidationMessages,
+    required: '{{ field }} is required to reset password',
+  }
+}
+
 export class AuthV1ResetPassword {
   public schema = schema.create({
     email: schema.string({}, [rules.email()]),
@@ -56,6 +68,6 @@ export class AuthV1ResetPassword {
 
   public messages = {
     ...authValidationMessages,
-
+    required: '{{ field }} is required to reset password',
   }
 }

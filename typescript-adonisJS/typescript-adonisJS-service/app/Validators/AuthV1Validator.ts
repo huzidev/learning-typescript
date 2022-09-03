@@ -1,7 +1,6 @@
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 // SCHEMA for SignIn, SignUp, ResetPass etc
-
 export const authValidationMessages = {
   'required': '{{ field }} is required to sign up',
   'name.alpha': 'Invalid name',

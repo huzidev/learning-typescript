@@ -1,3 +1,4 @@
+// for default createdAt and updateAt
 import { DateTime } from 'luxon'
 import pick from 'lodash/pick'
 import Hash from '@ioc:Adonis/Core/Hash'

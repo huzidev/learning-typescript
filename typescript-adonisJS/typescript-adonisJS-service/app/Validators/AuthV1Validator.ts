@@ -35,3 +35,13 @@ export class AuthV1SignUp {
     required: '{{ field }} is required to sign up',
   }
 }
+
+export class AuthV1VerifyEmailVerificationCode {
+  public schema = schema.create({
+    code: schema.string({ trim: true }, [rules.verificationCode()]),
+  })
+
+  public messages = {
+    required: '{{ field }} is required for email verfication',
+  }
+}

@@ -11,7 +11,7 @@ export const authValidationMessages = {
 
 export class AuthV1SignIn {
   public schema = schema.create({
-    username: schema.string(),
+    name: schema.string(),
     email: schema.string({}, [rules.email()]),
     password: schema.string({}, [rules.minLength(6)]),
   })
@@ -19,5 +19,19 @@ export class AuthV1SignIn {
   public messages = {
     ...authValidationMessages,
     required: '{{ field }} is required to sign in',
+  }
+}
+
+export class AuthV1SignUp {
+  public schema = schema.create({
+    isRealtor: schema.boolean.optional(),
+    name: schema.string({ trim: true }, [rules.fullName()]),
+    email: schema.string({}, [rules.email()]),
+    password: schema.string({}, [rules.minLength(6), rules.confirmed('passwordConfirmation')]),
+  })
+
+  public messages = {
+    ...authValidationMessages,
+    required: '{{ field }} is required to sign up',
   }
 }

@@ -42,6 +42,7 @@ export class AuthV1VerifyEmailVerificationCode {
   })
 
   public messages = {
-    required: '{{ field }} is required for email verfication',
+    'required': '{{ field }} is required for email verfication',
+    'code.*': 'invalid code',
   }
 }

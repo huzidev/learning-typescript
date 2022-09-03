@@ -10,5 +10,9 @@ export const authValidationMessages = {
 }
 
 export class AuthV1SignIn {
-
+  public schema = schema.create({
+    username: schema.string(),
+    email: schema.string({}, [rules.email()]),
+    password: schema.string({}, [rules.minLength(6)]),
+  })
 }

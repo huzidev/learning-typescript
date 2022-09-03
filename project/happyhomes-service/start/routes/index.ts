@@ -30,6 +30,7 @@ Route.group(() => {
   AuthRoutes()
   UserRoutes()
 }).prefix('/api')
-Route.any('*', () => { // * means at every path
+Route.any('*', () => {
+  // * means at every path
   return {'message' : 'hello'}
 })

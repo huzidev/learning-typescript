@@ -9,7 +9,8 @@ export type ApartmentStatus = typeof Apartment.statuses[number] // since at inde
 const APARTMENT_AVAILABLE: ApartmentStatus = 'available'
 // const APARTMENT_RENTED: ApartmentStatus = 'rented'
 
-export default class Apartment extends BaseModel { // BaseModel for interacting with database
+export default class Apartment extends BaseModel {
+  // BaseModel for interacting with database
   public static statuses = ['available', 'rented'] as const
   // as const means these are constant value
 

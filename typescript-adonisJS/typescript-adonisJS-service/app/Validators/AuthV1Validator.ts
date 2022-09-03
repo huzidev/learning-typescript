@@ -15,4 +15,9 @@ export class AuthV1SignIn {
     email: schema.string({}, [rules.email()]),
     password: schema.string({}, [rules.minLength(6)]),
   })
+
+  public messages = {
+    ...authValidationMessages,
+    required: '{{ field }} is required to sign in',
+  }
 }

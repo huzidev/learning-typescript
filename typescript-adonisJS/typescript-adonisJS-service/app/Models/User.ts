@@ -66,4 +66,38 @@ export default class User extends BaseModel {
       user.password = await Hash.make(user.password)
     }
   }
+
+  public toJS() {
+    return pick(this.toJSON(), [
+      'id',
+      'name',
+      'email',
+      'is_active',
+      'is_banned',
+      'is_verified',
+      'is_theme',
+      'role',
+    ])
+  }
+
+  public isAdmin() {
+    return User.roles.indexOf(this.role) >= 2
+  }
+
+  public isRealtor() {
+    return User.roles.indexOf(this.role) === 1
+  }
+
+  public isClient() {
+    return User.roles.indexOf(this.role) === 0
+  }
+
+  public hasAccess(role: UserRole): boolean {
+    // total roles
+    const access = User.getRoleIndex(role)
+    // loggedIn user's role
+    const myRole = User.getRoleIndex(this.role)
+    const confirm = myRole >= access
+    return confirm
+  }
 }

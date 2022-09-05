@@ -1,21 +1,5 @@
-import BaseSchema from '@ioc:Adonis/Lucid/Schema'
+import EmailVerificationCodes from './1662365420905_email_verification_codes'
 
-export default class extends BaseSchema {
+export default class ResetPasswordCodes extends EmailVerificationCodes {
   protected tableName = 'reset_password_codes'
-
-  public async up () {
-    this.schema.createTable(this.tableName, (table) => {
-      table.increments('id')
-
-      /**
-       * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
-       */
-      table.timestamp('created_at', { useTz: true })
-      table.timestamp('updated_at', { useTz: true })
-    })
-  }
-
-  public async down () {
-    this.schema.dropTable(this.tableName)
-  }
 }

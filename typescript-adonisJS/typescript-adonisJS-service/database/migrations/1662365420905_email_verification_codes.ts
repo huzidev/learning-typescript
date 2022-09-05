@@ -1,6 +1,6 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
-export default class extends BaseSchema {
+export default class EmailVerificationCodes extends BaseSchema {
   protected tableName = 'email_verification_codes'
 
   public async up() {

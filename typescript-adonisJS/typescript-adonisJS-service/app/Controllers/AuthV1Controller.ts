@@ -91,4 +91,9 @@ export default class AuthV1Controller {
       throw e
     }
   }
+
+  public async signOut({ auth }: HttpContextContract) {
+    await auth.logout()
+    return { message: 'User logged out successfully' }
+  }
 }

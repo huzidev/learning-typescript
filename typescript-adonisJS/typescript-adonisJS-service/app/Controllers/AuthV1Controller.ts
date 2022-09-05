@@ -13,5 +13,17 @@ export default class AuthV1Controller {
 
     // auth.attempt checks user from the database and verifies their password
     const { token } = await auth.attempt(body.email!, body.password!)
+    let message: ''
+
+    // if user is not active
+    if (!auth.user?.isActive) {
+      await auth.logout()
+      throw { message: "User doesn't exists anymore", status: 404 }
+    }
+
+    // if user is not verified
+    if (!auth.user?.isVerified) {
+      const code = await EmailVerificationCode.findBy('user_id', auth.user?.id!)
+    }
   }
 }

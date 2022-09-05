@@ -76,7 +76,7 @@ export default class AuthV1Controller {
   public async signUp({ request, auth }: HttpContextContract) {
     const trx = await Database.transaction() // transaction helps to send data to Database directly therefore we've used Database.transaction since we are in signUp function therefore when user signUp the data will be transfer to DATABASE directly
     try {
-      // ...body is defined above through const body = request.body() and it is necessary to use ...body
+      // instead of writing name, email and password simply use spread operator ...body
       const { isRealtor, ...body } = await request.validate(AuthV1SignUp)
       const verificationCode = new EmailVerificationCode() // new Verification code every time new user signUp
       const user = new User() // new User info every time new user signUp
@@ -151,6 +151,7 @@ export default class AuthV1Controller {
 
   // verify code
   public async verifyEmailVerifyCode({ request, auth }: HttpContextContract) {
+    // using transaction because after verifying isVerify state will be CHANGE to true
     const trx = await Database.transaction()
     try {
       const body = await request.validate(AuthV1VerifyEmailVerificationCode)

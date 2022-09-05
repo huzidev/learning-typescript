@@ -2,6 +2,7 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import {
   AuthV1ResetPassword,
+  AuthV1ResetPasswordSendCode,
   AuthV1SignIn,
   AuthV1SignUp,
   AuthV1verifyCodeForEmail
@@ -165,7 +166,7 @@ export default class AuthV1Controller {
       const verificationCode = await ResetPasswordCode.query()
         .where('code', body.code)
         .where('isActive', true)
-        .where('user', (query) => query.where('isActive', true))
+        .preload('user', (query) => query.where('isActive', true))
         .first()
 
       if (!verificationCode || verificationCode.user.email !== body.email) {
@@ -189,5 +190,9 @@ export default class AuthV1Controller {
       await trx.rollback()
       throw e
     }
+  }
+
+  public aysnc sendCodeForResetPassword({ request }: HttpContextContract) {
+    const body = await request.validate(AuthV1ResetPasswordSendCode)
   }
 }

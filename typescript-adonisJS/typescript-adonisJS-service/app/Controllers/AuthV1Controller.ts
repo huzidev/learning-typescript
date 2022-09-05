@@ -72,6 +72,9 @@ export default class AuthV1Controller {
 
       // use commit when use transaction to commit/add data to database
       await trx.commit()
+
+      console.log('Verification code for user is', verificationCode.code)
+      console.log('new user id is', user.id)
     } catch (e) {
       throw e
     }

@@ -8,33 +8,37 @@ import { DateTime } from 'luxon'
 
 export default class AuthV1Controller {
   public async signIn({ request, auth }: HttpContextContract) {
-    // vlidate()/Proof for valid user
-    const body = await request.validate(AuthV1SignIn)
+    try {
+      // vlidate()/Proof for valid user
+      const body = await request.validate(AuthV1SignIn)
 
-    // auth.attempt checks user from the database and verifies their password
-    const { token } = await auth.attempt(body.email!, body.password!)
-    let message = ''
+      // auth.attempt checks user from the database and verifies their password
+      const { token } = await auth.attempt(body.email!, body.password!)
+      let message = ''
 
-    // if user is not active
-    if (!auth.user?.isActive) {
-      await auth.logout()
-      throw { message: "User doesn't exists anymore", status: 404 }
-    }
+      // if user is not active
+      if (!auth.user?.isActive) {
+        await auth.logout()
+        throw { message: "User doesn't exists anymore", status: 404 }
+      }
 
-    // if user is not verified
-    if (!auth.user?.isVerified) {
-      const code = await EmailVerificationCode.findBy('user_id', auth.user?.id!)
-      code?.generateCode()
-      await code?.save()
-      console.log('VERIFICATION CODE IS', code!.code)
-    }
+      // if user is not verified
+      if (!auth.user?.isVerified) {
+        const code = await EmailVerificationCode.findBy('user_id', auth.user?.id!)
+        code?.generateCode()
+        await code?.save()
+        console.log('VERIFICATION CODE IS', code!.code)
+      }
 
-    message = !auth.user.isVerified ? 'User is not verified' : 'User loggedIn successfully'
+      message = !auth.user.isVerified ? 'User is not verified' : 'User loggedIn successfully'
 
-    return {
-      token,
-      message,
-      data: auth.user.toJS(),
+      return {
+        token,
+        message,
+        data: auth.user.toJS(),
+      }
+    } catch (e) {
+      throw e
     }
   }
 }

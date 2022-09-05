@@ -103,5 +103,9 @@ export default class AuthV1Controller {
     if (code?.updatedAt.plus({ milliseconds: 10000 })! > DateTime.local()) {
       throw { message: 'Please wait before sending code again', status: 422 }
     }
+
+    code?.generateCode()
+    await code?.save()
+    console.log('NEW VERIFICATION CODE IS', code?.code)
   }
 }

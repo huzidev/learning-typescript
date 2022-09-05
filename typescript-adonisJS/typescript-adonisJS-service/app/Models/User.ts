@@ -41,16 +41,16 @@ export default class User extends BaseModel {
   public role: UserRole
 
   // boolean values
-  @column({ consume: (value) => !!value })
+  @column({ consume: (v) => !!v })
   public isActive: boolean = true
 
-  @column({ consume: (value) => !!value })
+  @column({ consume: (v) => !!v })
   public isBanned: boolean = false
 
-  @column({ consume: (value) => !!value })
+  @column({ consume: (v) => !!v })
   public isVerified: boolean = false
 
-  @column({ consume: (value) => !!value })
+  @column({ consume: (v) => !!v })
   public isTheme: boolean = false
 
   @column.dateTime({ autoCreate: true })

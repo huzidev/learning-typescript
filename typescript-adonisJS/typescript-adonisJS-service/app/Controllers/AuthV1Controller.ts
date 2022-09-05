@@ -9,6 +9,7 @@ import User from 'App/Models/User'
 import Database from '@ioc:Adonis/Lucid/Database'
 import EmailVerificationCode from 'App/Models/EmailVerificationCode'
 import { DateTime } from 'luxon'
+import ResetPasswordCode from 'App/Models/ResetPasswordCode'
 
 export default class AuthV1Controller {
   public async signIn({ request, auth }: HttpContextContract) {
@@ -122,7 +123,8 @@ export default class AuthV1Controller {
     const trx = Database.transaction()
     try {
       const body = await request.validate(AuthV1verifyCodeForEmail)
-      let verificationCode = await
+      // .query() is used so we can use .where().preload().first()
+      let verificationCode = await ResetPasswordCode.query()
     } catch (e) {
       await trx.rollback()
       throw e

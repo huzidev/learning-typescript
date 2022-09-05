@@ -1,6 +1,7 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import {
+  AuthV1ResetPassword,
   AuthV1SignIn,
   AuthV1SignUp,
   AuthV1verifyCodeForEmail
@@ -150,6 +151,17 @@ export default class AuthV1Controller {
       await trx.commit()
 
       return { message: 'Code verified successfully' }
+    } catch (e) {
+      await trx.rollback()
+      throw e
+    }
+  }
+
+  // no need for loggedIn user therefore we haven't used (auth)
+  public async resetPassword({ request }: HttpContextContract) {
+    const trx = await Database.transaction()
+    try {
+      const body = await request.validate(AuthV1ResetPassword)
     } catch (e) {
       await trx.rollback()
       throw e

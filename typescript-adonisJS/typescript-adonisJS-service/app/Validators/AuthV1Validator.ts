@@ -35,7 +35,7 @@ export class AuthV1SignUp {
   }
 }
 
-export class AuthV1VerifyEmailVerificationCode {
+export class AuthV1verifyCodeForEmail {
   public schema = schema.create({
     code: schema.string({ trim: true }, [rules.verificationCode()]),
   })

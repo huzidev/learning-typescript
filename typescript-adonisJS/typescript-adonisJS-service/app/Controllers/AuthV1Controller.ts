@@ -1,6 +1,10 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
-import { AuthV1SignIn, AuthV1SignUp } from 'App/Validators/AuthV1Validator'
+import {
+  AuthV1SignIn,
+  AuthV1SignUp,
+  AuthV1verifyCodeForEmail
+} from 'App/Validators/AuthV1Validator'
 import User from 'App/Models/User'
 import Database from '@ioc:Adonis/Lucid/Database'
 import EmailVerificationCode from 'App/Models/EmailVerificationCode'
@@ -97,7 +101,7 @@ export default class AuthV1Controller {
     return { message: 'User logged out successfully' }
   }
 
-  public async verifyEmailSendCode({ auth }: HttpContextContract) {
+  public async sendCodeForVerifyEmail({ auth }: HttpContextContract) {
     const code = await EmailVerificationCode.findBy('user_id', auth.user?.id)
 
     if (code?.updatedAt.plus({ milliseconds: 10000 })! > DateTime.local()) {
@@ -110,6 +114,17 @@ export default class AuthV1Controller {
 
     return {
       message: 'Verification code sent to yours email',
+    }
+  }
+
+  public async verifyCodeForEmail({ request, auth }: HttpContextContract) {
+    // using transaction because after verifying isVerify state will be CHANGE to true
+    const trx = Database.transaction()
+    try {
+      const body = await request.validate(AuthV1verifyCodeForEmail)
+    } catch (e) {
+      await trx.rollback()
+      throw e
     }
   }
 }

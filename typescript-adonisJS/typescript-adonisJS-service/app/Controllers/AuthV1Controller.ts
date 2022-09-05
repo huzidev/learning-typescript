@@ -125,6 +125,9 @@ export default class AuthV1Controller {
       const body = await request.validate(AuthV1verifyCodeForEmail)
       // .query() means question is used so we can use .where().preload().first()
       let verificationCode = await ResetPasswordCode.query()
+        .where('code', body.code)
+        .where('isActive', true)
+        .first() // first() checks whether email exist on database or not
     } catch (e) {
       await trx.rollback()
       throw e

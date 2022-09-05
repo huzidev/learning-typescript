@@ -13,7 +13,7 @@ export default class AuthV1Controller {
 
     // auth.attempt checks user from the database and verifies their password
     const { token } = await auth.attempt(body.email!, body.password!)
-    let message
+    let message = ''
 
     // if user is not active
     if (!auth.user?.isActive) {
@@ -30,5 +30,11 @@ export default class AuthV1Controller {
     }
 
     message = !auth.user.isVerified ? 'User is not verified' : 'User loggedIn successfully'
+
+    return {
+      token,
+      message,
+      data: auth.user.toJS(),
+    }
   }
 }

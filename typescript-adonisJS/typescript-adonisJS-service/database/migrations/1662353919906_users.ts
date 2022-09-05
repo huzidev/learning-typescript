@@ -18,12 +18,12 @@ export default class UsersSchema extends BaseSchema {
       table.boolean('is_verified').defaultTo(false).notNullable()
       table.boolean('is_theme').defaultTo(false).notNullable()
 
-      table.timestamp('created_at', { useTz: true })
-      table.timestamp('updated_at', { useTz: true })
+      table.timestamp('created_at', { useTz: true }).notNullable().defaultTo(this.now())
+      table.timestamp('updated_at', { useTz: true }).notNullable()
     })
   }
 
-  public async down () {
+  public async down() {
     this.schema.dropTable(this.tableName)
   }
 }

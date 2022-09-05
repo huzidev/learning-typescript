@@ -84,6 +84,10 @@ export default class AuthV1Controller {
         data: auth.user?.toJS(),
       }
     } catch (e) {
+      trx.rollback()
+      if (e.code === 'ER_DUP_ENTRY') {
+        throw { message: 'User already exists', status: 409 }
+      }
       throw e
     }
   }

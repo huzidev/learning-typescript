@@ -124,7 +124,7 @@ export default class AuthV1Controller {
     try {
       const body = await request.validate(AuthV1verifyCodeForEmail)
       // .query() means (question) is used so we can use .where().first()
-      let verificationCode = await ResetPasswordCode.query()
+      const verificationCode = await ResetPasswordCode.query()
         .where('userId', auth.user!.id)
         .where('code', body.code)
         .where('isActive', true)
@@ -142,6 +142,14 @@ export default class AuthV1Controller {
 
       verificationCode.useTransaction(trx)
       verificationCode.isActive = false
+      auth.user!.useTransaction(trx)
+      // isVerified to true AFTER code confirmation
+      auth.user!.isVerified = true
+
+      await Promise.all([auth.user?.save(), verificationCode.save()])
+      await trx.commit()
+
+      return { message: 'Code verified successfully' }
     } catch (e) {
       await trx.rollback()
       throw e

@@ -24,6 +24,9 @@ export default class AuthV1Controller {
     // if user is not verified
     if (!auth.user?.isVerified) {
       const code = await EmailVerificationCode.findBy('user_id', auth.user?.id!)
+      code?.generateCode()
+      await code?.save()
+      console.log('VERIFICATION CODE IS', code!.code);
     }
   }
 }

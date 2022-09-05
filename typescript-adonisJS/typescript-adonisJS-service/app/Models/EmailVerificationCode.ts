@@ -34,7 +34,7 @@ export default class EmailVerificationCode extends BaseModel {
     model.generateCode(model)
   }
 
-  public generateCode(model: EmailVerificationCode) {
+  public generateCode(model: EmailVerificationCode = this) {
     model.code = random(101909, 929689)
     model.isActive = true
     model.expiresAt = DateTime.local().plus({ hours: 3 })

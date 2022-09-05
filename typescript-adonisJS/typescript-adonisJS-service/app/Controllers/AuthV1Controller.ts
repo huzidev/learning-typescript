@@ -195,5 +195,26 @@ export default class AuthV1Controller {
   public aysnc sendCodeForResetPassword({ request }: HttpContextContract) {
     const body = await request.validate(AuthV1ResetPasswordSendCode)
     const user = await User.query().where('email', body.email).where('isActive', true).first()
+
+    // if no user with email is found
+    if (!user) {
+      throw { message: 'No user is registered with this email', status: 404 }
+    }
+
+    const verificationCode = await ResetPasswordCode.findBy('userId', user.id)
+
+    if (!verificationCode) {
+      throw { message: 'Invalid Code', status: 404 }
+    }
+
+    if (verificationCode.expiresAt < DateTime.local()) {
+      throw { message: 'Expired code', status: 422 }
+    }
+
+    verificationCode.generateCode()
+    await verificationCode.save()
+    console.log('Verification code for reset password is', verificationCode.code)
+
+    return { message: 'Password reset code sent successfully to your email' }
   }
 }

@@ -43,7 +43,7 @@ export default class AuthV1Controller {
   }
 
   public async signUp({ request, auth }: HttpContextContract) {
-    // use transaction() when update/change data in database
+    // use transaction() when updating or changing data in database
     const trx = await Database.transaction()
   }
 }

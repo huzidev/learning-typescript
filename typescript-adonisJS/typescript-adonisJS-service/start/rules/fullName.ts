@@ -22,6 +22,7 @@ validator.rule(
       )
     }
   },
+  // async: true necessary written in adonis doc
   () => ({
     async: true,
   })

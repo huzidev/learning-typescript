@@ -107,5 +107,9 @@ export default class AuthV1Controller {
     code?.generateCode()
     await code?.save()
     console.log('NEW VERIFICATION CODE IS', code?.code)
+
+    return {
+      message: 'Verification code sent to yours email',
+    }
   }
 }

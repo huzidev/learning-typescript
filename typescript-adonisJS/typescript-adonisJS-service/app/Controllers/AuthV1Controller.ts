@@ -162,6 +162,11 @@ export default class AuthV1Controller {
     const trx = await Database.transaction()
     try {
       const body = await request.validate(AuthV1ResetPassword)
+      const verficationCode = await ResetPasswordCode.query()
+        .where('code', body.code)
+        .where('isActive', true)
+        .where('user', (query) => query.where('isActive', true))
+        .first()
     } catch (e) {
       await trx.rollback()
       throw e

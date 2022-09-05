@@ -33,6 +33,7 @@ export default class AuthV1Controller {
       const body = await request.validate(AuthV1SignIn)
       // attempt is used to verify user credentials like email and password and to perform login after verification
       // You can login the user using the auth.attempt or the auth.login method. The auth.attempt method lookup the user from the database and verifies their password
+      // If the user credentials are correct, it will internally call the auth.login method and create the session.
       const { token } = await auth.attempt(body.email!, body.password!) // ! at end means value can't be null or undefined
       let message = '' // means message is of type string therefore we've left it as a empty string
 

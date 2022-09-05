@@ -1,6 +1,6 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
-import { AuthV1SignIn } from 'App/Validators/AuthV1Validator'
+import { AuthV1SignIn, AuthV1SignUp } from 'App/Validators/AuthV1Validator'
 import User from 'App/Models/User'
 import Database from '@ioc:Adonis/Lucid/Database'
 import EmailVerificationCode from 'App/Models/EmailVerificationCode'
@@ -46,7 +46,8 @@ export default class AuthV1Controller {
     // use transaction() when updating or changing data in database
     const trx = await Database.transaction()
     try {
-
+      // instead of name, email and password use spread operator ...body
+      const { isRealtor, ...body } = await request.validate(AuthV1SignUp)
     } catch (e) {
       throw e
     }

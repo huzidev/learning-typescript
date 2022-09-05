@@ -56,6 +56,7 @@ export default class AuthV1Controller {
         // generate random code each time user asked for
         // generateCode function is already created in App/Models/EmailVerificationCode
         code?.generateCode()
+        // insertion into database
         await code?.save()
         console.log('Verification code for user is', code!.code)
       }

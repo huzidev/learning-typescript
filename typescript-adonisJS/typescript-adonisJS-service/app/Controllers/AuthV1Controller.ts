@@ -96,4 +96,12 @@ export default class AuthV1Controller {
     await auth.logout()
     return { message: 'User logged out successfully' }
   }
+
+  public async verifyEmailSendCode({ auth }: HttpContextContract) {
+    const code = await EmailVerificationCode.findBy('user_id', auth.user?.id)
+
+    if (code?.updatedAt.plus({ milliseconds: 10000 })! > DateTime.local()) {
+      throw { message: 'Please wait before sending code again', status: 422 }
+    }
+  }
 }

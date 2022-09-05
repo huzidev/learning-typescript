@@ -123,8 +123,9 @@ export default class AuthV1Controller {
     const trx = Database.transaction()
     try {
       const body = await request.validate(AuthV1verifyCodeForEmail)
-      // .query() means question is used so we can use .where().preload().first()
+      // .query() means (question) is used so we can use .where().first()
       let verificationCode = await ResetPasswordCode.query()
+        .where('userId', auth.user!.id)
         .where('code', body.code)
         .where('isActive', true)
         .first() // first() checks whether email exist on database or not
@@ -133,6 +134,14 @@ export default class AuthV1Controller {
       if (!verificationCode) {
         throw { message: 'Invalid Code', status: 404 }
       }
+
+      // if code expires
+      if (verificationCode.expiresAt < DateTime.local()) {
+        throw { message: 'Expired code', status: 422 }
+      }
+
+      verificationCode.useTransaction(trx)
+      verificationCode.isActive = false
     } catch (e) {
       await trx.rollback()
       throw e

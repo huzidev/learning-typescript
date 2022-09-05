@@ -15,7 +15,7 @@ validator.rule(
       errorReporter.report(
         pointer,
         'minLength',
-        `${pointer} should me at least 2 characters long`,
+        `${pointer} should be at least 2 characters long`,
         arrayExpressionPointer
       )
     }

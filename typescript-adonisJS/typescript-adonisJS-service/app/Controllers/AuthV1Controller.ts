@@ -122,6 +122,7 @@ export default class AuthV1Controller {
     const trx = Database.transaction()
     try {
       const body = await request.validate(AuthV1verifyCodeForEmail)
+      let verificationCode = await
     } catch (e) {
       await trx.rollback()
       throw e

@@ -60,6 +60,9 @@ export default class AuthV1Controller {
       if (isRealtor) {
         user.role = 'realtor'
       }
+
+      // .save() to finalize saving
+      await user.save()
     } catch (e) {
       throw e
     }

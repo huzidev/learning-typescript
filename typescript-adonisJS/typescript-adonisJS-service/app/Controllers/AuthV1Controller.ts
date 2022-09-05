@@ -194,5 +194,6 @@ export default class AuthV1Controller {
 
   public aysnc sendCodeForResetPassword({ request }: HttpContextContract) {
     const body = await request.validate(AuthV1ResetPasswordSendCode)
+    const user = await User.query().where('email', body.email).where('isActive', true).first()
   }
 }

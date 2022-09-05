@@ -9,6 +9,7 @@ export default class EmailVerificationCodes extends BaseSchema {
       table.string('code', 6).notNullable()
       table
         .integer('user_id')
+        // use unsigned() when using references
         .unsigned()
         .references('id')
         .inTable('users')

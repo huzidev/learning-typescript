@@ -180,6 +180,11 @@ export default class AuthV1Controller {
       verificationCode.isActive = false
       verificationCode.user.useTransaction(trx)
       verificationCode.user.password = body.password
+
+      await Promise.all([verificationCode.save(), verificationCode.user.save()])
+      await trx.commit()
+
+      return { message: 'Password reset successfully' }
     } catch (e) {
       await trx.rollback()
       throw e

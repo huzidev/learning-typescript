@@ -65,6 +65,13 @@ export default class AuthV1Controller {
       await user.save()
       // .refresh() is ONLY used when signUp/Register new user
       await user.refresh()
+
+      verificationCode.useTransaction(trx)
+      verificationCode.userId = user.id
+      await verificationCode.save()
+
+      // use commit when use transaction to commit/add data to database
+      await trx.commit()
     } catch (e) {
       throw e
     }

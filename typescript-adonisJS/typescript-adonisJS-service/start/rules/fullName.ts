@@ -7,7 +7,7 @@ validator.rule(
     const regex = /^[a-zA-Z ]*$/
 
     if (!regex.test(value)) {
-      // .report() receives 4 parameters
+      // .report() takes 4 parameters
       errorReporter.report(pointer, 'match', 'only alphabets are allowed', arrayExpressionPointer)
       return
     }

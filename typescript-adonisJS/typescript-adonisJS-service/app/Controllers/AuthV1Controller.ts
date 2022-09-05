@@ -63,6 +63,8 @@ export default class AuthV1Controller {
 
       // .save() to finalize saving
       await user.save()
+      // .refresh() is ONLY used when signUp/Register new user
+      await user.refresh()
     } catch (e) {
       throw e
     }

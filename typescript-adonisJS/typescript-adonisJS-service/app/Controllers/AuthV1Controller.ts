@@ -35,7 +35,7 @@ export default class AuthV1Controller {
       return {
         token,
         message,
-        data: auth.user.toJS(),
+        data: auth.user?.toJS(),
       }
     } catch (e) {
       throw e
@@ -75,6 +75,14 @@ export default class AuthV1Controller {
 
       console.log('Verification code for user is', verificationCode.code)
       console.log('new user id is', user.id)
+
+      const { token } = await auth.attempt(body.email!, body.password!)
+
+      return {
+        token,
+        message: 'User registered successfully',
+        data: auth.user?.toJS(),
+      }
     } catch (e) {
       throw e
     }

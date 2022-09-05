@@ -175,6 +175,11 @@ export default class AuthV1Controller {
       if (verificationCode.expiresAt < DateTime.local()) {
         throw { message: 'Expired code', status: 422 }
       }
+
+      verificationCode.useTransaction(trx)
+      verificationCode.isActive = false
+      verificationCode.user.useTransaction(trx)
+      verificationCode.user.password = body.password
     } catch (e) {
       await trx.rollback()
       throw e

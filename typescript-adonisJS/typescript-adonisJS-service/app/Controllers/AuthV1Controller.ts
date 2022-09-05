@@ -120,11 +120,11 @@ export default class AuthV1Controller {
 
   public async verifyCodeForEmail({ request, auth }: HttpContextContract) {
     // using transaction because after verifying isVerify state will be CHANGE to true
-    const trx = Database.transaction()
+    const trx = await Database.transaction()
     try {
       const body = await request.validate(AuthV1verifyCodeForEmail)
       // .query() means (question) is used so we can use .where().first()
-      const verificationCode = await ResetPasswordCode.query()
+      const verificationCode = await EmailVerificationCode.query()
         .where('userId', auth.user!.id)
         .where('code', body.code)
         .where('isActive', true)

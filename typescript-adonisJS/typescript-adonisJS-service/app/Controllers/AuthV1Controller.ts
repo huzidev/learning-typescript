@@ -48,9 +48,14 @@ export default class AuthV1Controller {
     try {
       // instead of name, email and password use spread operator ...body
       const { isRealtor, ...body } = await request.validate(AuthV1SignUp)
+
       // new EmailVerificationCode code and new User created each time NEW user signUP
       const verificationCode = new EmailVerificationCode()
       const user = new User()
+
+      user.useTransaction(trx)
+
+      user.fill(body)
     } catch (e) {
       throw e
     }

@@ -123,7 +123,7 @@ export default class AuthV1Controller {
     const trx = Database.transaction()
     try {
       const body = await request.validate(AuthV1verifyCodeForEmail)
-      // .query() is used so we can use .where().preload().first()
+      // .query() means question is used so we can use .where().preload().first()
       let verificationCode = await ResetPasswordCode.query()
     } catch (e) {
       await trx.rollback()

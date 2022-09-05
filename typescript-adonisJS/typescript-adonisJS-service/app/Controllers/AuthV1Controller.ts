@@ -162,11 +162,19 @@ export default class AuthV1Controller {
     const trx = await Database.transaction()
     try {
       const body = await request.validate(AuthV1ResetPassword)
-      const verficationCode = await ResetPasswordCode.query()
+      const verificationCode = await ResetPasswordCode.query()
         .where('code', body.code)
         .where('isActive', true)
         .where('user', (query) => query.where('isActive', true))
         .first()
+
+      if (!verificationCode || verificationCode.user.email !== body.email) {
+        throw { message: 'Invalid Code', status: 404 }
+      }
+
+      if (verificationCode.expiresAt < DateTime.local()) {
+        throw { message: 'Expired code', status: 422 }
+      }
     } catch (e) {
       await trx.rollback()
       throw e

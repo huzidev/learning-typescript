@@ -8,7 +8,10 @@ import { DateTime } from 'luxon'
 
 export default class AuthV1Controller {
   public async signIn({ request, auth }: HttpContextContract) {
-    // vlidate/Proof for valid user
+    // vlidate()/Proof for valid user
     const body = await request.validate(AuthV1SignIn)
+
+    // auth.attempt checks user from the database and verifies their password
+    const { token } = await auth.attempt(body.email!, body.password!)
   }
 }

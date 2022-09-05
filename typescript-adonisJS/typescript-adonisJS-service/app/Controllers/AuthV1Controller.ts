@@ -54,8 +54,12 @@ export default class AuthV1Controller {
       const user = new User()
 
       user.useTransaction(trx)
-
+      // .fill(body) to insert data to database
       user.fill(body)
+
+      if (isRealtor) {
+        user.role = 'realtor'
+      }
     } catch (e) {
       throw e
     }

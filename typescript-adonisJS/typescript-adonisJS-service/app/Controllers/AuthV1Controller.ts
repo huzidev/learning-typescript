@@ -128,6 +128,11 @@ export default class AuthV1Controller {
         .where('code', body.code)
         .where('isActive', true)
         .first() // first() checks whether email exist on database or not
+
+      // if verification code is wrong
+      if (!verificationCode) {
+        throw { message: 'Invalid Code', status: 404 }
+      }
     } catch (e) {
       await trx.rollback()
       throw e

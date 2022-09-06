@@ -30,3 +30,16 @@ export interface SubState extends HTTPFieldError {
 
 // will used in Catch from try catch
 export interface MapErrorToState extends HTTPFieldErrors, BaseHTTPResponse {}
+
+export type SortType = 'asc' | 'desc';
+
+export interface PaginationMeta {
+    total: number;
+    perPage: number;
+    currentPage: number;
+    lastPage: number;
+    firstPage: number;
+  }
+
+// union can only be used by TYPE
+export type ActionType = 'create' | 'update' | 'get' | 'remove';

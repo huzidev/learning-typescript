@@ -34,4 +34,9 @@ export interface AuthState {
     signUpState: SubState
     signOutState: SubState
     user: User | null
+    signIn: (data: SignInRequest) => void;
+    signUp: (data: SignUpRequest) => void;
+    signOut: () => void;
+    initUser: () => void;
+    userVerified: () => void;
 }

@@ -40,3 +40,9 @@ export interface AuthState {
     initUser: () => void;
     userVerified: () => void;
 }
+
+export interface AuthResponse extends HTTPFieldErrors {
+    token: string;
+    message?: string;
+    data: User;
+}

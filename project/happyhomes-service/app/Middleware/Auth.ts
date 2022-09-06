@@ -87,7 +87,9 @@ export default class AuthMiddleware {
     } else if (role && role !== 'no_verify') {
       const parsedRole = role as UserRole // UserRole includes roles like client, realtor, admin
 
+      // available role
       const guardRole = User.roles.indexOf(parsedRole)
+      // loggedIn user's role
       const userRole = User.roles.indexOf(auth.user!.role)
 
       if (userRole < guardRole) {

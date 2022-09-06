@@ -17,7 +17,7 @@ export default function AuthV1Routes() {
       'auth:no_verify'
     )
 
-    // Reset
+    // Reset password
     Route.post('/reset_password', `${path}.resetPassword`)
     Route.post('/reset_password/send_code', `${path}.resetPasswordSendCode`)
   }).prefix('/v1')

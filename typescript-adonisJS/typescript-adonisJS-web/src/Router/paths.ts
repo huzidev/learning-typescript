@@ -1,4 +1,4 @@
-const ROUTE_PATH = {
+const ROUTE_PATHS = {
     HOME: '/',
     DASHBOARD: '/home',
     VERIFY_USER: '/verify_user',
@@ -12,3 +12,5 @@ const ROUTE_PATH = {
     USER_UPDATE: '/user/update/',
     USER_SETTING: '/user/settings/',
 }
+
+export default ROUTE_PATHS;

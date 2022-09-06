@@ -5,3 +5,8 @@ export type Action<K extends State> = (
     get?: GetState<K>,
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 ) => (...args: any[]) => void;
+
+// RESPONSE in the form of message
+export interface BaseHTTPResponse {
+    message?: string;
+}

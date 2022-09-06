@@ -27,3 +27,6 @@ export interface SubState extends HTTPFieldError {
     error: boolean;
     message?: string;
 }
+
+// will used in Catch from try catch
+export interface MapErrorToState extends HTTPFieldErrors, BaseHTTPResponse {}

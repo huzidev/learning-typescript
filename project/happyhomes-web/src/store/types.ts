@@ -39,4 +39,5 @@ export interface PaginationMeta {
   firstPage: number;
 }
 
+// union can only be used by TYPE
 export type ActionType = 'create' | 'update' | 'get' | 'remove';

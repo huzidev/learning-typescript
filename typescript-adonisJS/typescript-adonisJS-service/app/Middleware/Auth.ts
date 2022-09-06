@@ -69,6 +69,18 @@ export default class AuthMiddleware {
   ) {
     await this.authenticate(auth, [auth.name])
 
+    // if user is not active
+    if (!auth.user?.isActive) {
+      await auth.logout()
+      throw { message: "User doesn't exists anymore", status: 404 }
+    }
+
+    // if user is banned
+    if (auth.user?.isBanned) {
+      await auth.logout()
+      throw { message: 'User is banned', status: 403 }
+    }
+
 
     await next()
   }

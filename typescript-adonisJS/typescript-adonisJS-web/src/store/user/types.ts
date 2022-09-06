@@ -22,7 +22,7 @@ export interface HTTPFieldErrors {
     errors?: HTTPFieldError[];
 }
 
-export interface SubState extends HTTPFieldError {
+export interface SubState extends HTTPFieldErrors {
     loading: boolean;
     error: boolean;
     message?: string;

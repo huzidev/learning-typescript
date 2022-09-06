@@ -61,7 +61,7 @@ export default class AuthMiddleware {
   /**
    * Handle request
    */
-  // add [role] and UserRole[]
+  // we've added [role] and UserRole[] specifically
   public async handle(
     { auth }: HttpContextContract,
     next: () => Promise<void>,
@@ -96,11 +96,9 @@ export default class AuthMiddleware {
       const userRole = User.roles.indexOf(auth.user!.role)
 
       if (userRole < guardRole) {
-        // because role is diff for superadmin, admin and realtor
         throw { message: 'Action not allowed', status: 401 }
       }
     }
-
     await next()
   }
 }

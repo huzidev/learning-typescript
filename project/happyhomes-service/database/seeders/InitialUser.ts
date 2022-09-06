@@ -38,6 +38,7 @@ export default class InitialUserSeeder extends BaseSeeder {
         isBanned,
         isActive,
         isVerified,
+        isTheme,
         password: username,
         email: username + '@happyhomes.com',
       }

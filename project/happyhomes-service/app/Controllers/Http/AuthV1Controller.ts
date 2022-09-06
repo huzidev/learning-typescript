@@ -170,10 +170,8 @@ export default class AuthV1Controller {
         throw { message: 'Expired code', status: 422 }
       }
       verificationCode.useTransaction(trx)
-      // before verifying code isActive state is false
       verificationCode.isActive = false
       auth.user!.useTransaction(trx)
-      // after verifying code isActive state is true
       auth.user!.isVerified = true
       await Promise.all([auth.user?.save(), verificationCode.save()])
       await trx.commit()

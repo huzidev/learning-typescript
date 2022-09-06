@@ -32,5 +32,5 @@ Route.group(() => {
 }).prefix('/api')
 Route.any('*', () => {
   // * means at every path
-  return {'message' : 'hello'}
+  return { message: 'hello' }
 })

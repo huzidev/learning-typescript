@@ -67,7 +67,7 @@ export const signUp: Action<AuthState> = (set) => async (data: SignUpRequest) =>
     }
 };
 
-export const signOut: Action<AuthState> = (set) => async => {
+export const signOut: Action<AuthState> = (set) => async () => {
     set(state => {
         state.signOutState = { ...state.signOutState, loading: true, error: false };
     });
@@ -75,6 +75,10 @@ export const signOut: Action<AuthState> = (set) => async => {
         await api.post(endpoints.SIGN_OUT);
         storage.removeItem(KEYS.TOKEN)
         setToken(null)
+        set(state => {
+            state.userData = null;
+            state.signOutState = { ...state.signOutState, loading: false };
+          });
     } catch (e: any) {
         set(state => {
             const err = mapErrorToState(e);

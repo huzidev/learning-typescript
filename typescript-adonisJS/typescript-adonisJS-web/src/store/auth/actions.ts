@@ -7,7 +7,7 @@ import api, { setToken } from '@services/api';
 // localStorage to save user's Token
 import storage from '@services/storage';
 
-import { AuthState, SignInRequest } from './types';
+import { AuthState, AuthResponse, SignInRequest } from './types';
 import * as endpoints from './endpoints';
 import KEYS from './keys';
 
@@ -15,10 +15,14 @@ export const signIn: Action<AuthState> = (set) => async (data: SignInRequest) =>
     set(state => {
         state.signInState = { ...state.signInState, loading: true, error: false };
     });
+
     try {
-        const result = await api.post<AuthState>(endpoints.SIGN_IN, data)
-        if (result.data && !result.data.user?.isBanned) {
-            setToken(result)
+        const result = await api.post<AuthResponse>(endpoints.SIGN_IN, data)
+
+        // if user is NOT banned
+        if (result.data && !result.data.data.isBanned) {
+            // setToken(result.data.token);
+            await storage.setItem(KEYS.TOKEN, result.data.token);
         }
 
     } catch (e) {

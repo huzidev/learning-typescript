@@ -17,7 +17,7 @@ export interface User {
     isVerified: boolean;
     isBanned: boolean;
 }
-
+    
 export interface SignInRequest {
     email: string;
     password: string;
@@ -34,7 +34,7 @@ export interface AuthState {
     signUpState: SubState
     signOutState: SubState
     initState: InitSubType;
-    userData: User | null
+    userData?: User | null
     signIn: (data: SignInRequest) => void;
     signUp: (data: SignUpRequest) => void;
     signOut: () => void;

@@ -11,8 +11,9 @@ export const useAuth = create<AuthState>(
     // SubState with Capital (S) is the interface means types
     signInState: subState,
     signUpState: subState,
-    initState: { ...subState, init: false },
     signOutState: subState,
+    // only initState takes init false while others takes (subState) for loading and error false
+    initState: { ...subState, init: false },
     signIn: actions.signIn(set),
     signUp: actions.signUp(set),
     initUser: actions.initUser(set),

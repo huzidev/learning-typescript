@@ -15,16 +15,18 @@ export const signIn: Action<AuthState> = (set) => async (data: SignInRequest) =>
     set(state => {
         state.signInState = { ...state.signInState, loading: true, error: false };
     });
-
     try {
         const result = await api.post<AuthResponse>(endpoints.SIGN_IN, data)
-
         // if user is NOT banned
         if (result.data && !result.data.data.isBanned) {
             // setToken(result.data.token);
             await storage.setItem(KEYS.TOKEN, result.data.token);
         }
-
+        set(state => {
+            // for id, email, role, isActive, isBanned
+            state.userData = result.data.data;
+            state.signInState = { ...state.signInState, loading: false }
+        })
     } catch (e) {
         set(state => {
             const err = mapErrorToState(e)

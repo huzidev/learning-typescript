@@ -1,6 +1,8 @@
 import axios from 'axios';
 import applyCaseMiddleware from 'axios-case-converter';
 
+// THESE ARE ALL ALREADY CREATED TEXT
+
 const api = applyCaseMiddleware(
   axios.create({
     baseURL: 'http://127.0.0.1:3333/api', // /api is prefix defined in backend

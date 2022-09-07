@@ -7,7 +7,7 @@ import api, { setToken } from '@services/api';
 // localStorage to save user's Token
 import storage from '@services/storage';
 
-import { AuthState, AuthResponse, SignInRequest } from './types';
+import { AuthState, AuthResponse, SignInRequest, SignUpRequest } from './types';
 import * as endpoints from './endpoints';
 import KEYS from './keys';
 
@@ -40,3 +40,23 @@ export const signIn: Action<AuthState> = (set) => async (data: SignInRequest) =>
         });
     }
 };
+
+export const signUp: Action<AuthState> = (set) => async (data: SignUpRequest) => {
+    set(state => {
+        state.signOutState = { ...state.signUpState, loading: true, error: false }
+    });
+    try {
+
+    } catch (e: any) {
+        set(state => {
+            const err = mapErrorToState(e)
+            state.signInState = {
+                ...state.signInState,
+                loading: false,
+                error: true,
+                ...err
+            };
+            errorNotification('Error', e)
+        });
+    }
+}

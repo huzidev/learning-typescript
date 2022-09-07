@@ -9,8 +9,9 @@ import { AuthState } from './types';
 
 export const useAuth = create<AuthState>(
     immerMiddleware(set => ({
-        signInState: subState
-        signUpState: subState
-        signOutState: subState
+        signInState: subState,
+        signUpState: subState,
+        signOutState: subState,
+        initState: { ...subState, init: false },
     }))
 )

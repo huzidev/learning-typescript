@@ -71,9 +71,13 @@ export const signUp: Action<AuthState> = (set) => async (data: SignUpRequest) =>
 export const initUser: Action<AuthState> = (set) => async () => {
     set(state => {
         state.initState = { ...state.initState, loading: true }
-    })
+    });
     try {
-
+        const token = await storage.getItem<string>(KEYS.TOKEN);
+        if (token) {
+            setToken(token);
+            const result = await api.get<AuthResponse>(endpoints.USER_DETAILS);
+        }
     } catch (e: any) {
         set(state => {
             const err = mapErrorToState(e);

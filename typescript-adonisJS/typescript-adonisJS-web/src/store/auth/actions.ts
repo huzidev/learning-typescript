@@ -83,6 +83,9 @@ export const initUser: Action<AuthState> = (set) => async () => {
             })
             return;
         }
+        set(state => {
+            state.initState = { ...state.initState, loading: true, init: true };
+        });
     } catch (e: any) {
         set(state => {
             const err = mapErrorToState(e);

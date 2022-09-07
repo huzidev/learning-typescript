@@ -130,7 +130,6 @@ export const initUser: Action<AuthState> = (set) => async () => {
     }
 };
 
-
 export const userVerified: Action<AuthState> = (set) => async () => {
     set((state) => {
       if (state.userData) {

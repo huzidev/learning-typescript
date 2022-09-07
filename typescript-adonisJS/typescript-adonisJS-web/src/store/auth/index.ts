@@ -14,5 +14,9 @@ export const useAuth = create<AuthState>(
         signOutState: subState,
         initState: { ...subState, init: false },
         signIn: actions.signIn(set),
+        signUp: actions.signUp(set),
+        initUser: actions.initUser(set),
+        signOut: actions.signOut(set),
+        userVerified: actions.userVerified(set)
     }))
 )

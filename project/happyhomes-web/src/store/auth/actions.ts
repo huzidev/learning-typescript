@@ -5,7 +5,7 @@ import { mapErrorToState } from '@store/utils';
 import { Action } from '@store/types';
 import { errorNotification } from 'utils/notifications';
 
-// token will be stored in localStorage when user loggedIn
+// will parsed the token saved in localStorage
 import api, { setToken } from '@services/api';
 
 // for localStorage to save Token

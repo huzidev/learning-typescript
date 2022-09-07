@@ -16,6 +16,7 @@ export const signIn: Action<AuthState> = (set) => async (data: SignInRequest) =>
         state.signInState = { ...state.signInState, loading: true, error: false };
     });
     try {
+        const result = await api.post<AuthState>(endpoints.SIGN_IN, data)
 
     } catch (e) {
         set(state => {

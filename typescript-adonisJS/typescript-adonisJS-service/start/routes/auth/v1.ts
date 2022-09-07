@@ -7,7 +7,7 @@ export default function AuthV1Routes() {
   Route.group(() => {
     Route.post('/sing_in', `${path}.signIn`)
     Route.post('/sign_up', `${path}.signUp`)
-    Route.post('/sign_out', `${path}.signOut`).middleware('auth:any')
+    Route.post('/sign_out', `${path}.signOut`)
 
     // Verification Email
     Route.post('verify_email/send_code', `${path}.sendCodeForVerifyEmail`).middleware(

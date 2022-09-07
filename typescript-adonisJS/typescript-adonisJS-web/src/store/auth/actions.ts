@@ -27,7 +27,7 @@ export const signIn: Action<AuthState> = (set) => async (data: SignInRequest) =>
             state.userData = result.data.data;
             state.signInState = { ...state.signInState, loading: false }
         })
-    } catch (e) {
+    } catch (e: any) {
         set(state => {
             const err = mapErrorToState(e)
             state.signInState = {

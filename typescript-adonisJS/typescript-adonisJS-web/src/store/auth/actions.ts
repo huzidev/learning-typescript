@@ -71,6 +71,20 @@ export const signOut: Action<AuthState> = (set) => async => {
     set(state => {
         state.signOutState = { ...state.signOutState, loading: true, error: false };
     });
+    try {
+
+    } catch (e: any) {
+        set(state => {
+            const err = mapErrorToState(e);
+            state.signOutState = {
+                ...state.signOutState,
+                loading: false,
+                error: true,
+                ...err
+            };
+            errorNotification('Error', e);
+        });
+    }
 }
 
 // initUser for (GETTING) Save tokens from localStorage

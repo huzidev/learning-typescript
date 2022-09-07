@@ -7,7 +7,7 @@ import api, { setToken } from '@services/api';
 // localStorage to save user's Token
 import storage from '@services/storage';
 
-import { AuthState, AuthResponse, SignInRequest, SignUpRequest } from './types';
+import { AuthState, AuthResponse, SignInRequest, SignUpRequest, initState } from './types';
 import * as endpoints from './endpoints';
 import KEYS from './keys';
 
@@ -66,3 +66,10 @@ export const signUp: Action<AuthState> = (set) => async (data: SignUpRequest) =>
         });
     }
 };
+
+// initUser for (GETTING) Save tokens from localStorage
+export const initUser: Action<AuthState> = (set) => async () => {
+    set(state => {
+        state.initState
+    })
+}

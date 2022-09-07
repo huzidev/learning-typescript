@@ -33,6 +33,7 @@ export interface AuthState {
     signInState: SubState
     signUpState: SubState
     signOutState: SubState
+    initState: InitSubType;
     userData: User | null
     signIn: (data: SignInRequest) => void;
     signUp: (data: SignUpRequest) => void;

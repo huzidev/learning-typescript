@@ -79,6 +79,7 @@ export const signUp: Action<AuthState> = (set) => async (data: SignUpRequest) =>
   }
 };
 
+// for authentication of TOKENS and shows user's details for view profile
 export const initUser: Action<AuthState> = (set) => async () => {
   try {
     set((state) => {

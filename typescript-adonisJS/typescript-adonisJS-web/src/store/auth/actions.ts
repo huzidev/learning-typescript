@@ -75,6 +75,10 @@ export const signOut: Action<AuthState> = (set) => async () => {
         await api.post(endpoints.SIGN_OUT);
         storage.removeItem(KEYS.TOKEN)
         setToken(null)
+
+        // useApartment.setState(apartmentInitialState);
+        // useUser.setState(userInitialState);
+
         set(state => {
             state.userData = null;
             state.signOutState = { ...state.signOutState, loading: false };

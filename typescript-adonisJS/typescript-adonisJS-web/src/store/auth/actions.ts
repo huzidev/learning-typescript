@@ -46,7 +46,7 @@ export const signUp: Action<AuthState> = (set) => async (data: SignUpRequest) =>
         state.signOutState = { ...state.signUpState, loading: true, error: false }
     });
     try {
-
+        const result = await api.post<AuthResponse>(endpoints.SIGN_UP, data);
     } catch (e: any) {
         set(state => {
             const err = mapErrorToState(e)

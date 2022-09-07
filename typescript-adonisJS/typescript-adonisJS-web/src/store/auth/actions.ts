@@ -11,4 +11,8 @@ import { AuthState, SignInRequest } from './types';
 import * as endpoints from './endpoints';
 import KEYS from './keys';
 
-export const signIn: Action<AuthState> = 
+export const signIn: Action<AuthState> = (set) => async (data: SignInRequest) => {
+    set(state => {
+        state.signInState = { ...state.signInState, loading: true, error: false };
+    })
+}

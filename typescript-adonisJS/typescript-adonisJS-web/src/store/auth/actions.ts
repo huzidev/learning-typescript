@@ -72,7 +72,9 @@ export const signOut: Action<AuthState> = (set) => async => {
         state.signOutState = { ...state.signOutState, loading: true, error: false };
     });
     try {
-
+        await api.post(endpoints.SIGN_OUT);
+        storage.removeItem(KEYS.TOKEN)
+        setToken(null)
     } catch (e: any) {
         set(state => {
             const err = mapErrorToState(e);

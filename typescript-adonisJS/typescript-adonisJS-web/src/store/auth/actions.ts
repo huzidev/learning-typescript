@@ -47,6 +47,11 @@ export const signUp: Action<AuthState> = (set) => async (data: SignUpRequest) =>
     });
     try {
         const result = await api.post<AuthResponse>(endpoints.SIGN_UP, data);
+        setToken(result.data.token)
+        set(state => {
+            state.userData = result.data.data
+            state.signUpState = { ...state.signUpState }
+        })
     } catch (e: any) {
         set(state => {
             const err = mapErrorToState(e)

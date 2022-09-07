@@ -14,5 +14,19 @@ import KEYS from './keys';
 export const signIn: Action<AuthState> = (set) => async (data: SignInRequest) => {
     set(state => {
         state.signInState = { ...state.signInState, loading: true, error: false };
-    })
+    });
+    try {
+
+    } catch (e) {
+        set(state => {
+            const err = mapErrorToState(e)
+            state.signInState = {
+                ...state.signInState,
+                loading: false,
+                error: true,
+                ...err
+            };
+            errorNotification('Error', e)
+        })
+    }
 }

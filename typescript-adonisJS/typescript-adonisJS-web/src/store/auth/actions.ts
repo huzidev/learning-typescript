@@ -37,6 +37,6 @@ export const signIn: Action<AuthState> = (set) => async (data: SignInRequest) =>
                 ...err
             };
             errorNotification('Error', e)
-        })
+        });
     }
-}
+};

@@ -129,6 +129,7 @@ export const signOut: Action<AuthState> = (set) => async () => {
     storage.removeItem(KEYS.TOKEN);
     // setToken to null as user LoggedOut
     setToken(null);
+    // apartments filters and if admin then user's filer will be changed back to initialState/default form when user loggedOut
     useApartment.setState(apartmentInitialState);
     useUser.setState(userInitialState);
     set((state) => {

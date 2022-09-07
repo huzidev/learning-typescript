@@ -1,2 +1,2 @@
-* linguist-vendored
-*.rb linguist-language=typescript
+# * linguist-vendored
+# *.rb linguist-language=typescript

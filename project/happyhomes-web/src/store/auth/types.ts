@@ -7,8 +7,9 @@ export interface InitSubType extends SubState {
 export interface AuthState {
   signInState: SubState;
   signUpState: SubState;
-  initState: InitSubType;
   signOutState: SubState;
+  // initState for auth-token with localStorage
+  initState: InitSubType;
   user?: User | null;
   signIn: (data: SignInRequest) => void;
   signUp: (data: SignUpRequest) => void;

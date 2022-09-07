@@ -23,7 +23,7 @@ export const signIn: Action<AuthState> = (set) => async (data: SignInRequest) =>
             await storage.setItem(KEYS.TOKEN, result.data.token);
         }
         set(state => {
-            // for id, email, role, isActive, isBanned
+            // userData for id, email, role, isActive, isBanned
             state.userData = result.data.data;;
             state.signInState = { ...state.signInState, loading: false };
         })

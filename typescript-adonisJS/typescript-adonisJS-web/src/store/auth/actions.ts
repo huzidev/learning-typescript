@@ -17,6 +17,9 @@ export const signIn: Action<AuthState> = (set) => async (data: SignInRequest) =>
     });
     try {
         const result = await api.post<AuthState>(endpoints.SIGN_IN, data)
+        if (result.data && !result.data.user?.isBanned) {
+            setToken(result)
+        }
 
     } catch (e) {
         set(state => {

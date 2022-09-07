@@ -43,7 +43,7 @@ export const signIn: Action<AuthState> = (set) => async (data: SignInRequest) =>
 
 export const signUp: Action<AuthState> = (set) => async (data: SignUpRequest) => {
     set(state => {
-        state.signOutState = { ...state.signUpState, loading: true, error: false }
+        state.signUpState = { ...state.signUpState, loading: true, error: false }
     });
     try {
         const result = await api.post<AuthResponse>(endpoints.SIGN_UP, data);
@@ -56,8 +56,8 @@ export const signUp: Action<AuthState> = (set) => async (data: SignUpRequest) =>
     } catch (e: any) {
         set(state => {
             const err = mapErrorToState(e);
-            state.signInState = {
-                ...state.signInState,
+            state.signUpState = {
+                ...state.signUpState,
                 loading: false,
                 error: true,
                 ...err
@@ -70,6 +70,20 @@ export const signUp: Action<AuthState> = (set) => async (data: SignUpRequest) =>
 // initUser for (GETTING) Save tokens from localStorage
 export const initUser: Action<AuthState> = (set) => async () => {
     set(state => {
-        state.initState
+        state.initState = { ...state.initState, loading: true }
     })
+    try {
+
+    } catch (e: any) {
+        set(state => {
+            const err = mapErrorToState(e);
+            state.initState = {
+                ...state.initState,
+                loading: false,
+                error: true,
+                ...err
+            };
+            errorNotification('Error', e);
+        });
+    }
 }

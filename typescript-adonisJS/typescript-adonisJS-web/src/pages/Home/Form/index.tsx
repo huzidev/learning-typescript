@@ -97,6 +97,46 @@ export default function HomeForm(): JSX.Element {
                             >
                             <Input.Password placeholder="Enter your password" data-cy="password-field" />
                         </Form.Item>
+                        {!isLogInForm && (
+                            <>
+                                <Form.Item
+                                    required
+                                    name="passwordConfirmation"
+                                    label="Confirm Password"
+                                    dependencies={['password']}
+                                    hasFeedback
+                                    rules={[
+                                        {
+                                        required: true,
+                                        message: 'Please re-enter your password', // for password confirmation
+                                        },
+
+                                        {
+                                        min: 6,
+                                        message: 'Password should be at least 6 characters long',
+                                        },
+                                        ({ getFieldValue }) => ({
+                                        validator(_, value) {
+                                            if (!value || getFieldValue('password') === value) {
+                                            return Promise.resolve();
+                                            }
+                                            return Promise.reject(
+                                            new Error('The two passwords that you entered do not match!'),
+                                            );
+                                        },
+                                        }),
+                                    ]}
+                                    >
+                                    <Input.Password
+                                        placeholder="Confirm yours password"
+                                        data-cy="confirm-password-field"
+                                    />
+                                </Form.Item>
+                                    <Form.Item name="isRealtor" valuePropName="checked">
+                                    <Checkbox>Sign up as realtor</Checkbox>
+                                </Form.Item>
+                            </>
+                        )}
                     </Form>
                 </Card>
             </Col>

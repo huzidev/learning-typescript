@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Button, Card, Checkbox, Col, Form, Input, Row, Typography } from 'antd';
 import { cx } from 'alias';
 
@@ -13,7 +13,7 @@ import './styles.less';
 
 export default function HomeForm(): JSX.Element {
     const [isLogInForm, setIsLogInForm] = useState(true);
-    const history = useHistory();
+    const history = useNavigate();
     const auth = useAuth();
 
     const onFinish = (data: any) => {
@@ -39,7 +39,11 @@ export default function HomeForm(): JSX.Element {
 
     return(
         <div className={cx('home-form-base')}>
+            <Col {...responsive.form}>
+                <Card title={title} data-cy="auth-card-header">
 
+                </Card>
+            </Col>
         </div>
     )
 }

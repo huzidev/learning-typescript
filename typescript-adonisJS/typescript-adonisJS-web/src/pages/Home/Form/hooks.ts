@@ -4,7 +4,7 @@ import { useAuth } from "@store/auth";
 import { usePrevious } from "utils/hooks";
 import { errorNotification, successNotification } from 'utils/notifications';
 
-function useHomeFormHook(): void {
+export default function useHomeFormHook(): void {
     const auth = useAuth();
     // usePrevious requires a parameter
     const prevAuth = usePrevious(auth);

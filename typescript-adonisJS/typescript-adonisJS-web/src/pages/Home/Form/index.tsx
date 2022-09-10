@@ -162,7 +162,6 @@ export default function HomeForm(): JSX.Element {
                         </Form.Item>
                         <Form.Item>
                             <Button type="primary" htmlType="submit" loading={loading} data-cy="auth-submit">
-                                {/* title will be either log in or register depends on the state of the user */}
                                 {title}
                             </Button>
                         </Form.Item>

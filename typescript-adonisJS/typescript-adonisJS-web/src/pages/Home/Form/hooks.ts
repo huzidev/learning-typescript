@@ -22,5 +22,5 @@ function useHomeFormHook(): void {
         else if (prevAuth?.signUpState.loading && !auth.signUpState.loading) {
             successNotification("User registered", auth.signUpState)
         }
-    }, [])
+    }, [auth.signInState, auth.signUpState])
 }

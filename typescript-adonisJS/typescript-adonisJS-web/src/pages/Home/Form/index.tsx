@@ -11,7 +11,7 @@ import responsive from '../responsive';
 import useHomeFormHook from './hooks';
 import './styles.less';
 
-function HomeForm(): JSX.Element {
+export default function HomeForm(): JSX.Element {
     const [isLogInForm, setIsLogInForm] = useState(true);
     const history = useHistory();
     const auth = useAuth();
@@ -27,4 +27,8 @@ function HomeForm(): JSX.Element {
     };
 
     useHomeFormHook();
+
+    const title = isLogInForm ? 'Log In' : 'Register';
+    const titleReverse = isLogInForm ? 'Register' : 'Log In';
+    const descReverse = isLogInForm ? "Don't have an account ?" : 'Already have an account ?';
 }

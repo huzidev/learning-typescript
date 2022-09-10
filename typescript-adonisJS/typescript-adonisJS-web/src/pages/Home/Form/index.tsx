@@ -31,4 +31,9 @@ export default function HomeForm(): JSX.Element {
     const title = isLogInForm ? 'Log In' : 'Register';
     const titleReverse = isLogInForm ? 'Register' : 'Log In';
     const descReverse = isLogInForm ? "Don't have an account ?" : 'Already have an account ?';
+
+    // const initialValues = {};
+
+    // use { loading } instead of just loading
+    const { loading } = isLogInForm ? auth.signInState : auth.signUpState;
 }

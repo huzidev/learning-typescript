@@ -7,9 +7,9 @@ import { useAuth } from '@store/auth';
 
 import ROUTE_PATHS from 'Router/paths';
 
+import { errors } from 'errors';
 import responsive from '../responsive';
 import useHomeFormHook from './hooks';
-import { errors } from '../../../errors';
 import './styles.less';
 
 function HomeForm(): JSX.Element {

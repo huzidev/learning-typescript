@@ -12,5 +12,19 @@ import useHomeFormHook from './hooks';
 import './styles.less';
 
 function HomeForm(): JSX.Element {
-    
+    const [isLogInForm, setIsLogInForm] = useState(true);
+    const history = useHistory();
+    const auth = useAuth();
+
+    const onFinish = (data: any) => {
+        // if user is at loginIn page then data will be sends to singIn page
+        if (isLogInForm) {
+            auth.signIn(data);
+        } // if user is at signUp page then data will be sends to signUp page
+        else {
+            auth.signUp(data);
+        }
+    };
+
+    useHomeFormHook();
 }

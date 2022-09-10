@@ -9,3 +9,8 @@ import ROUTE_PATHS from 'Router/paths';
 
 import responsive from '../responsive';
 import useHomeFormHook from './hooks';
+import './styles.less';
+
+function HomeForm(): JSX.Element {
+    
+}

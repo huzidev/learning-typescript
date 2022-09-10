@@ -6,6 +6,7 @@ import { errorNotification, successNotification } from 'utils/notifications';
 
 function useHomeFormHook(): void {
   const auth = useAuth();
+  // usePrevious will takes a parameter
   const prevAuth = usePrevious(auth);
 
   console.log('SIGNIN STATES');

@@ -36,4 +36,10 @@ export default function HomeForm(): JSX.Element {
 
     // use { loading } instead of just loading
     const { loading } = isLogInForm ? auth.signInState : auth.signUpState;
+
+    return(
+        <div className={cx('home-form-base')}>
+
+        </div>
+    )
 }

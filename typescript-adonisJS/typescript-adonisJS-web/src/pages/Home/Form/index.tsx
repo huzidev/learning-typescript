@@ -41,7 +41,9 @@ export default function HomeForm(): JSX.Element {
         <div className={cx('home-form-base')}>
             <Col {...responsive.form}>
                 <Card title={title} data-cy="auth-card-header">
+                    <Form key={title} layout="vertical" onFinish={onFinish} initialValues={{}}>
 
+                    </Form>
                 </Card>
             </Col>
         </div>

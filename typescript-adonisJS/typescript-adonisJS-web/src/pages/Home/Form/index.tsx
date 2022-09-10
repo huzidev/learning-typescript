@@ -14,7 +14,7 @@ import './styles.less';
 
 export default function HomeForm(): JSX.Element {
     const [isLogInForm, setIsLogInForm] = useState(true);
-    const history = useNavigate();
+    const navigate = useNavigate();
     const auth = useAuth();
 
     const onFinish = (data: any) => {
@@ -137,6 +137,35 @@ export default function HomeForm(): JSX.Element {
                                 </Form.Item>
                             </>
                         )}
+                        <Form.Item>
+                            <Row justify="space-between">
+                                <span>
+                                <Typography.Text>{descReverse}</Typography.Text>
+                                <Typography.Link
+                                    data-cy="register-cta"
+                                    disabled={loading}
+                                    onClick={() => setIsLogInForm((state) => !state)}
+                                >
+                                    {titleReverse}
+                                </Typography.Link>
+                                </span>
+                                {isLogInForm && (
+                                <Typography.Link
+                                    disabled={loading}
+                                    onClick={() => navigate(ROUTE_PATHS.SEND_RESET_PASSWORD)}
+                                    data-cy="forgot-password-page-cta"
+                                >
+                                    Forgot password
+                                </Typography.Link>
+                                )}
+                            </Row>
+                        </Form.Item>
+                        <Form.Item>
+                            <Button type="primary" htmlType="submit" loading={loading} data-cy="auth-submit">
+                                {/* title will be either log in or register depends on the state of the user */}
+                                {title}
+                            </Button>
+                        </Form.Item>
                     </Form>
                 </Card>
             </Col>

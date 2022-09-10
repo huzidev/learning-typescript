@@ -4,7 +4,7 @@ const ROUTE_PATHS = {
     VERIFY_USER: '/verify_user',
     BANNED_USER: '/banned_user',
     RESET_PASSWORD: '/reset_password',
-    SEND_RESET_PASSWORD_CODE: '/send_reset_password_code',
+    SEND_RESET_PASSWORD: '/send_reset_password',
 
     VIEW_PROFILE: '/user/view/',
     USERS: '/user/list/',

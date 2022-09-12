@@ -27,14 +27,14 @@ function HomeSlider(): JSX.Element {
                             {...responsive.slider}
                             className={cx('slide-text', {
                             active: imgIndex === activeIndex,
-                            mobile: !breaks.lg,
+                            mobile: !breaks.lg
                             })}
                         >
                             <Typography.Title level={1} className={cx('title')}>
-                            {slide.title}
+                            {img.title}
                             </Typography.Title>
                             <Typography.Title level={4} type="secondary" className={cx('description')}>
-                            {slide.description}
+                            {img.description}
                             </Typography.Title>
                         </Col>
                     </div>

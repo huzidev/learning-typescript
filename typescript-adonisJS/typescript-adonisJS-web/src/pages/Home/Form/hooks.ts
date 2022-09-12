@@ -20,5 +20,5 @@ export default function useHomeFormHook(): void {
     } else if (prevAuth?.signUpState.loading && !auth.signUpState.loading) {
       successNotification('User registered', auth.signUpState.message);
     }
-    }, [auth.signInState, auth.signUpState])
+  }, [auth.signInState, auth.signUpState]);
 }

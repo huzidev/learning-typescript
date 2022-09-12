@@ -12,8 +12,12 @@ interface AppRoute {
   Component: React.LazyExoticComponent<() => JSX.Element>;
 }
 
-const routes: AppRoute[] = {
-
-}
+const routes: AppRoute[] = [
+  {
+    exact: true,
+    Component: HomePage,
+    path: ROUTE_PATHS.HOME,
+  },
+];
 
 export default routes;

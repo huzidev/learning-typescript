@@ -43,29 +43,29 @@ export const signIn: Action<AuthState> = (set) => async (data: SignInRequest) =>
 };
 
 export const signUp: Action<AuthState> = (set) => async (data: SignUpRequest) => {
-    set(state => {
-        state.signUpState = { ...state.signUpState, loading: true, error: false }
+  set((state) => {
+    state.signUpState = { ...state.signUpState, loading: true, error: false }
+  });
+  try {
+    const result = await api.post<AuthResponse>(endpoints.SIGN_UP, data);
+    setToken(result.data.token);
+    await storage.setItem(KEYS.TOKEN, result.data.token);
+    set((state) => {
+      state.userData = result.data.data;
+      state.signUpState = { ...state.signUpState, loading: false };
     });
-    try {
-        const result = await api.post<AuthResponse>(endpoints.SIGN_UP, data);
-        setToken(result.data.token);
-        await storage.setItem(KEYS.TOKEN, result.data.token);
-        set(state => {
-            state.userData = result.data.data;
-            state.signUpState = { ...state.signUpState, loading: false };
-        });
-    } catch (e: any) {
-        set(state => {
-            const err = mapErrorToState(e);
-            state.signUpState = {
-                ...state.signUpState,
-                loading: false,
-                error: true,
-                ...err
-            };
-            errorNotification('Error', e);
-        });
-    }
+  } catch (e: any) {
+    set((state) => {
+      const err = mapErrorToState(e);
+      state.signUpState = {
+        ...state.signUpState,
+        loading: false,
+        error: true,
+        ...err,
+      };
+      errorNotification('Error', e);
+    });
+  }
 };
 
 export const signOut: Action<AuthState> = (set) => async () => {

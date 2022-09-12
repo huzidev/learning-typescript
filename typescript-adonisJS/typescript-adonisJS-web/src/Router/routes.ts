@@ -11,3 +11,9 @@ interface AppRoute {
   role?: UserRole;
   Component: React.LazyExoticComponent<() => JSX.Element>;
 }
+
+const routes: AppRoute[] = {
+
+}
+
+export default routes;

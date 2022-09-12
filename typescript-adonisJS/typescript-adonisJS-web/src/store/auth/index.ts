@@ -8,9 +8,8 @@ import { subState } from '@store/state';
 import { AuthState } from './types';
 import * as actions from './actions';
 
-
 export const useAuth = create<AuthState>(
-    immerMiddleware(set => ({
+    immerMiddleware((set) => ({
         signInState: subState,
         signUpState: subState,
         signOutState: subState,

@@ -25,7 +25,7 @@ export const signIn: Action<AuthState> = (set) => async (data: SignInRequest) =>
     }
     set((state) => {
       // userData for id, email, role, isActive, isBanned
-      state.userData = result.data.data;;
+      state.userData = result.data.data;
       state.signInState = { ...state.signInState, loading: false };
     });
   } catch (e: any) {

@@ -98,35 +98,35 @@ export const signOut: Action<AuthState> = (set) => async () => {
 
 // initUser for (GETTING) Save tokens from localStorage
 export const initUser: Action<AuthState> = (set) => async () => {
-    set(state => {
-        state.initState = { ...state.initState, loading: true };
-    });
-    try {
-        const token = await storage.getItem<string>(KEYS.TOKEN);
-        if (token) {
-            setToken(token);
-            const result = await api.get<AuthResponse>(endpoints.USER_DETAILS);
-            set(state => {
-                state.userData = result.data.data;
-                state.initState = { ...state.initState, loading: false, init: true };
-            })
-            return;
-        }
-        // set(state => {
-        //     state.initState = { ...state.initState, loading: true, init: true };
-        // });
-    } catch (e: any) {
-        set(state => {
-            const err = mapErrorToState(e);
-            state.initState = {
-                ...state.initState,
-                loading: false,
-                error: true,
-                ...err
-            };
-            errorNotification('Error', e);
-        });
+  set((state) => {
+    state.initState = { ...state.initState, loading: true };
+  });
+  try {
+    const token = await storage.getItem<string>(KEYS.TOKEN);
+    if (token) {
+      setToken(token);
+      const result = await api.get<AuthResponse>(endpoints.USER_DETAILS);
+      set((state) => {
+        state.userData = result.data.data;
+        state.initState = { ...state.initState, loading: false, init: true };
+      });
+      return;
     }
+    // set(state => {
+    //     state.initState = { ...state.initState, loading: true, init: true };
+    // });
+  } catch (e: any) {
+    set((state) => {
+      const err = mapErrorToState(e);
+      state.initState = {
+        ...state.initState,
+        loading: false,
+        error: true,
+        ...err,
+      };
+      errorNotification('Error', e);
+    });
+  }
 };
 
 export const userVerified: Action<AuthState> = (set) => async () => {

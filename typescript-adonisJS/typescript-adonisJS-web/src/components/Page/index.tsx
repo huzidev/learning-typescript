@@ -4,10 +4,10 @@ import isObject from 'lodash/isObject';
 // import Footer from 'components/Footer';
 
 export interface PageProps {
-//   header?: HeaderProps | boolean;
+  //   header?: HeaderProps | boolean;
   children: React.ReactNode;
-//   fullWidth?: boolean;
-//   footer?: boolean;
+  //   fullWidth?: boolean;
+  //   footer?: boolean;
 }
 
 function Page({ children }: PageProps): JSX.Element {

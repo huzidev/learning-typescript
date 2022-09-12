@@ -28,19 +28,18 @@ function HomeSlider(): JSX.Element {
               active: imgIndex === activeIndex,
               mobile: !breaks.lg,
             })}
-        >
-                <Typography.Title level={1} className={cx('title')}>
-                    {img.title}
-                </Typography.Title>
-                <Typography.Title level={4} type="secondary" className={cx('description')}>
-                    {img.description}
-                </Typography.Title>
-            </Col>
+          >
+            <Typography.Title level={1} className={cx('title')}>
+              {img.title}
+            </Typography.Title>
+            <Typography.Title level={4} type="secondary" className={cx('description')}>
+              {img.description}
+            </Typography.Title>
+          </Col>
         </div>
-        ))
-    }
-        </Carousel>
-    )
-  }
-  
-  export default HomeSlider;
+      ))}
+    </Carousel>
+  );
+}
+
+export default HomeSlider;

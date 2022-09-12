@@ -11,7 +11,7 @@ import routes from './routes';
 function AppRouter(): JSX.Element {
   return (
     <Router>
-      {/* SUSPENSE will create a minor delay in due time the (PAGE LOADER) will be shown therefore we've used fallback={<PageLoader />} */}
+      {/* SUSPENSE will create a minor delay */}
       <Suspense fallback={<PageLoader />}>
         <Switch>
           {routes.map(({ Component, ...route }) => {
@@ -27,7 +27,6 @@ function AppRouter(): JSX.Element {
               />
             );
           })}
-          {/* if wrong path then NotFoundPage therefore we've used * for path */}
           <Route path="*" component={NotFoundPage} />
         </Switch>
       </Suspense>

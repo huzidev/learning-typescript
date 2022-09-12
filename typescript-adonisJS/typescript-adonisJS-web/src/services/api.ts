@@ -34,7 +34,6 @@ api.interceptors.response.use(
   },
 );
 
-
 // setToken will be string when user loggedIn and setToken(null) when user is loggingOut
 export function setToken(token: string | null | undefined): void {
   const parsed = token ? `Bearer ${token}` : token;

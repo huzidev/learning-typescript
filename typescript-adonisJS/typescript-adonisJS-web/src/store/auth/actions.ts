@@ -69,34 +69,32 @@ export const signUp: Action<AuthState> = (set) => async (data: SignUpRequest) =>
 };
 
 export const signOut: Action<AuthState> = (set) => async () => {
-    set(state => {
-        state.signOutState = { ...state.signOutState, loading: true, error: false };
+  set((state) => {
+    state.signOutState = { ...state.signOutState, loading: true, error: false };
+  });
+  try {
+    await api.post(endpoints.SIGN_OUT);
+    storage.removeItem(KEYS.TOKEN)
+    setToken(null)
+    // useApartment.setState(apartmentInitialState);
+    // useUser.setState(userInitialState);
+    set((state) => {
+      state.userData = null;
+      state.signOutState = { ...state.signOutState, loading: false };
     });
-    try {
-        await api.post(endpoints.SIGN_OUT);
-        storage.removeItem(KEYS.TOKEN)
-        setToken(null)
-
-        // useApartment.setState(apartmentInitialState);
-        // useUser.setState(userInitialState);
-
-        set(state => {
-            state.userData = null;
-            state.signOutState = { ...state.signOutState, loading: false };
-          });
-    } catch (e: any) {
-        set(state => {
-            const err = mapErrorToState(e);
-            state.signOutState = {
-                ...state.signOutState,
-                loading: false,
-                error: true,
-                ...err
-            };
-            errorNotification('Error', e);
-        });
-    }
-}
+  } catch (e: any) {
+    set((state) => {
+      const err = mapErrorToState(e);
+      state.signOutState = {
+        ...state.signOutState,
+        loading: false,
+        error: true,
+        ...err,
+      };
+      errorNotification('Error', e);
+    });
+  }
+};
 
 // initUser for (GETTING) Save tokens from localStorage
 export const initUser: Action<AuthState> = (set) => async () => {

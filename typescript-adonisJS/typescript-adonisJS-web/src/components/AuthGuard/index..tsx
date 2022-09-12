@@ -13,6 +13,10 @@ import PageLoader from 'components/PageLoader';
 
 import { hasPermission } from 'utils';
 
+interface AuthGuardProps {
+  children: JSX.Element;
+}
+
 function AuthGuard({ children }: AuthGuardProps): JSX.Element {
   const [state, setState] = useState(false);
   const history = useHistory();

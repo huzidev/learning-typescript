@@ -145,15 +145,14 @@ export const getById: Action<UserState> = (set) => async (id: number) => {
     const result = await api.get<UserIDSubState>(endpoints.GET_BY_ID + id);
     set((state) => {
       state.idsState = mapStateFromId(id, state.idsState, {
-        // necessary to use ...result.data because we've used mapStateFromId
         ...result.data,
         loading: false,
-        action: 'get', // we'll only define action when we uses mapStateFromId
+        action: 'get',
       });
     });
-  } catch (error: any) {
+  } catch (e: any) {
     set((state) => {
-      const err = mapErrorToState(error);
+      const err = mapErrorToState(e);
       state.idsState = mapStateFromId(id, state.idsState, {
         loading: false,
         error: true,
@@ -166,7 +165,6 @@ export const getById: Action<UserState> = (set) => async (id: number) => {
 
 // update user by ID for admin
 export const updateById: Action<UserState> = (set) => async (id: number, data: UpdateByMeReq) => {
-  // data: UpdateByMeReq is used so during update all the previous information stay like user's name, email etc
   set((state) => {
     state.idsState = mapStateFromId(id, state.idsState, { loading: true, error: false });
   });
@@ -176,9 +174,8 @@ export const updateById: Action<UserState> = (set) => async (id: number, data: U
       state.idsState = mapStateFromId(id, state.idsState, {
         ...result.data,
         loading: false,
-        action: 'update', // we'll only define action when we uses mapStateFromId
+        action: 'update',
       });
-      // this is mandatory when admin removed an User and re-activate the User BUT this one re-activates the user
       if (state.list.data) {
         state.list.data = state.list.data.map((v) => {
           return v.id === id ? (result.data.data as UserDetail) : v;

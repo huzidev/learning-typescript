@@ -11,8 +11,8 @@ export default class Utils {
           obj[key] = value
         }
       })
-    } catch (error) {
-      console.error(error)
+    } catch (e) {
+      console.error(e)
 
       return query
     }

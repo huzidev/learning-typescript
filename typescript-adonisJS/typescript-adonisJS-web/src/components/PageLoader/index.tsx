@@ -10,6 +10,7 @@ import './styles.less';
 function PageLoader(): JSX.Element {
   const [state, setState] = useState(false);
 
+  // useEffect is used so it won't run too many times just render single time
   useEffect(() => {
     setState(true);
   }, []);

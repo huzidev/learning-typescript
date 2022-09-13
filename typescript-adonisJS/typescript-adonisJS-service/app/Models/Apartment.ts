@@ -46,7 +46,7 @@ export default class Apartment extends BaseModel {
   })
   public realtor: BelongsTo<typeof User>
 
-  @column({ consume: (value) => !!value })
+  @column({ consume: (v) => !!v })
   public isActive: boolean
 
   @column.dateTime({ autoCreate: true })
@@ -58,7 +58,7 @@ export default class Apartment extends BaseModel {
   public static filtersSort = scope((query, user: User, filters) => {
     if (!user.isAdmin()) {
       query.where('isActive', true)
-    } else if (user.isAdmin() && filters.isActive !== undefined) {
+    } else if (user.isAdmin() && filters.isActive!) {
       query.where('isActive', filters.isActive)
     }
 

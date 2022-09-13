@@ -18,7 +18,7 @@ export interface HTTPFieldError {
 }
 
 export interface HTTPFieldErrors {
-    errors?: HTTPFieldError[];
+  errors?: HTTPFieldError[];
 }
 
 export interface SubState extends HTTPFieldErrors {

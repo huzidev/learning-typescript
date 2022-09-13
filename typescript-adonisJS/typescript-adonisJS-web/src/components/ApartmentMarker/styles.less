@@ -1,0 +1,36 @@
+@import '~antd/lib/style/themes/default.less';
+
+.apartment-marker {
+  height: 40px;
+  width: 40px;
+  display: block;
+  position: relative;
+  background: transparent;
+  transform: translate(-50%, -50%);
+
+  .image {
+    width: 40px;
+    height: 40px;
+  }
+
+  .count-base {
+    top: 3px;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    position: absolute;
+    text-align: center;
+    display: inline-block;
+    background: @primary-color;
+    transform: translateX(-50%);
+
+    .count-text {
+      top: 15%;
+      color: white;
+      font-weight: 600;
+      position: relative;
+      text-align: center;
+    }
+  }
+}

@@ -19,21 +19,21 @@ function HomeSlider(): JSX.Element {
       autoplaySpeed={5000}
       afterChange={(index) => setActiveIndex(index)}
     >
-      {slides.map((img, imgIndex) => (
-        <div className={cx('slide-base', img.image)} key={img.image}>
+      {slides.map((slide, slideIndex) => (
+        <div className={cx('slide-base', slide.image)} key={slide.image}>
           <div className={cx('slide-bg')} />
           <Col
             {...responsive.slider}
             className={cx('slide-text', {
-              active: imgIndex === activeIndex,
+              active: slideIndex === activeIndex,
               mobile: !breaks.lg,
             })}
           >
             <Typography.Title level={1} className={cx('title')}>
-              {img.title}
+              {slide.title}
             </Typography.Title>
             <Typography.Title level={4} type="secondary" className={cx('description')}>
-              {img.description}
+              {slide.description}
             </Typography.Title>
           </Col>
         </div>

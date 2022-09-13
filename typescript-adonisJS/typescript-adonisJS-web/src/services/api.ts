@@ -1,9 +1,14 @@
 import axios from 'axios';
 import applyCaseMiddleware from 'axios-case-converter';
 
+// THESE ARE ALL ALREADY CREATED TEXT
+
 const api = applyCaseMiddleware(
   axios.create({
-    baseURL: 'http://127.0.0.1:3333/api',
+    baseURL: 'http://127.0.0.1:3333/api', // /api is prefix defined in backend
+    // baseURL: 'http://192.168.0.101:3333/api',
+    // baseURL: `${window.location.origin}/api`,
+    // baseURL: 'http://18.192.13.191:3333',
   }),
   {
     ignoreHeaders: true,
@@ -25,6 +30,7 @@ api.interceptors.response.use(
         response: {
           data: {
             data: null,
+            // when TRY CATCH catches the error the message for error will be this message and we'll use mapErrorToState(error) for defining message regarding the error
             message: 'Cannot connect with the server',
           },
         },
@@ -33,8 +39,10 @@ api.interceptors.response.use(
     return Promise.reject(error);
   },
 );
+// api.interceptors.response.use((response) => {
+//   return response.data;
+// });
 
-// setToken will be string when user loggedIn and setToken(null) when user is loggingOut
 export function setToken(token: string | null | undefined): void {
   const parsed = token ? `Bearer ${token}` : token;
   api.defaults.headers.Authorization = parsed;

@@ -1,0 +1,45 @@
+@import '~antd/lib/style/themes/default.less';
+
+#user-form-page {
+  display: flex;
+  align-items: center;
+  padding: @margin-lg 0;
+}
+
+.Dark-mode {
+  transition: all 600ms ease-in-out;
+  background-color: #292929;
+  color: white;
+  ul {
+    transition: all 600ms ease-in-out;
+    background-color: #292929;
+    color: white;
+  }
+  .ant-typography {
+    transition: all 600ms ease-in-out;
+    color: white;
+  }
+  .ant-card-head-title {
+    transition: all 600ms ease-in-out;
+    color: white;
+  }
+}
+
+.Light-mode {
+  transition: all 600ms ease-in-out;
+  background-color: white;
+  color: black;
+  ul {
+    transition: all 600ms ease-in-out;
+    background-color: white;
+    color: black;
+  }
+  .ant-typography {
+    transition: all 600ms ease-in-out;
+    color: black;
+  }
+  .ant-card-head-title {
+    transition: all 600ms ease-in-out;
+    color: black;
+  }
+}

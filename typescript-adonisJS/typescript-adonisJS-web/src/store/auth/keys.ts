@@ -1,6 +1,5 @@
 const KEYS = {
-    TOKEN: 'AUTH/TOKEN',
+  TOKEN: 'AUTH/TOKEN',
 };
-  
+
 export default KEYS;
-  

@@ -25,7 +25,6 @@ export const signIn: Action<AuthState> = (set) => async (data: SignInRequest) =>
     // means if User is NOT banned
     if (result.data && !result.data.data.isBanned) {
       setToken(result.data.token);
-      // storing token in LOCAL STORAGE for setItem it'll take two parameters first is KEY and other is Token
       await storage.setItem(KEYS.TOKEN, result.data.token);
     }
     console.log('DATA from login', result.data);

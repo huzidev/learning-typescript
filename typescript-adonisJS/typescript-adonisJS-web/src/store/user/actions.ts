@@ -182,9 +182,9 @@ export const updateById: Action<UserState> = (set) => async (id: number, data: U
         });
       }
     });
-  } catch (error: any) {
+  } catch (e: any) {
     set((state) => {
-      const err = mapErrorToState(error);
+      const err = mapErrorToState(e);
       state.idsState = mapStateFromId(id, state.idsState, {
         loading: false,
         error: true,

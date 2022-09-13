@@ -44,7 +44,7 @@ export const signIn: Action<AuthState> = (set) => async (data: SignInRequest) =>
 
 export const signUp: Action<AuthState> = (set) => async (data: SignUpRequest) => {
   set((state) => {
-    state.signUpState = { ...state.signUpState, loading: true, error: false }
+    state.signUpState = { ...state.signUpState, loading: true, error: false };
   });
   try {
     const result = await api.post<AuthResponse>(endpoints.SIGN_UP, data);
@@ -74,8 +74,8 @@ export const signOut: Action<AuthState> = (set) => async () => {
   });
   try {
     await api.post(endpoints.SIGN_OUT);
-    storage.removeItem(KEYS.TOKEN)
-    setToken(null)
+    storage.removeItem(KEYS.TOKEN);
+    setToken(null);
     // useApartment.setState(apartmentInitialState);
     // useUser.setState(userInitialState);
     set((state) => {

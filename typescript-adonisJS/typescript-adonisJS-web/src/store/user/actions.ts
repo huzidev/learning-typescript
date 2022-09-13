@@ -62,15 +62,14 @@ export const updateMe: Action<UserState> = (set) => async (data: UpdateByMeReq) 
     state.meState = { ...state.meState, loading: true, error: false };
   });
   try {
-    // UpdateByMeReq have types of name, email, password and confirmPassword
     const result = await api.put<UserActionResult>(endpoints.EDIT_ME, data);
     set((state) => {
       useAuth.setState({ user: result.data.data as unknown as User });
       state.meState = { ...state.meState, loading: false, ...result.data };
     });
-  } catch (error: any) {
+  } catch (e: any) {
     set((state) => {
-      const err = mapErrorToState(error);
+      const err = mapErrorToState(e);
       state.meState = {
         ...state.meState,
         loading: false,

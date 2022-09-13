@@ -1,5 +1,4 @@
-// since Rule is top-level import it's good practice to do this
-declare module '@ioc:Adonis/Core/Validator' {
+declare module '@ioc:Adonis/Core/Validator' { // since Rule is top-level import it's good practice to do this
   import { Rule } from '@ioc:Adonis/Core/Validator'
 
   export interface Rules {

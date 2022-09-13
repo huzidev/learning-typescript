@@ -8,7 +8,7 @@ import { PRICE_RANGE, ROOM_RANGE, SIZE_RANGE } from 'App/Default/Filters'
 
 export default class InitialApartmentSeeder extends BaseSeeder {
   public async run() {
-    const realtors = await User.query().where('role', User.roles[1])
+    const realtors = await User.query().where('role', User.roles[1]) // since realtors are at index of 1
 
     const ids = realtors.map((v) => v.id)
 
@@ -53,6 +53,7 @@ export default class InitialApartmentSeeder extends BaseSeeder {
         status: lodash.random(5) === 1 ? Apartment.statuses[1] : Apartment.statuses[0],
         lat: lodash.random(city.lat[0], city.lat[1]),
         lng: lodash.random(city.lng[0], city.lng[1]),
+        // lng: lodash.random(66.92253626839566, 67.22011509712765),
       }
     })
   }

@@ -2,13 +2,11 @@ import { validator } from '@ioc:Adonis/Core/Validator'
 
 validator.rule(
   'fullName',
-  // pointer, arrayExpressionPointer, errorReporter are options, necessary to use
   async (value, _, { pointer, arrayExpressionPointer, errorReporter }) => {
-    const regex = /^[a-zA-Z ]*$/
+    const regex = /^[a-zA-Z ]*$/ // means only alphabets no integer
 
     if (!regex.test(value)) {
-      // .report() takes 4 parameters
-      errorReporter.report(pointer, 'match', 'only alphabets are allowed', arrayExpressionPointer)
+      errorReporter.report(pointer, 'match', 'Only alphabets are allowed', arrayExpressionPointer)
       return
     }
 
@@ -17,12 +15,11 @@ validator.rule(
       errorReporter.report(
         pointer,
         'minLength',
-        `${pointer} must be 2 char long`,
+        `${pointer} should be at least 2 characters long`,
         arrayExpressionPointer
       )
     }
   },
-  // async: true necessary written in adonis doc
   () => ({
     async: true,
   })

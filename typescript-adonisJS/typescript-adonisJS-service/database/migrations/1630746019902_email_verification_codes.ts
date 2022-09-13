@@ -9,17 +9,16 @@ export default class EmailVerificationCodes extends BaseSchema {
       table.string('code', 6).notNullable()
       table
         .integer('user_id')
-        // use unsigned() when using references()
+        // use unsigned() when using references
         .unsigned()
         .references('id')
         .inTable('users')
         .onDelete('CASCADE')
         .notNullable()
-
       table.boolean('is_active').defaultTo(true).notNullable()
-      table.timestamp('created_at', { useTz: true }).defaultTo(this.now())
-      table.timestamp('updated_at', { useTz: true })
-      table.timestamp('expires_at', { useTz: true })
+      table.timestamp('expires_at', { useTz: true }).nullable()
+      table.timestamp('updated_at', { useTz: true }).notNullable()
+      table.timestamp('created_at', { useTz: true }).notNullable().defaultTo(this.now())
 
       table.unique(['code', 'user_id'])
       table.index(['code', 'user_id'])

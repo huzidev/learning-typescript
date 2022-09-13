@@ -5,14 +5,14 @@ import { faker } from '@faker-js/faker'
 import lodash from 'lodash'
 
 export default class InitialUserSeeder extends BaseSeeder {
-  public static admins = 3
-  public static realtors = 10
+  public static admins = 3 // means total admins will be 3 when running faker
+  public static realtors = 10 // means total realtors are 10
   public async run() {
     await User.createMany([
-      ...this.createUsers(1, 'founder'),
+      ...this.createUsers(1, 'super-admin'),
       ...this.createUsers(InitialUserSeeder.admins, 'admin'),
       ...this.createUsers(InitialUserSeeder.realtors, 'realtor'),
-      ...this.createUsers(500, 'buyer'),
+      ...this.createUsers(500, 'client'),
     ])
   }
 
@@ -26,7 +26,7 @@ export default class InitialUserSeeder extends BaseSeeder {
       let isVerified = true
       let isTheme = false
 
-      if (role === 'buyer') {
+      if (role === 'client') {
         name = faker.name.findName()
         isVerified = lodash.random(1, 25) !== 10
         isBanned = lodash.random(1, 25) === 10

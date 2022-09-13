@@ -1,6 +1,6 @@
 import { BaseModel, beforeCreate, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
-import { DateTime } from 'luxon'
 import random from 'lodash/random'
+import { DateTime } from 'luxon'
 
 import User from './User'
 
@@ -35,8 +35,10 @@ export default class EmailVerificationCode extends BaseModel {
   }
 
   public generateCode(model: EmailVerificationCode = this) {
+    // random verification code will be generate in bw these two assigned numbers
     model.code = random(101909, 929689)
     model.isActive = true
     model.expiresAt = DateTime.local().plus({ hours: 3 })
+    // .plus adds hours, minutes or milliseconds for timestamp like here we increase timestamp with 3 hours
   }
 }

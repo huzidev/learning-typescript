@@ -19,11 +19,18 @@
 */
 import Route from '@ioc:Adonis/Core/Route'
 
+import ApartmentRoutes from './apartment'
+// import AmenityRoutes from './amenity'
 import AuthRoutes from './auth'
+import UserRoutes from './user'
 
 Route.group(() => {
+  ApartmentRoutes()
+  // AmenityRoutes()
   AuthRoutes()
+  UserRoutes()
 }).prefix('/api')
 Route.any('*', () => {
+  // * means at every path
   return { message: 'hello' }
 })

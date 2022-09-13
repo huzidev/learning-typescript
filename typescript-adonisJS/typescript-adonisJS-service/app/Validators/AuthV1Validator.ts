@@ -1,6 +1,5 @@
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
-// SCHEMA for SignIn, SignUp, ResetPass etc
 export const authValidationMessages = {
   'required': '{{ field }} is required to sign up',
   'name.alpha': 'Invalid name',
@@ -10,11 +9,11 @@ export const authValidationMessages = {
 
 export class AuthV1SignIn {
   public schema = schema.create({
-    name: schema.string(),
     email: schema.string({}, [rules.email()]),
     password: schema.string({}, [rules.minLength(6)]),
   })
 
+  // if any error then the respective message will be shown
   public messages = {
     ...authValidationMessages,
     required: '{{ field }} is required to sign in',
@@ -23,8 +22,8 @@ export class AuthV1SignIn {
 
 export class AuthV1SignUp {
   public schema = schema.create({
-    isRealtor: schema.boolean.optional(),
-    name: schema.string({ trim: true }, [rules.fullName()]),
+    isRealtor: schema.boolean.optional(), // the checkbox which asks for isRealtor and it is optional
+    name: schema.string({ trim: true }, [rules.fullName()]), // rules.fullName is already created in app/contracts/rules.ts
     email: schema.string({}, [rules.email()]),
     password: schema.string({}, [rules.minLength(6), rules.confirmed('passwordConfirmation')]),
   })
@@ -35,20 +34,20 @@ export class AuthV1SignUp {
   }
 }
 
-export class AuthV1verifyCodeForEmail {
+export class AuthV1VerifyEmailVerificationCode {
   public schema = schema.create({
     code: schema.string({ trim: true }, [rules.verificationCode()]),
   })
 
   public messages = {
-    'required': '{{ field }} is required for email verfication',
-    'code.*': 'invalid code',
+    'required': '{{ field }} is required for email verification',
+    'code.*': 'Invalid code',
   }
 }
 
+// for Reset Password code to be send to email
 export class AuthV1ResetPasswordSendCode {
   public schema = schema.create({
-    // only email is required to send code
     email: schema.string({}, [rules.email()]),
   })
 
@@ -57,7 +56,6 @@ export class AuthV1ResetPasswordSendCode {
     required: '{{ field }} is required to reset password',
   }
 }
-
 export class AuthV1ResetPassword {
   public schema = schema.create({
     email: schema.string({}, [rules.email()]),

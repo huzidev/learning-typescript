@@ -61,7 +61,6 @@ export default class AuthMiddleware {
   /**
    * Handle request
    */
-  // we've added [role] and UserRole[] specifically
   public async handle(
     { auth }: HttpContextContract,
     next: () => Promise<void>,
@@ -81,14 +80,12 @@ export default class AuthMiddleware {
       throw { message: 'User is banned', status: 403 }
     }
 
-    // if user is verified
     if (role === 'no_verify' && auth.user?.isVerified) {
       throw { message: 'User already verified', status: 403 }
-    } // if user is not verified
-    else if (!auth.user?.isVerified && role !== 'any' && role !== 'no_verify') {
+    } else if (!auth.user?.isVerified && role !== 'any' && role !== 'no_verify') {
       throw { message: 'Please verify your account', status: 403 }
     } else if (role && role !== 'no_verify') {
-      const parsedRole = role as UserRole
+      const parsedRole = role as UserRole // UserRole includes roles like client, realtor, admin
 
       // available role
       const guardRole = User.roles.indexOf(parsedRole)
@@ -96,9 +93,11 @@ export default class AuthMiddleware {
       const userRole = User.roles.indexOf(auth.user!.role)
 
       if (userRole < guardRole) {
+        // because role is diff for superadmin, admin and realtor
         throw { message: 'Action not allowed', status: 401 }
       }
     }
+
     await next()
   }
 }

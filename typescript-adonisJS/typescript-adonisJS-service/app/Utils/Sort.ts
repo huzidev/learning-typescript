@@ -7,8 +7,6 @@ export default class Sort {
     obj: any,
     query: ModelQueryBuilderContract<LucidModel, LucidRow>
   ): void => {
-    console.log('object Type', obj)
-
     if (!obj) {
       return
     }

@@ -7,7 +7,8 @@ export default function Contact() {
             <input 
                 type='text'
                 name='name'
-                placeholder='Enter Yours Name' 
+                placeholder='Enter Yours Name'
+                required
             />
         </form>
     </div>

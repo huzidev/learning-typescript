@@ -11,7 +11,8 @@ export default function Contact() {
   }); 
 
   function inputHandler(e: React.FormEvent) {
-    
+    name: e.target.name;
+    value: e.target.value;
   }
 
   return (
@@ -22,6 +23,7 @@ export default function Contact() {
                 name='name'
                 placeholder='Enter Yours Name'
                 value={user.name}
+                onChange={inputHandler}
                 required
             />
             <input 
@@ -29,6 +31,7 @@ export default function Contact() {
                 name='email'
                 placeholder='Enter Yours Email'
                 value={user.email}
+                onChange={inputHandler}
                 required
             />
             <input 
@@ -36,6 +39,7 @@ export default function Contact() {
                 name='number'
                 placeholder='Enter Yours Number'
                 value={user.number}
+                onChange={inputHandler}
                 required
             />
             <input 
@@ -43,12 +47,14 @@ export default function Contact() {
                 name='address'
                 placeholder='Enter Yours Address (Optional)'
                 value={user.address}
+                onChange={inputHandler}
             />
             <textarea 
                 name='message'
                 cols={30}
                 rows={10}
                 value={user.message}
+                onChange={inputHandler}
             >
             </textarea>
             <button>

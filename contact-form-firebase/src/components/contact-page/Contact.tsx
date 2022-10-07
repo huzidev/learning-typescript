@@ -3,7 +3,11 @@ import React from 'react';
 export default function Contact() {
 
   const [user, setUser] = React.useState({
-    
+    name: '',
+    email: '',
+    number: '',
+    address: '',
+    message: ''
   }); 
 
   return (
@@ -29,7 +33,7 @@ export default function Contact() {
             />
             <input 
                 type='text'
-                name='name'
+                name='address'
                 placeholder='Enter Yours Address (Optional)'
             />
             <textarea 

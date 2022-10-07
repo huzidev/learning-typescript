@@ -10,7 +10,8 @@ export default function Contact(): JSX.Element {
     message: ''
   }); 
 
-  function inputHandler(e: React.FormEvent) {
+  // for textarea use | HTMLTextAreaElement>
+  function inputHandler(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     name: e.target.name;
     value: e.target.value;
 

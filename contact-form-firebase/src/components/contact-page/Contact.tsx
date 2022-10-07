@@ -52,6 +52,18 @@ export default function Contact(): JSX.Element {
     else if(!name) {
         window.alert("Please inset name");
     }
+    else if(!email) {
+        window.alert("Please inset email");
+    }
+    else if(!number) {
+        window.alert("Please inset number");
+    }
+    else if(!message) {
+        window.alert("Please inset message");
+    }
+    else if (!name && !email && !number && !address && !message) {
+        window.alert("You can't submit an empty form");
+    }
   }
 
   return (

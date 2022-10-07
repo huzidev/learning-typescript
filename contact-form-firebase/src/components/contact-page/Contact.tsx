@@ -38,10 +38,10 @@ export default function Contact(): JSX.Element {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                // since key and value are same hence write any one instead on name: name
+                // since key and value are same hence write any one instead on name: name, email: email
                 name,
                 email,
-                number,
+                number, 
                 address,
                 message
             })
@@ -91,7 +91,7 @@ export default function Contact(): JSX.Element {
                 onChange={inputHandler}
             >
             </textarea>
-            <button>
+            <button onClick={onSubmit}>
                 Send Message
             </button>
         </form>

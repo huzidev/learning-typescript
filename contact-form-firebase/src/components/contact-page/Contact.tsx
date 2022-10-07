@@ -19,21 +19,20 @@ export default function Contact() {
             <input 
                 type='text'
                 name='name'
-                placeholder='Enter Yours Name'
+                placeholder='Enter Yours Number'
                 required
             />
             <input 
                 type='text'
                 name='name'
-                placeholder='Enter Yours Name'
-                required
+                placeholder='Enter Yours Address (Optional)'
             />
-            <input 
-                type='text'
-                name='name'
-                placeholder='Enter Yours Name'
-                required
-            />
+            <textarea 
+                name='message'
+                cols='30' 
+                rows='10'
+            >
+            </textarea>
         </form>
     </div>
   )

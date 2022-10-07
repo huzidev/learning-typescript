@@ -6,7 +6,7 @@ export default function Contact(): JSX.Element {
     name: '',
     email: '',
     number: '',
-    address: '',
+    addresss: '',
     message: ''
   }); 
 
@@ -27,7 +27,9 @@ export default function Contact(): JSX.Element {
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    const { name, email, number, address, message } = user;
+    const { name, email, number, addresss, message } = user;
+
+    const address = !addresss ? 'NIL' : addresss;
 
     if ( name && email && number && message ) {
         const res = await fetch(
@@ -58,9 +60,6 @@ export default function Contact(): JSX.Element {
     else if(!number) {
         window.alert("Please inset number");
     }
-    else if(!address) {
-        user.address = 'NIL';
-    }
     else if(!message) {
         window.alert("Please inset message");
     }
@@ -69,7 +68,7 @@ export default function Contact(): JSX.Element {
         name: '',
         email: '',
         number: '',
-        address: '',
+        addresss: '',
         message: ''
     })
 
@@ -105,9 +104,9 @@ export default function Contact(): JSX.Element {
             />
             <input 
                 type='text'
-                name='address'
-                placeholder='Enter Yours Address (Optional)'
-                value={user.address}
+                name='addresss'
+                placeholder='Enter Yours addresss (Optional)'
+                value={user.addresss}
                 onChange={inputHandler}
             />
             <textarea 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Contact() {
+export default function Contact(): JSX.Element {
 
   const [user, setUser] = React.useState({
     name: '',

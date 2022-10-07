@@ -51,6 +51,14 @@ export default function Contact(): JSX.Element {
                 })
             }
         );
+        setUser({
+            name: '',
+            email: '',
+            number: '',
+            addresss: '',
+            message: ''
+        })
+        window.alert("Data stored successfully!");
     }
     else if(!name) {
         window.alert("Please inset name");
@@ -64,16 +72,6 @@ export default function Contact(): JSX.Element {
     else if(!message) {
         window.alert("Please inset message");
     }
-
-    setUser({
-        name: '',
-        email: '',
-        number: '',
-        addresss: '',
-        message: ''
-    })
-
-    window.alert("Data stored successfully!");
   }
 
   return (

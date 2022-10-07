@@ -10,10 +10,10 @@ export default function Contact() {
     message: ''
   }); 
 
-  function inputHandler() {
+  function inputHandler(e: React.FormEvent) {
     
   }
-  
+
   return (
     <div>
         <form method='POST'>

@@ -26,9 +26,25 @@ export default function Contact(): JSX.Element {
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
 
+    const { name, email, number, address, message } = user;
+
     const res = await fetch(
         // after pasting link put name after firebase.io/ like here we put contact-form-ts.json
-        "https://contact-form-typescript-default-rtdb.firebaseio.com/contact-form-ts.json"
+        "https://contact-form-typescript-default-rtdb.firebaseio.com/contact-form-ts.json",
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                // since key and value are same hence write any one instead on name: name
+                name,
+                email,
+                number,
+                address,
+                message
+            })
+        }
     );
   }
 

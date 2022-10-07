@@ -58,11 +58,11 @@ export default function Contact(): JSX.Element {
     else if(!number) {
         window.alert("Please inset number");
     }
+    else if(!address) {
+        user.address = 'NIL';
+    }
     else if(!message) {
         window.alert("Please inset message");
-    }
-    else if (!name && !email && !number && !address && !message) {
-        window.alert("You can't submit an empty form");
     }
   }
 

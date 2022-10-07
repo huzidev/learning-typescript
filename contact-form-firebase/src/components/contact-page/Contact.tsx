@@ -23,6 +23,10 @@ export default function Contact(): JSX.Element {
     })
   }
 
+  function onSubmit(e: React.FormEvent) {
+    
+  }
+
   return (
     <div>
         <form method='POST'>

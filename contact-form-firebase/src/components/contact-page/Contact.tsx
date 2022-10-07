@@ -1,6 +1,11 @@
 import React from 'react';
 
 export default function Contact() {
+
+  const [user, setUser] = React.useState({
+    
+  }); 
+
   return (
     <div>
         <form method='POST'>
@@ -33,7 +38,7 @@ export default function Contact() {
                 rows={10}
             >
             </textarea>
-            <button onClick={submit}>
+            <button>
                 Send Message
             </button>
         </form>

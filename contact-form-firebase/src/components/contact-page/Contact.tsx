@@ -18,6 +18,7 @@ export default function Contact(): JSX.Element {
     value = e.target.value;
 
     setUser({
+        // ...user is used so previous fields doesn't get empty as user fills new field
         ...user,
         [name]: value
     })

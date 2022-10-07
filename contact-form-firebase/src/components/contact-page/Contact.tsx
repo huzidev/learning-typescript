@@ -23,8 +23,10 @@ export default function Contact(): JSX.Element {
     })
   }
 
-  function onSubmit(e: React.FormEvent) {
+  async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
+
+    const res = await fetch(https://contact-form-typescript-default-rtdb.firebaseio.com/)
   }
 
   return (

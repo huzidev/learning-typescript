@@ -49,6 +49,9 @@ export default function Contact(): JSX.Element {
             }
         );
     }
+    else if(!name) {
+        window.alert("Please inset name");
+    }
   }
 
   return (

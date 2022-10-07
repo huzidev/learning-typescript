@@ -29,7 +29,7 @@ export default function Contact(): JSX.Element {
 
     const { name, email, number, address, message } = user;
 
-    if ( name, email, number, address, message ) {
+    if ( name && email && number && address && message ) {
         const res = await fetch(
             // after pasting link put name after firebase.io/ like here we put contact-form-ts.json
             "https://contact-form-typescript-default-rtdb.firebaseio.com/contact-form-ts.json",

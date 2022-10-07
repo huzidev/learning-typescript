@@ -8,7 +8,7 @@ export default function Contact(): JSX.Element {
     number: '',
     addresss: '',
     message: ''
-  }); 
+  });
 
   let name: any, value: any;
   

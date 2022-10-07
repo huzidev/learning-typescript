@@ -44,7 +44,8 @@ export default function Contact(): JSX.Element {
                     // since key and value are same hence write any one instead on name: name, email: email
                     name,
                     email,
-                    number, 
+                    // so number will not stored in string form
+                    number: parseInt(user.number), 
                     address,
                     message
                 })

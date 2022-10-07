@@ -17,8 +17,8 @@ export default function Contact() {
                 required
             />
             <input 
-                type='text'
-                name='name'
+                type='number'
+                name='number'
                 placeholder='Enter Yours Number'
                 required
             />
@@ -29,10 +29,13 @@ export default function Contact() {
             />
             <textarea 
                 name='message'
-                cols='30' 
-                rows='10'
+                cols={30}
+                rows={10}
             >
             </textarea>
+            <button onClick={submit}>
+                Send Message
+            </button>
         </form>
     </div>
   )

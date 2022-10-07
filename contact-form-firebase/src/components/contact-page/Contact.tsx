@@ -26,7 +26,10 @@ export default function Contact(): JSX.Element {
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    const res = await fetch(https://contact-form-typescript-default-rtdb.firebaseio.com/);
+    const res = await fetch(
+        // after pasting link put name after firebase.io/ like here we put contact-form-ts.json
+        "https://contact-form-typescript-default-rtdb.firebaseio.com/contact-form-ts.json"
+    );
   }
 
   return (

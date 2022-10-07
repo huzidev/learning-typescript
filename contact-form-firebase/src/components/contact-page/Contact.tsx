@@ -13,6 +13,11 @@ export default function Contact() {
   function inputHandler(e: React.FormEvent) {
     name: e.target.name;
     value: e.target.value;
+
+    setUser({
+        ...user,
+        [name]: value
+    })
   }
 
   return (

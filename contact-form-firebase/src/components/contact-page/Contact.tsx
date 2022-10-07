@@ -26,7 +26,7 @@ export default function Contact(): JSX.Element {
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    const res = await fetch(https://contact-form-typescript-default-rtdb.firebaseio.com/)
+    const res = await fetch(https://contact-form-typescript-default-rtdb.firebaseio.com/);
   }
 
   return (

@@ -48,7 +48,7 @@ export default function Contact(): JSX.Element {
                     number: parseInt(user.number), 
                     address,
                     message
-                })
+                }) 
             }
         );
         setUser({

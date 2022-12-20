@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux"
-import { getData } from "../Store/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUsers } from "../Store/userSlice";
 
 export default function App(): JSX.Element {
   const dispatch = useDispatch();
-  const user = useSelector((state: any) => state.users)
+  const user = useSelector((state: any) => state.user)
   useEffect(() => {
       dispatch(getData())  
   }, [])
@@ -18,6 +17,8 @@ export default function App(): JSX.Element {
         <h2>
             List of users
         </h2>
+        {user.loading && <h1>Loading...</h1>}
+        {!user.loading && user.error ? <h1>Error: {user.error}</h1> : null}
         <ul>
             {
                 user.map((user: any) => (

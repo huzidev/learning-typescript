@@ -2,7 +2,9 @@ import { useDispatch } from "react-redux"
 
 export default function App(): JSX.Element {
   const dispatch = useDispatch();
+  
   function onLoad() {
+    dispatch(loadData())  
   }
 
   return (

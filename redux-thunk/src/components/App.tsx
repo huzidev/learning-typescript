@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux"
+import { fetchUsers } from "../Store/userSlice";
 
 export default function App(): JSX.Element {
   const dispatch = useDispatch();

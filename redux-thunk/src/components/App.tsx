@@ -17,7 +17,7 @@ export default function App(): JSX.Element {
         <h2>
             List of users
         </h2>
-        {user.loading && <h1>Loading...</h1>}
+        {user.loading && <h1>Fetching Data...</h1>}
         {!user.loading && user.error ? <h1>Error: {user.error}</h1> : null}
         {!user.loading && user.users.length ? (
             <ul>

@@ -8,11 +8,11 @@ interface User {
 
 interface Types {
     loading: boolean
-    user: User[]
+    users: User[]
     error: string
 }
 
-const initialState = {
+const initialState: Types = {
     loading: false,
     users: [],
     error: ''

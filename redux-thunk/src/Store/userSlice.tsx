@@ -1,16 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { Types, User } from "./types";
 import axios from "axios";
 
-interface User {
-    id: number
-    name: string
-}
-
-interface Types {
-    loading: boolean
-    users: User[]
-    error: string
-}
 
 const initialState: Types = {
     loading: false,
@@ -18,10 +9,10 @@ const initialState: Types = {
     error: ''
 }
 
-export const fetchUsers = createAsyncThunk('user/fetchUserss', () => {
+export const fetchUsers = createAsyncThunk('user/fetchUsers', () => {
     return axios
         .get("https://jsonplaceholder.typicode.com/users")
-        .then((res: any) => res.data)
+        .then(res => res.data)
 })
 
 const userSlice = createSlice({

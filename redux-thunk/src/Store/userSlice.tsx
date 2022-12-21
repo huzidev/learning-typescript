@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
 interface User {
@@ -32,7 +32,7 @@ const userSlice = createSlice({
         builder.addCase(fetchUsers.pending, (state) => {
             state.loading = true
         })
-        builder.addCase(fetchUsers.fulfilled, (state: any, action) => {
+        builder.addCase(fetchUsers.fulfilled, (state: any, action: PayloadAction<User[]>) => { // action is of type payloadAction and further it is Array of User
             state.loading = false
             state.users = action.payload
             state.error = ''

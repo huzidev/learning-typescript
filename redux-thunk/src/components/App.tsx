@@ -9,6 +9,9 @@ export default function App(): JSX.Element {
       dispatch(fetchUsers())  
   }, [])
 
+  console.log("what is user", user);
+  
+
   return (
     <div>
         <h1>

@@ -2,7 +2,6 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { Types, User } from "./types";
 import axios from "axios";
 
-
 const initialState: Types = {
     loading: false,
     users: [],

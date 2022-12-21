@@ -6,7 +6,7 @@ export default function App(): JSX.Element {
   const dispatch = useDispatch();
   const user = useSelector((state: any) => state.user)
   useEffect(() => {
-      dispatch(getData())  
+      dispatch(fetchUsers())  
   }, [])
 
   return (
@@ -19,15 +19,17 @@ export default function App(): JSX.Element {
         </h2>
         {user.loading && <h1>Loading...</h1>}
         {!user.loading && user.error ? <h1>Error: {user.error}</h1> : null}
-        <ul>
-            {
-                user.map((user: any) => (
-                    <li key={user.id}>
-                        {user.name}
-                    </li>
-                ))
-            }
-        </ul>
+        {!user.loading && user.users.length ? (
+            <ul>
+                {
+                    user.users.map((user: any) => {
+                        <li key={user.id}>
+                            {user.name}
+                        </li>
+                    })
+                }
+            </ul>
+        ): null}
     </div>
   )
 }

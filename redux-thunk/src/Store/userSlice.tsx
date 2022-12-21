@@ -1,6 +1,17 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+interface User {
+    id: number
+    name: string
+}
+
+interface Types {
+    loading: boolean
+    user: User[]
+    error: string
+}
+
 const initialState = {
     loading: false,
     users: [],
@@ -16,6 +27,7 @@ export const fetchUsers = createAsyncThunk('user/fetchUserss', () => {
 const userSlice = createSlice({
     name: 'user',
     initialState,
+    reducers: {},
     extraReducers: (builder) => {
         builder.addCase(fetchUsers.pending, (state) => {
             state.loading = true
